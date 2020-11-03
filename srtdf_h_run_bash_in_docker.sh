@@ -3,16 +3,6 @@
 set -u
 set -x
 
-#+----------------------+
-#| change the following |
-#+----------------------+
-
-SAMPLES_FOLDER_IN_HOST=$(readlink -e ../../../samples/bein_1)
-
-#+-------------------------+
-#| dont change from hereon |
-#+-------------------------+
-
 SSTT_FOLDER_IN_DK=/srt-diff
 
 #xhost local:root
