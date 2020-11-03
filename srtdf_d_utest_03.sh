@@ -9,6 +9,7 @@ DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
+UTESTDESC="runs srtdf_srt_compare_writer.py"
 
 ORG_SRT_FILEPATH=$DIRNAME/Ironman_1_1080i60.srt
 TRAN_SRT_FILEPATH=$DIRNAME/Ironman_sstt_withf.srt

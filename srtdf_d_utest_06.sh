@@ -9,6 +9,7 @@ DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
+UTESTDESC="runs srtdf_d_csvfy_lev.sh"
 
 SRT_LEV_FILEPATH=$DIRNAME/srtdf_d_utest_05.gold.txt
 

@@ -1,7 +1,8 @@
 +---------------------+
-| RUN UNIT TEST CASES |
+| Run unit test cases |
 +---------------------+
 
+$ ./srtdf_h_build_docker_image.sh
 $ ./srtdf_h_run_utests_in_docker.sh
 
 +------+

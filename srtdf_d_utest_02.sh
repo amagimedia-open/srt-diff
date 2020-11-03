@@ -9,6 +9,7 @@ DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
+UTESTDESC="runs srtdf_levenshtein.py"
 
 #----[temp files and termination]--------------------------------------------
 

@@ -30,8 +30,8 @@ function tap_version
 
 function tap_utest_begins
 {
-    #echo "# $UTESTNUM $BARENAME begins"
     echo ""
+    tap_utest_diag_msg "$BARENAME $UTESTDESC"
 }
 
 function tap_utest_ends

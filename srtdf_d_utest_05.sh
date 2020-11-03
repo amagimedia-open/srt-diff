@@ -9,6 +9,7 @@ DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
+UTESTDESC="runs srtdf_srt_compare.py"
 
 SAMPLE_SRT_DIFF_FILEPATH=$DIRNAME/sample_srt_diff.txt
 
