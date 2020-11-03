@@ -9,7 +9,7 @@ DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
-UTESTDESC="runs srtdf_srt_compare.py"
+UTESTDESC="runs srtdf_srt_lev.py"
 
 SAMPLE_SRT_DIFF_FILEPATH=$DIRNAME/sample_srt_diff.txt
 
@@ -39,7 +39,7 @@ source srtdf_d_utest_common_functions.sh
 tap_utest_begins
 
 cat $SAMPLE_SRT_DIFF_FILEPATH |\
-python3 srtdf_srt_compare.py \
+python3 srtdf_srt_lev.py \
         -l \
         -C "ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF" \
         > $TMP1 2>&1
