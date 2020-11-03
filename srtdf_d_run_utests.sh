@@ -38,11 +38,17 @@ tap_version
 
 tap_plan `cat srtdf_d_utests_list.txt | wc -l`
 
+echo "0" > $TMP1
+
 cat srtdf_d_utests_list.txt |\
 while read test_case_script_name
 do
-    ./$test_case_script_name
+    if ! ./$test_case_script_name
+    then
+        echo "2" > $TMP1
+    fi
 done
 
-
+echo ""
+exit $(cat $TMP1)
 

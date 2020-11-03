@@ -37,9 +37,9 @@ source srtdf_d_utest_common_functions.sh
 
 tap_utest_begins
 
-if ! python3 sashis-lv-3.py "foo world bar" "hello foo boo world" > $TMP1
+if ! python3 sstt_x_levenshtein.py >$TMP1 2>&1
 then
-    tap_utest_diag_msg "sashis-lv-3.py failed"
+    tap_utest_diag_msg "sstt_x_levenshtein.py failed"
     tap_utest_failed
     exit 1
 fi
