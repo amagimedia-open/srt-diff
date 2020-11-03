@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#https://node-tap.org/tap-protocol/
-
 set -u
 #set -x
 
@@ -42,7 +40,7 @@ tap_utest_begins
 
 cat $TRAN_SRT_FILEPATH | grep -v '^#' > $TMP1
 
-if ! python3 sstt_x_srt_compare_writer.py \
+if ! python3 srtdf_srt_compare_writer.py \
                 $ORG_SRT_FILEPATH $TMP1 > $TMP2
 then
     tap_utest_diag_msg "sstt_x_srt_compare_writer.py failed"

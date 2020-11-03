@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#https://node-tap.org/tap-protocol/
-
 set -u
 #set -x
 

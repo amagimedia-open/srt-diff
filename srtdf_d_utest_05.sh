@@ -38,7 +38,10 @@ source srtdf_d_utest_common_functions.sh
 tap_utest_begins
 
 cat $SAMPLE_SRT_DIFF_FILEPATH |\
-python3 srtdf_srt_compare_reader.py >$TMP1 2>&1
+python3 srtdf_srt_compare.py \
+        -l \
+        -C "ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF" \
+        > $TMP1 2>&1
 
 if ! is_utest_output_ok $TMP1
 then

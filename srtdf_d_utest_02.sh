@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#https://node-tap.org/tap-protocol/
-
 set -u
 #set -x
 
@@ -37,7 +35,7 @@ source srtdf_d_utest_common_functions.sh
 
 tap_utest_begins
 
-if ! python3 sstt_x_levenshtein.py >$TMP1 2>&1
+if ! python3 srtdf_levenshtein.py >$TMP1 2>&1
 then
     tap_utest_diag_msg "sstt_x_levenshtein.py failed"
     tap_utest_failed

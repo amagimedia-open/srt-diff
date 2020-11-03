@@ -34,6 +34,8 @@ source common_bash_functions.sh
 source common_tap_functions.sh
 source srtdf_d_utest_common_functions.sh
 
+echo ""
+
 tap_version
 
 tap_plan `cat srtdf_d_utests_list.txt | sed '/^#/d' | wc -l`

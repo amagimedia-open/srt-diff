@@ -1,0 +1,1110 @@
+86
+#--details--
+ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
+
+> I 1
+> T 00:00:01,600 --> 00:00:02,684
+> R 1600 2684 1084
+> S Mr Stark, hi there.
+
+1600,mr,D,,,
+1762,stark,D,,,
+2142,hi,D,,,
+2304,there,D,,,
+
+> I 2
+> T 00:00:02,767 --> 00:00:06,021
+> R 2767 6021 3254
+> S Our sources are telling us that all signs are pointing to another Mandarin attack.
+
+2767,our,D,,,
+2923,sources,D,,,
+3237,are,D,,,
+3394,telling,D,,,
+3707,us,D,,,
+3825,that,D,,,
+4021,all,D,,,
+4178,signs,D,,,
+4413,are,D,,,
+4570,pointing,D,,,
+4923,to,D,,,
+5040,another,D,,,
+5354,mandarin,D,,,
+5707,attack,D,,,
+
+> I 3
+> T 00:00:06,646 --> 00:00:08,231
+> R 6646 8231 1585
+> S Anything else you can tell us?
+
+6646,anything,D,,,
+7106,else,D,,,
+7361,you,D,,,
+7566,can,D,,,
+7770,tell,D,,,
+8026,us,D,,,
+
+> I 4
+> T 00:00:08,315 --> 00:00:11,318
+> R 8315 11318 3003
+> S Hey, Mr Stark. When is somebody gonna kill this guy?
+
+8315,hey,D,,,
+8598,mr,D,,,
+8768,stark,D,,,
+9164,when,D,,,
+9448,is,D,,,
+9618,somebody,D,,,
+10128,gonna,D,,,
+
+<                I 1
+<                T 00:00:00,920 --> 00:00:04,920
+<                R 920 4920 4000
+<                S kill this guy
+
+10468,kill,=,920,kill,9548
+10751,this,=,2348,this,8403
+11034,guy,=,3777,guy,7257
+
+> I 5
+> T 00:00:12,152 --> 00:00:13,153
+> R 12152 13153 1001
+> S I'm just saying.
+
+12152,im,D,,,
+12387,just,D,,,
+
+<                I 2
+<                T 00:00:12,800 --> 00:00:14,180
+<                R 12800 14180 1380
+<                S saying.
+
+12681,saying,=,12800,saying,119
+
+> I 6
+> T 00:00:16,281 --> 00:00:18,283
+> R 16281 18283 2002
+> S Is that what you want?
+
+
+<                I 3
+<                T 00:00:16,390 --> 00:00:16,790
+<                R 16390 16790 400
+<                S Is that what you want?
+
+16281,is,=,16390,is,109
+16542,that,=,16442,that,100
+16977,what,=,16529,what,448
+17412,you,=,16616,you,796
+17760,want,=,16685,want,1075
+
+> I 7
+> T 00:00:20,493 --> 00:00:22,162
+> R 20493 22162 1669
+> S Here's a little holiday greeting
+
+
+<                I 4
+<                T 00:00:20,690 --> 00:00:21,650
+<                R 20690 21650 960
+<                S Here's a little holiday
+
+20493,heres,=,20690,heres,197
+20847,a,=,20970,a,123
+20948,little,=,21050,little,102
+21302,holiday,=,21330,holiday,28
+
+<                I 5
+<                T 00:00:21,650 --> 00:00:22,610
+<                R 21650 22610 960
+<                S greeting. I've been wanting
+
+21706,greeting,=,21650,greeting,56
+
+> I 8
+> T 00:00:22,245 --> 00:00:24,664
+> R 22245 24664 2419
+> S I've been wanting to send to the Mandarin.
+
+22245,ive,=,21992,ive,253
+22526,been,=,22164,been,362
+22807,wanting,=,22335,wanting,472
+
+<                I 6
+<                T 00:00:22,610 --> 00:00:24,890
+<                R 22610 24890 2280
+<                S to send to the Mandarin. I
+
+23257,to,=,22610,to,647
+23426,send,=,22863,send,563
+23707,to,=,23285,to,422
+23876,the,=,23538,the,338
+24101,mandarin,=,23876,mandarin,225
+
+> I 9
+> T 00:00:24,748 --> 00:00:27,125
+> R 24748 27125 2377
+> S I just didn't know how to phrase it until now.
+
+24748,i,=,24721,i,27
+
+<                I 7
+<                T 00:00:24,890 --> 00:00:25,490
+<                R 24890 25490 600
+<                S just didn't know how to
+
+24849,just,=,24890,just,41
+25102,didnt,=,25015,didnt,87
+25456,know,=,25190,know,266
+25708,how,=,25315,how,393
+25911,to,=,25415,to,496
+
+<                I 8
+<                T 00:00:25,490 --> 00:00:25,970
+<                R 25490 25970 480
+<                S phrase it until now.
+
+26062,phrase,=,25490,phrase,572
+26416,it,=,25650,it,766
+26568,until,=,25718,until,850
+26872,now,=,25855,now,1017
+
+> I 10
+> T 00:00:27,834 --> 00:00:30,879
+> R 27834 30879 3045
+> S My name is Tony Stark and I'm not afraid of you.
+
+
+<                I 9
+<                T 00:00:28,030 --> 00:00:29,110
+<                R 28030 29110 1080
+<                S My name is Tony Stark and I'm
+
+27834,my,=,28030,my,196
+28020,name,=,28138,name,118
+28331,is,=,28318,is,13
+28517,tony,=,28426,tony,91
+28828,stark,=,28606,stark,222
+29201,and,=,28822,and,379
+29449,im,=,28966,im,483
+
+<                I 10
+<                T 00:00:29,110 --> 00:00:31,270
+<                R 29110 31270 2160
+<                S not afraid of you. I know
+
+29698,not,=,29110,not,588
+29946,afraid,=,29442,afraid,504
+30381,of,=,30023,of,358
+30568,you,=,30273,you,295
+
+> I 11
+> T 00:00:30,962 --> 00:00:34,007
+> R 30962 34007 3045
+> S I know you're a coward. So I've decided
+
+30962,i,=,30688,i,274
+31114,know,=,30854,know,260
+
+<                I 11
+<                T 00:00:31,270 --> 00:00:33,430
+<                R 31270 33430 2160
+<                S you're a coward. So I've
+
+31494,youre,=,31270,youre,224
+32027,a,=,31874,a,153
+32180,coward,=,32047,coward,133
+32789,so,=,32738,so,51
+33017,ive,=,32998,ive,19
+
+<                I 12
+<                T 00:00:33,430 --> 00:00:36,190
+<                R 33430 36190 2760
+<                S decided that you just died
+
+33398,decided,=,33430,decided,32
+
+> I 12
+> T 00:00:34,841 --> 00:00:36,343
+> R 34841 36343 1502
+> S that you just died, pal.
+
+34841,that,=,34247,that,594
+35141,you,=,34758,you,383
+35381,just,=,35167,just,214
+35682,died,=,35678,died,4
+
+<                I 13
+<                T 00:00:36,190 --> 00:00:37,750
+<                R 36190 37750 1560
+<                S pal. I'm gonna come get the
+
+36042,pal,=,36190,pal,148
+
+> I 13
+> T 00:00:36,843 --> 00:00:38,553
+> R 36843 38553 1710
+> S I'm gonna come get the body.
+
+36843,im,=,36468,im,375
+37078,gonna,=,36691,gonna,387
+37432,come,=,37025,come,407
+37727,get,=,37304,get,423
+37963,the,=,37527,the,436
+
+<                I 14
+<                T 00:00:37,750 --> 00:00:39,670
+<                R 37750 39670 1920
+<                S body. There's no politics
+
+38199,body,=,37750,body,449
+
+> I 14
+> T 00:00:38,845 --> 00:00:41,389
+> R 38845 41389 2544
+> S There's no politics here. It's just good old-fashioned revenge.
+
+38845,theres,=,38193,theres,652
+39163,no,=,38783,no,380
+39282,politics,=,39005,politics,277
+
+<                I 15
+<                T 00:00:39,670 --> 00:00:40,630
+<                R 39670 40630 960
+<                S here. It's just good
+
+39640,here,=,39670,here,30
+39878,its,=,39944,its,66
+40077,just,=,40172,just,95
+40276,good,=,40401,good,125
+
+<                I 16
+<                T 00:00:40,630 --> 00:00:42,430
+<                R 40630 42430 1800
+<                S old-fashioned Revenge. It's
+
+40474,oldfashioned,=,40630,oldfashioned,156
+41031,revenge,=,41530,revenge,499
+
+> I 15
+> T 00:00:42,015 --> 00:00:44,684
+> R 42015 44684 2669
+> S There's no Pentagon, it's just you and me.
+
+42015,theres,R,42108,its,93
+
+<                I 17
+<                T 00:00:42,430 --> 00:00:43,870
+<                R 42430 43870 1440
+<                S no Pentagon. It's just you
+
+42511,no,=,42430,no,81
+42697,pentagon,=,42590,pentagon,107
+43318,its,=,43123,its,195
+43628,just,=,43390,just,238
+43939,you,=,43656,you,283
+
+<                I 18
+<                T 00:00:43,870 --> 00:00:46,630
+<                R 43870 46630 2760
+<                S and me on the off chance
+
+44187,and,=,43870,and,317
+44435,me,=,44311,me,124
+
+> I 16
+> T 00:00:45,018 --> 00:00:48,605
+> R 45018 48605 3587
+> S And on the off chance you're a man, here's my home address.
+
+45018,and,D,,,
+45257,on,=,44642,on,615
+45436,the,=,44973,the,463
+45675,off,=,45415,off,260
+45914,chance,=,45857,chance,57
+
+<                I 19
+<                T 00:00:46,630 --> 00:00:47,590
+<                R 46630 47590 960
+<                S Superman. Here's my home
+
+46333,youre,R,46630,superman,297
+46751,a,D,,,
+46871,man,D,,,
+47170,heres,=,47014,heres,156
+47588,my,=,47282,my,306
+47768,home,=,47398,home,370
+
+<                I 20
+<                T 00:00:47,590 --> 00:00:48,790
+<                R 47590 48790 1200
+<                S address 10
+
+48066,address,=,47590,address,476
+
+> I 17
+> T 00:00:48,688 --> 00:00:52,192
+> R 48688 52192 3504
+> S 10880 Malibu Point.
+
+48688,10880,R,48462,10,226
+
+<                I 21
+<                T 00:00:48,790 --> 00:00:51,910
+<                R 48790 51910 3120
+<                S 880 Malibu
+
+,,I,48790,880,
+49739,malibu,=,49924,malibu,185
+
+<                I 22
+<                T 00:00:51,670 --> 00:00:52,960
+<                R 51670 52960 1290
+<                S .90 265
+
+50965,point,R,51670,90,705
+
+> I 18
+> T 00:00:52,275 --> 00:00:54,444
+> R 52275 54444 2169
+> S 90265.
+
+52275,90265,R,52315,265,40
+
+> I 19
+> T 00:00:54,527 --> 00:00:56,363
+> R 54527 56363 1836
+> S I'll leave the door unlocked.
+
+
+<                I 23
+<                T 00:00:54,740 --> 00:00:56,780
+<                R 54740 56780 2040
+<                S I'll leave the door unlocked.
+
+54527,ill,=,54740,ill,213
+54833,leave,=,55080,leave,247
+55200,the,=,55488,the,288
+55445,door,=,55760,door,315
+55751,unlocked,=,56100,unlocked,349
+
+> I 20
+> T 00:00:56,446 --> 00:00:57,646
+> R 56446 57646 1200
+> S That's what you wanted, right?
+
+
+<                I 24
+<                T 00:00:56,780 --> 00:00:59,360
+<                R 56780 59360 2580
+<                S That's what you want to drink.
+
+56446,thats,=,56780,thats,334
+56716,what,=,57362,what,646
+56910,you,=,57778,you,868
+57065,wanted,R,58111,want,1046
+57375,right,R,58527,to,1152
+
+> I 21
+> T 00:01:00,951 --> 00:01:02,535
+> R 60951 62535 1584
+> S Bill me.
+
+60951,bill,R,58777,drink,2174
+
+<                I 25
+<                T 00:01:01,200 --> 00:01:05,200
+<                R 61200 65200 4000
+<                S Tell me
+
+,,I,61200,tell,
+61831,me,=,63700,me,1869
+
+> I 22
+> T 00:01:06,748 --> 00:01:09,960
+> R 66748 69960 3212
+> S I've compiled a Mandarin database for you, sir,
+
+
+<                I 26
+<                T 00:01:07,200 --> 00:01:08,400
+<                R 67200 68400 1200
+<                S I've compiled a mandarin
+
+66748,ive,=,67200,ive,452
+67082,compiled,=,67440,compiled,358
+67684,a,=,67872,a,188
+67818,mandarin,=,67968,mandarin,150
+
+<                I 27
+<                T 00:01:08,400 --> 00:01:11,280
+<                R 68400 71280 2880
+<                S database views drawn from
+
+68420,database,=,68400,database,20
+69023,for,R,69396,views,373
+69290,you,D,,,
+69625,sir,D,,,
+
+> I 23
+> T 00:01:10,043 --> 00:01:14,255
+> R 70043 74255 4212
+> S drawn from S.H.I.E.L.D., FBI and CIA intercepts.
+
+70043,drawn,=,70061,drawn,18
+70558,from,=,70726,from,168
+
+<                I 28
+<                T 00:01:11,280 --> 00:01:14,640
+<                R 71280 74640 3360
+<                S Shield FBI and CIA intercepts
+
+70988,shield,=,71280,shield,292
+72191,fbi,=,72064,fbi,127
+72535,and,=,72512,and,23
+72879,cia,=,72960,cia,81
+73223,intercepts,=,73408,intercepts,185
+
+> I 24
+> T 00:01:14,339 --> 00:01:16,883
+> R 74339 76883 2544
+> S Initiating virtual crime scene reconstruction.
+
+
+<                I 29
+<                T 00:01:14,880 --> 00:01:16,080
+<                R 74880 76080 1200
+<                S initiating virtual crime
+
+74339,initiating,=,74880,initiating,541
+74934,virtual,=,75408,virtual,474
+75367,crime,=,75792,crime,425
+
+<                I 30
+<                T 00:01:16,080 --> 00:01:16,980
+<                R 76080 76980 900
+<                S scene reconstruction.
+
+75692,scene,=,76080,scene,388
+76016,reconstruction,=,76325,reconstruction,309
+
+> I 25
+> T 00:01:19,052 --> 00:01:22,847
+> R 79052 82847 3795
+> S Okay. What have we got here?
+
+
+<                I 31
+<                T 00:01:19,220 --> 00:01:20,930
+<                R 79220 80930 1710
+<                S Okay, what do we got here?
+
+79052,okay,=,79220,okay,168
+79837,what,=,79600,what,237
+80491,have,R,79916,do,575
+81145,we,=,80106,we,1039
+81538,got,=,80296,got,1242
+82061,here,=,80550,here,1511
+
+> I 26
+> T 00:01:22,931 --> 00:01:27,268
+> R 82931 87268 4337
+> S The name is an ancient Chinese war mantle meaning "adviser to the king."
+
+82931,the,D,,,
+
+<                I 32
+<                T 00:01:23,080 --> 00:01:25,480
+<                R 83080 85480 2400
+<                S Name is an ancient Chinese
+
+83168,name,=,83080,name,88
+83465,is,=,83524,is,59
+83643,an,=,83791,an,148
+83822,ancient,=,84057,ancient,235
+84297,chinese,=,84768,chinese,471
+
+<                I 33
+<                T 00:01:25,480 --> 00:01:26,200
+<                R 85480 86200 720
+<                S War mental meaning advisor to
+
+84772,war,=,85480,war,708
+85010,mantle,R,85576,mental,566
+85426,meaning,=,85744,meaning,318
+85901,adviser,R,85936,advisor,35
+86436,to,=,86128,to,308
+
+<                I 34
+<                T 00:01:26,200 --> 00:01:28,720
+<                R 86200 88720 2520
+<                S the King South American
+
+86614,the,=,86200,the,414
+86852,king,=,86620,king,232
+
+> I 27
+> T 00:01:27,352 --> 00:01:30,647
+> R 87352 90647 3295
+> S South American insurgency tactics.
+
+87352,south,=,87145,south,207
+87916,american,=,87775,american,141
+
+<                I 35
+<                T 00:01:28,720 --> 00:01:31,480
+<                R 88720 91480 2760
+<                S Insurgency tactics toxic a
+
+88764,insurgency,=,88720,insurgency,44
+89799,tactics,=,89844,tactics,45
+
+> I 28
+> T 00:01:30,730 --> 00:01:33,191
+> R 90730 93191 2461
+> S Talks like a Baptist preacher.
+
+90730,talks,R,90662,toxic,68
+91206,like,D,,,
+91603,a,=,91275,a,328
+
+<                I 36
+<                T 00:01:31,480 --> 00:01:34,240
+<                R 91480 94240 2760
+<                S Baptist preacher. It's
+
+91762,baptist,=,91480,baptist,282
+92397,preacher,=,92440,preacher,43
+
+> I 29
+> T 00:01:33,274 --> 00:01:37,612
+> R 93274 97612 4338
+> S There's lots of pageantry going on here. Lots of theater. Close.
+
+93274,theres,R,93640,its,366
+93807,lots,D,,,
+94141,of,D,,,
+
+<                I 37
+<                T 00:01:34,240 --> 00:01:35,920
+<                R 94240 95920 1680
+<                S pageantry going on here lots
+
+94341,pageantry,=,94240,pageantry,101
+95009,going,=,94819,going,190
+95409,on,=,95166,on,243
+95609,here,=,95340,here,269
+96010,lots,=,95630,lots,380
+96343,of,D,,,
+
+<                I 38
+<                T 00:01:35,920 --> 00:01:38,440
+<                R 95920 98440 2520
+<                S theater closed heat from the
+
+96544,theater,=,95920,theater,624
+97144,close,R,96615,closed,529
+
+> I 30
+> T 00:01:37,696 --> 00:01:41,282
+> R 97696 101282 3586
+> S The heat from the blast was in excess of 3,000 degrees Celsius.
+
+97696,the,D,,,
+97920,heat,=,97223,heat,697
+98200,from,=,97657,from,543
+98480,the,=,98092,the,388
+
+<                I 39
+<                T 00:01:38,440 --> 00:01:40,120
+<                R 98440 100120 1680
+<                S blast was in excess of 3,000
+
+98704,blast,=,98440,blast,264
+99040,was,=,98787,was,253
+99264,in,=,99019,in,245
+99432,excess,=,99193,excess,239
+99825,of,=,99598,of,227
+99993,3000,=,99772,3000,221
+
+<                I 40
+<                T 00:01:40,120 --> 00:01:42,040
+<                R 100120 102040 1920
+<                S degrees Celsius, and he
+
+100329,degrees,=,100120,degrees,209
+100777,celsius,=,100760,celsius,17
+
+> I 31
+> T 00:01:41,366 --> 00:01:44,995
+> R 101366 104995 3629
+> S Any subjects within 12.5 yards were vaporised instantly.
+
+101366,any,R,101480,and,114
+,,I,101800,he,
+
+<                I 41
+<                T 00:01:42,040 --> 00:01:43,360
+<                R 102040 103360 1320
+<                S subjects within twelve point
+
+101620,subjects,=,102040,subjects,420
+102193,within,=,102449,within,256
+102639,125,R,102768,twelve,129
+,,I,103086,point,
+
+<                I 42
+<                T 00:01:43,360 --> 00:01:44,440
+<                R 103360 104440 1080
+<                S five yards were vaporized
+
+,,I,103360,five,
+102957,yards,=,103567,yards,610
+103339,were,=,103816,were,477
+103658,vaporised,R,104024,vaporized,366
+
+<                I 43
+<                T 00:01:44,440 --> 00:01:45,880
+<                R 104440 105880 1440
+<                S instantly. No bomb Parts
+
+104294,instantly,=,104440,instantly,146
+
+> I 32
+> T 00:01:45,078 --> 00:01:47,747
+> R 105078 107747 2669
+> S No bomb parts found in a three-mile radius of the Chinese Theater?
+
+105078,no,=,105073,no,5
+105197,bomb,=,105246,bomb,49
+105396,parts,=,105534,parts,138
+
+<                I 44
+<                T 00:01:45,880 --> 00:01:47,200
+<                R 105880 107200 1320
+<                S found in a three-mile radius
+
+105635,found,=,105880,found,245
+105874,in,=,106153,in,279
+105994,a,=,106289,a,295
+106073,threemile,=,106380,threemile,307
+106512,radius,=,106881,radius,369
+
+<                I 45
+<                T 00:01:47,200 --> 00:01:48,730
+<                R 107200 108730 1530
+<                S of the Chinese Theater Mosa.
+
+106790,of,=,107200,of,410
+106910,the,=,107358,the,448
+107069,chinese,=,107569,chinese,500
+107388,theater,=,107991,theater,603
+
+> I 33
+> T 00:01:47,831 --> 00:01:48,832
+> R 107831 108832 1001
+> S No, sir.
+
+107831,no,R,108413,mosa,582
+
+<                I 46
+<                T 00:01:51,230 --> 00:01:52,130
+<                R 111230 112130 900
+<                S time to be happy
+
+108275,sir,R,111230,time,2955
+
+> I 34
+> T 00:01:50,875 --> 00:01:51,876
+> R 110875 111876 1001
+> S Talk to me, Happy.
+
+110875,talk,D,,,
+111138,to,=,111494,to,356
+111296,me,R,111653,be,357
+111507,happy,=,111812,happy,305
+
+> I 35
+> T 00:02:10,645 --> 00:02:12,522
+> R 130645 132522 1877
+> S When is a bomb not a bomb?
+
+
+<                I 47
+<                T 00:02:10,930 --> 00:02:12,610
+<                R 130930 132610 1680
+<                S What is the bomb not a bomb?
+
+130645,when,R,130930,what,285
+130992,is,=,131219,is,227
+131201,a,R,131393,the,192
+131340,bomb,=,131625,bomb,285
+131687,not,=,131914,not,227
+131965,a,=,132146,a,181
+132104,bomb,=,132262,bomb,158
+
+> I 36
+> T 00:02:23,908 --> 00:02:24,951
+> R 143908 144951 1043
+> S Any military victims?
+
+
+<                I 48
+<                T 00:02:24,290 --> 00:02:25,610
+<                R 144290 145610 1320
+<                S any military victims not
+
+143908,any,=,144290,any,382
+144097,military,=,144501,military,404
+144524,victims,=,144976,victims,452
+
+> I 37
+> T 00:02:26,161 --> 00:02:27,601
+> R 146161 147601 1440
+> S Not according to public record, sir.
+
+146161,not,=,145398,not,763
+
+<                I 49
+<                T 00:02:25,610 --> 00:02:27,290
+<                R 145610 147290 1680
+<                S according to public records
+
+146316,according,=,145610,according,706
+146705,to,=,146210,to,495
+146822,public,=,146390,public,432
+147095,record,R,146810,records,285
+147406,sir,D,,,
+
+> I 38
+> T 00:02:27,662 --> 00:02:29,789
+> R 147662 149789 2127
+> S Bring up the thermogenic signatures again.
+
+
+<                I 50
+<                T 00:02:27,290 --> 00:02:29,570
+<                R 147290 149570 2280
+<                S bring up the thermogenic
+
+147662,bring,=,147290,bring,372
+147958,up,=,147837,up,121
+148107,the,=,148110,the,3
+148305,thermogenic,=,148475,thermogenic,170
+
+<                I 51
+<                T 00:02:29,570 --> 00:02:31,010
+<                R 149570 151010 1440
+<                S signatures again factoring 3,
+
+148898,signatures,=,149570,signatures,672
+149442,again,=,150098,again,656
+
+> I 39
+> T 00:02:29,873 --> 00:02:31,583
+> R 149873 151583 1710
+> S Factor in 3,000 degrees.
+
+149873,factor,R,150386,factoring,513
+150351,in,R,150866,3,515
+
+<                I 52
+<                T 00:02:31,010 --> 00:02:33,290
+<                R 151010 153290 2280
+<                S 000 degrees. The Oracle cloud
+
+150557,3000,R,151010,000,453
+150967,degrees,=,151314,degrees,347
+
+> I 40
+> T 00:02:31,666 --> 00:02:34,377
+> R 151666 154377 2711
+> S The Oracle cloud has completed analysis.
+
+151666,the,=,151998,the,332
+151930,oracle,=,152302,oracle,372
+152393,cloud,=,152834,cloud,441
+
+<                I 53
+<                T 00:02:33,290 --> 00:02:34,370
+<                R 153290 154370 1080
+<                S is completed analysis
+
+152790,has,R,153290,is,500
+153054,completed,=,153437,completed,383
+153715,analysis,=,153928,analysis,213
+
+> I 41
+> T 00:02:34,461 --> 00:02:35,545
+> R 154461 155545 1084
+> S Accessing satellites
+
+
+<                I 54
+<                T 00:02:34,370 --> 00:02:35,930
+<                R 154370 155930 1560
+<                S accessing satellites and
+
+154461,accessing,=,154370,accessing,91
+154977,satellites,=,154994,satellites,17
+
+> I 42
+> T 00:02:35,628 --> 00:02:39,507
+> R 155628 159507 3879
+> S and plotting the last 12 months of thermogenic occurrences now.
+
+155628,and,=,155680,and,52
+
+<                I 55
+<                T 00:02:35,930 --> 00:02:37,010
+<                R 155930 157010 1080
+<                S plotting the last 12 months
+
+155870,plotting,=,155930,plotting,60
+156415,the,=,156277,the,138
+156658,last,=,156431,last,227
+156961,12,=,156624,12,337
+157143,months,=,156740,months,403
+
+<                I 56
+<                T 00:02:37,010 --> 00:02:38,330
+<                R 157010 158330 1320
+<                S of thermogenic occurrences
+
+157567,of,=,157010,of,557
+157749,thermogenic,=,157156,thermogenic,593
+158476,occurrences,=,157743,occurrences,733
+
+<                I 57
+<                T 00:02:38,330 --> 00:02:38,730
+<                R 158330 158730 400
+<                S now,
+
+159203,now,=,158330,now,873
+
+> I 43
+> T 00:02:40,175 --> 00:02:42,635
+> R 160175 162635 2460
+> S Take away everywhere that there's been a Mandarin attack.
+
+
+<                I 58
+<                T 00:02:40,950 --> 00:02:41,550
+<                R 160950 161550 600
+<                S Take away everywhere that
+
+160175,take,=,160950,take,775
+160387,away,=,161065,away,678
+160599,everywhere,=,161180,everywhere,581
+161065,that,=,161434,that,369
+
+<                I 59
+<                T 00:02:41,550 --> 00:02:42,180
+<                R 161550 162180 630
+<                S there's been a mandarin
+
+161277,theres,=,161550,theres,273
+161617,been,=,161760,been,143
+161829,a,=,161891,a,62
+161913,mandarin,=,161943,mandarin,30
+
+<                I 60
+<                T 00:02:42,180 --> 00:02:42,580
+<                R 162180 162580 400
+<                S attack.
+
+162295,attack,=,162180,attack,115
+
+> I 44
+> T 00:02:48,016 --> 00:02:49,100
+> R 168016 169100 1084
+> S Nope.
+
+
+<                I 61
+<                T 00:02:48,380 --> 00:02:52,380
+<                R 168380 172380 4000
+<                S Nope.
+
+168016,nope,=,168380,nope,364
+
+> I 45
+> T 00:02:54,981 --> 00:02:57,233
+> R 174981 177233 2252
+> S That. Are you sure that's not one of his?
+
+
+<                I 62
+<                T 00:02:55,440 --> 00:02:57,000
+<                R 175440 177000 1560
+<                S that you sure that's not one
+
+174981,that,=,175440,that,459
+175302,are,D,,,
+175517,you,=,175708,you,191
+175731,sure,=,175924,sure,193
+175999,thats,=,176193,thats,194
+176375,not,=,176569,not,194
+176589,one,=,176784,one,195
+
+<                I 63
+<                T 00:02:57,000 --> 00:02:59,040
+<                R 177000 179040 2040
+<                S of his predates any known
+
+176804,of,=,177000,of,196
+176964,his,=,177235,his,271
+
+> I 46
+> T 00:02:57,317 --> 00:02:59,778
+> R 177317 179778 2461
+> S It predates any known Mandarin attack.
+
+177317,it,D,,,
+177506,predates,=,177549,predates,43
+178074,any,=,178255,any,181
+178326,known,=,178569,known,243
+
+<                I 64
+<                T 00:02:59,040 --> 00:03:00,600
+<                R 179040 180600 1560
+<                S Mandarin attack. The incident
+
+178705,mandarin,=,179040,mandarin,335
+179273,attack,=,179508,attack,235
+
+> I 47
+> T 00:02:59,861 --> 00:03:02,697
+> R 179861 182697 2836
+> S The incident was the use of a bomb to assist a suicide.
+
+179861,the,=,179924,the,63
+180063,incident,=,180132,incident,69
+
+<                I 65
+<                T 00:03:00,600 --> 00:03:02,040
+<                R 180600 182040 1440
+<                S was the use of a bomb to
+
+180519,was,=,180600,was,81
+180721,the,=,180830,the,109
+180924,use,=,181060,use,136
+181127,of,=,181291,of,164
+181278,a,=,181463,a,185
+181380,bomb,=,181579,bomb,199
+181633,to,=,181867,to,234
+
+<                I 66
+<                T 00:03:02,040 --> 00:03:03,240
+<                R 182040 183240 1200
+<                S assist a suicide.
+
+181785,assist,=,182040,assist,255
+182139,a,=,182506,a,367
+182241,suicide,=,182640,suicide,399
+
+> I 48
+> T 00:03:02,781 --> 00:03:04,616
+> R 182781 184616 1835
+> S Bring her around.
+
+182781,bring,D,,,
+183392,her,D,,,
+183800,around,D,,,
+
+> I 49
+> T 00:03:05,325 --> 00:03:07,702
+> R 185325 187702 2377
+> S The heat signature is remarkably similar.
+
+
+<                I 67
+<                T 00:03:05,880 --> 00:03:07,290
+<                R 185880 187290 1410
+<                S The heat signature is
+
+185325,the,=,185880,the,555
+185551,heat,=,186136,heat,585
+185834,signature,=,186456,signature,622
+186400,is,=,187097,is,697
+
+<                I 68
+<                T 00:03:07,290 --> 00:03:09,120
+<                R 187290 189120 1830
+<                S remarkably similar 3000
+
+186570,remarkably,=,187290,remarkably,720
+187192,similar,=,188128,similar,936
+
+> I 50
+> T 00:03:08,369 --> 00:03:09,829
+> R 188369 189829 1460
+> S 3,000 degree Celsius.
+
+188369,3000,=,188738,3000,369
+
+<                I 69
+<                T 00:03:09,120 --> 00:03:09,520
+<                R 189120 189520 400
+<                S degrees Celsius.
+
+188767,degree,R,189120,degrees,353
+189231,celsius,=,189308,celsius,77
+
+> I 51
+> T 00:03:11,623 --> 00:03:13,708
+> R 191623 193708 2085
+> S That's two military guys.
+
+
+<                I 70
+<                T 00:03:11,800 --> 00:03:12,640
+<                R 191800 192640 840
+<                S It's two military guys.
+
+191623,thats,R,191800,its,177
+192184,two,=,191975,two,209
+192505,military,=,192115,military,390
+193226,guys,=,192430,guys,796
+
+> I 52
+> T 00:03:14,501 --> 00:03:15,741
+> R 194501 195741 1240
+> S Ever been to Tennessee, Jarvis?
+
+
+<                I 71
+<                T 00:03:15,190 --> 00:03:16,630
+<                R 195190 196630 1440
+<                S Ever been to Tennessee Jarvis
+
+194501,ever,=,195190,ever,689
+194694,been,=,195430,been,736
+194888,to,=,195670,to,782
+195004,tennessee,=,195814,tennessee,810
+195431,jarvis,=,196294,jarvis,863
+
+> I 53
+> T 00:03:16,169 --> 00:03:18,671
+> R 196169 198671 2502
+> S Creating a flight plan for Tennessee.
+
+
+<                I 72
+<                T 00:03:16,630 --> 00:03:17,830
+<                R 196630 197830 1200
+<                S creating a flight plan for
+
+196169,creating,=,196630,creating,461
+196761,a,=,197030,a,269
+196893,flight,=,197118,flight,225
+197354,plan,=,197430,plan,76
+197683,for,=,197652,for,31
+
+<                I 73
+<                T 00:03:17,830 --> 00:03:19,900
+<                R 197830 199900 2070
+<                S Tennessee.
+
+197946,tennessee,=,197830,tennessee,116
+#--metrics--
