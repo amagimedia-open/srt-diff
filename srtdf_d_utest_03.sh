@@ -10,6 +10,10 @@ set -u
 DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
+UTESTNUM=${BARENAME##*_}
+
+ORG_SRT_FILEPATH=$DIRNAME/Ironman_1_1080i60.srt
+TRAN_SRT_FILEPATH=$DIRNAME/Ironman_sstt_withf.srt
 
 #----[temp files and termination]--------------------------------------------
 
@@ -27,33 +31,31 @@ trap 'fnxOnEnd;' 0 1 2 3 6 9 11
 
 #----[main]-----------------------------------------------------------------
 
-export PATH=$PATH:$PWD
 cd $DIRNAME
+export PATH=$PATH:$PWD
 
 source common_bash_functions.sh
 source common_tap_functions.sh
 source srtdf_d_utest_common_functions.sh
 
-tap_version
+tap_utest_begins
 
-tap_plan `cat srtdf_d_utests_list.txt | sed '/^#/d' | wc -l`
+cat $TRAN_SRT_FILEPATH | grep -v '^#' > $TMP1
 
-echo "0" > $TMP1
+if ! python3 sstt_x_srt_compare_writer.py \
+                $ORG_SRT_FILEPATH $TMP1 > $TMP2
+then
+    tap_utest_diag_msg "sstt_x_srt_compare_writer.py failed"
+    tap_utest_failed
+    exit 1
+fi
 
-cat srtdf_d_utests_list.txt |\
-while read test_case_script_name
-do
-    if [[ $test_case_script_name =~ ^# ]]
-    then
-        continue
-    fi
+if ! is_utest_output_ok $TMP2
+then
+    tap_utest_failed
+    exit 1
+fi
 
-    if ! ./$test_case_script_name
-    then
-        echo "2" > $TMP1
-    fi
-done
-
-echo ""
-exit $(cat $TMP1)
+tap_utest_passed
+exit 0
 

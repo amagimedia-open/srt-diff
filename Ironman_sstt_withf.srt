@@ -1,0 +1,360 @@
+1
+0000000:00:00,920 --> 0000000:00:04,920
+kill this guy
+
+2
+0000000:00:12,800 --> 0000000:00:14,180
+saying.
+
+#F
+#0000000:00:00,920 --> 0000000:00:14,180
+#This guy just saying.
+
+3
+0000000:00:16,390 --> 0000000:00:16,790
+Is that what you want?
+
+#F
+#0000000:00:16,390 --> 0000000:00:16,780
+#Is that what you want?
+
+4
+0000000:00:20,690 --> 0000000:00:21,650
+Here's a little holiday
+
+5
+0000000:00:21,650 --> 0000000:00:22,610
+greeting. I've been wanting
+
+6
+0000000:00:22,610 --> 0000000:00:24,890
+to send to the Mandarin. I
+
+7
+0000000:00:24,890 --> 0000000:00:25,490
+just didn't know how to
+
+8
+0000000:00:25,490 --> 0000000:00:25,970
+phrase it until now.
+
+#F
+#0000000:00:20,690 --> 0000000:00:25,970
+#Here's a little holiday greeting. I've been wanting to send to the Mandarin. I just didn't know how to phrase it until now.
+
+9
+0000000:00:28,030 --> 0000000:00:29,110
+My name is Tony Stark and I'm
+
+10
+0000000:00:29,110 --> 0000000:00:31,270
+not afraid of you. I know
+
+11
+0000000:00:31,270 --> 0000000:00:33,430
+you're a coward. So I've
+
+12
+0000000:00:33,430 --> 0000000:00:36,190
+decided that you just died
+
+13
+0000000:00:36,190 --> 0000000:00:37,750
+pal. I'm gonna come get the
+
+14
+0000000:00:37,750 --> 0000000:00:39,670
+body. There's no politics
+
+15
+0000000:00:39,670 --> 0000000:00:40,630
+here. It's just good
+
+16
+0000000:00:40,630 --> 0000000:00:42,430
+old-fashioned Revenge. It's
+
+17
+0000000:00:42,430 --> 0000000:00:43,870
+no Pentagon. It's just you
+
+18
+0000000:00:43,870 --> 0000000:00:46,630
+and me on the off chance
+
+19
+0000000:00:46,630 --> 0000000:00:47,590
+Superman. Here's my home
+
+20
+0000000:00:47,590 --> 0000000:00:48,790
+address 10
+
+21
+0000000:00:48,790 --> 0000000:00:51,910
+880 Malibu
+
+22
+0000000:00:51,670 --> 0000000:00:52,960
+.90 265
+
+#F
+#0000000:00:28,030 --> 0000000:00:52,960
+#My name is Tony Stark and I'm not afraid of you. I know you're a coward. So I've decided that you just died pal. I'm going to come get the body. There's no politics here. It's just good old-fashioned Revenge. It's no Pentagon. It's just you and me on the off chance Superman. Here's my home address 10. 880 Malibu .90 265
+
+23
+0000000:00:54,740 --> 0000000:00:56,780
+I'll leave the door unlocked.
+
+24
+0000000:00:56,780 --> 0000000:00:59,360
+That's what you want to drink.
+
+#F
+#0000000:00:54,740 --> 0000000:00:59,360
+#I'll leave the door unlocked. That's what you want to drink.
+
+25
+0000000:01:01,200 --> 0000000:01:05,200
+Tell me
+
+26
+0000000:01:07,200 --> 0000000:01:08,400
+I've compiled a mandarin
+
+27
+0000000:01:08,400 --> 0000000:01:11,280
+database views drawn from
+
+28
+0000000:01:11,280 --> 0000000:01:14,640
+Shield FBI and CIA intercepts
+
+29
+0000000:01:14,880 --> 0000000:01:16,080
+initiating virtual crime
+
+30
+0000000:01:16,080 --> 0000000:01:16,980
+scene reconstruction.
+
+#F
+#0000000:01:01,200 --> 0000000:01:16,980
+#Tell me I've compiled a mandarin database views drawn from Shield FBI and CIA intercepts initiating virtual crime scene reconstruction.
+
+31
+0000000:01:19,220 --> 0000000:01:20,930
+Okay, what do we got here?
+
+#F
+#0000000:01:19,220 --> 0000000:01:20,930
+#Okay, what do we got here?
+
+32
+0000000:01:23,080 --> 0000000:01:25,480
+Name is an ancient Chinese
+
+33
+0000000:01:25,480 --> 0000000:01:26,200
+War mental meaning advisor to
+
+34
+0000000:01:26,200 --> 0000000:01:28,720
+the King South American
+
+35
+0000000:01:28,720 --> 0000000:01:31,480
+Insurgency tactics toxic a
+
+36
+0000000:01:31,480 --> 0000000:01:34,240
+Baptist preacher. It's
+
+37
+0000000:01:34,240 --> 0000000:01:35,920
+pageantry going on here lots
+
+38
+0000000:01:35,920 --> 0000000:01:38,440
+theater closed heat from the
+
+39
+0000000:01:38,440 --> 0000000:01:40,120
+blast was in excess of 3,000
+
+40
+0000000:01:40,120 --> 0000000:01:42,040
+degrees Celsius, and he
+
+41
+0000000:01:42,040 --> 0000000:01:43,360
+subjects within twelve point
+
+42
+0000000:01:43,360 --> 0000000:01:44,440
+five yards were vaporized
+
+43
+0000000:01:44,440 --> 0000000:01:45,880
+instantly. No bomb Parts
+
+44
+0000000:01:45,880 --> 0000000:01:47,200
+found in a three-mile radius
+
+45
+0000000:01:47,200 --> 0000000:01:48,730
+of the Chinese Theater Mosa.
+
+#F
+#0000000:01:23,080 --> 0000000:01:48,730
+#Name is an ancient Chinese War mental meaning advisor to the King South American Insurgency tactics toxic a Baptist preacher. It's pageantry going on here lots theater closed heat from the blast was in excess of 3,000 degrees Celsius and he subjects within twelve point five yards were vaporized instantly. No bomb Parts found in a three-mile radius of the Chinese Theater Mosa.
+
+46
+0000000:01:51,230 --> 0000000:01:52,130
+time to be happy
+
+#F
+#0000000:01:51,230 --> 0000000:01:52,130
+#time to be happy
+
+47
+0000000:02:10,930 --> 0000000:02:12,610
+What is the bomb not a bomb?
+
+#F
+#0000000:02:10,930 --> 0000000:02:12,610
+#What is the bomb not a bomb?
+
+48
+0000000:02:24,290 --> 0000000:02:25,610
+any military victims not
+
+49
+0000000:02:25,610 --> 0000000:02:27,290
+according to public records
+
+50
+0000000:02:27,290 --> 0000000:02:29,570
+bring up the thermogenic
+
+51
+0000000:02:29,570 --> 0000000:02:31,010
+signatures again factoring 3,
+
+52
+0000000:02:31,010 --> 0000000:02:33,290
+000 degrees. The Oracle cloud
+
+53
+0000000:02:33,290 --> 0000000:02:34,370
+is completed analysis
+
+54
+0000000:02:34,370 --> 0000000:02:35,930
+accessing satellites and
+
+55
+0000000:02:35,930 --> 0000000:02:37,010
+plotting the last 12 months
+
+56
+0000000:02:37,010 --> 0000000:02:38,330
+of thermogenic occurrences
+
+57
+0000000:02:38,330 --> 0000000:02:38,730
+now,
+
+#F
+#0000000:02:24,290 --> 0000000:02:38,450
+#Any military victims not according to public records bring up the thermogenic signatures again factoring 3,000 degrees. The Oracle cloud is completed analysis accessing satellites and plotting the last 12 months of thermogenic occurrences now,
+
+58
+0000000:02:40,950 --> 0000000:02:41,550
+Take away everywhere that
+
+59
+0000000:02:41,550 --> 0000000:02:42,180
+there's been a mandarin
+
+60
+0000000:02:42,180 --> 0000000:02:42,580
+attack.
+
+#F
+#0000000:02:40,950 --> 0000000:02:42,180
+#Take away everywhere that there's been a mandarin attack.
+
+61
+0000000:02:48,380 --> 0000000:02:52,380
+Nope.
+
+#F
+#0000000:02:48,380 --> 0000000:02:52,700
+#Nope.
+
+62
+0000000:02:55,440 --> 0000000:02:57,000
+that you sure that's not one
+
+63
+0000000:02:57,000 --> 0000000:02:59,040
+of his predates any known
+
+64
+0000000:02:59,040 --> 0000000:03:00,600
+Mandarin attack. The incident
+
+65
+0000000:03:00,600 --> 0000000:03:02,040
+was the use of a bomb to
+
+66
+0000000:03:02,040 --> 0000000:03:03,240
+assist a suicide.
+
+#F
+#0000000:02:55,440 --> 0000000:03:03,240
+#That you sure that's not one of his predates any known Mandarin attack. The incident was the use of a bomb to assist a suicide.
+
+67
+0000000:03:05,880 --> 0000000:03:07,290
+The heat signature is
+
+68
+0000000:03:07,290 --> 0000000:03:09,120
+remarkably similar 3000
+
+69
+0000000:03:09,120 --> 0000000:03:09,520
+degrees Celsius.
+
+#F
+#0000000:03:05,880 --> 0000000:03:09,390
+#The heat signature is remarkably similar 3000 degrees Celsius.
+
+70
+0000000:03:11,800 --> 0000000:03:12,640
+It's two military guys.
+
+#F
+#0000000:03:11,800 --> 0000000:03:12,640
+#It's two military guys.
+
+71
+0000000:03:15,190 --> 0000000:03:16,630
+Ever been to Tennessee Jarvis
+
+72
+0000000:03:16,630 --> 0000000:03:17,830
+creating a flight plan for
+
+73
+0000000:03:17,830 --> 0000000:03:19,900
+Tennessee.
+
+#F
+#0000000:03:15,190 --> 0000000:03:19,900
+#Ever been to Tennessee Jarvis creating a flight plan for Tennessee.
+
