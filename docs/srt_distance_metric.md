@@ -36,7 +36,8 @@ greating adding to the semantic information
 
 8. PartOfSpeech: Part of speech information like Noun, Pronoun, Verb, Adjective Adverb, Conjunction etc.
 
-9. MaxScore: Maxscore that can be scored. 
+9. MaxScore: Maxscore that can be scored. Maxscore is given to words appearing 
+   in the reference R.
 
 10. GivenScore: Score given as per LEV_OP
 
@@ -54,3 +55,7 @@ GivenScore is equal to Maxscore if LEV_OP is '=' otherwise 0
 **SrtSimilarity** = Sum(GivenScore)/Sum(MaxScore)
 
 **TimeDeviation** = Sqrt(Sum((TS_DIFF - Mean(TS_DIFF))^2)/N)
+
+
+## Process of validating the metric
+
