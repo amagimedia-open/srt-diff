@@ -11,7 +11,7 @@ BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
 UTESTDESC="runs srtdf_csvfy_srt_lev.sh"
 
-SRT_LEV_FILEPATH=$DIRNAME/srtdf_d_utest_06.gold.txt
+SRT_LEV_FILEPATH=$DIRNAME/srtdf_d_utest_05.gold.txt
 
 #----[temp files and termination]--------------------------------------------
 
