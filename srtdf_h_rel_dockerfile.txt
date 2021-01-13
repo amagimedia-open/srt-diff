@@ -1,0 +1,39 @@
+FROM ubuntu:bionic
+
+RUN apt-get update  -y && \
+    apt-get install -y apt-utils
+
+RUN apt-get update  -y && \
+    apt-get install -y build-essential software-properties-common pkg-config
+
+RUN apt-get install -y wget gawk tree boxes
+RUN apt-get install -y moreutils
+
+RUN apt-get update  -y && \
+    apt-get -y install python3-pip
+RUN pip3 install --upgrade pip
+
+RUN /usr/bin/python3 -m pip install --upgrade pip
+
+RUN pip install pysrt
+RUN pip install numpy
+
+#+---------------+
+#| PROJECT FILES |
+#+---------------+
+
+RUN  mkdir /srt-diff
+
+COPY \
+    common_bash_functions.sh            \
+    readme.txt                          \
+    srtdf_csvfy_srt_lev.sh              \
+    srtdf_levenshtein.py                \
+    srtdf_srt_compare_reader.py         \
+    srtdf_srt_compare_writer.py         \
+    srtdf_srt_lev.py                    \
+    srt_diff.sh                         \
+    /srt-diff/
+
+RUN tree /srt-diff
+
