@@ -13,6 +13,13 @@
 $ ./srtdf_h_build_dev_docker_image.sh
 $ ./srtdf_h_run_utests_in_dev_docker.sh
 
++----------------------+
+| Run srt_diff example |
++----------------------+
+
+$ ./srtdf_h_build_rel_docker_image.sh
+$ ./srt_diff_example.sh
+
 +-----------+
 | Resources |
 +-----------+

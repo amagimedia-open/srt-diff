@@ -17,8 +17,6 @@ cp $DIRNAME/Ironman_sstt_withf.srt $DIRNAME/testdata
 
 #----[execute srt_diff.sh]---------------------------------------------------
 
-#-it \
-
 docker run                                  \
         --rm                                \
         --privileged                        \
