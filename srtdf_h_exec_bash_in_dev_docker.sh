@@ -9,6 +9,6 @@ docker exec \
         -it \
         --privileged \
         -w $SSTT_FOLDER_IN_DK \
-        srt-diff-container \
+        srt-diff-dev-container \
         bash
 

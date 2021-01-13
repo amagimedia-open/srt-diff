@@ -9,9 +9,12 @@ DIRNAME=$(dirname $(readlink -e $0))
 BASENAME=$(basename $0)
 BARENAME=${BASENAME%%.*}
 UTESTNUM=${BARENAME##*_}
-UTESTDESC="runs srtdf_csvfy_srt_lev.sh"
+UTESTDESC="runs srt_diff.sh"
 
-SRT_LEV_FILEPATH=$DIRNAME/srtdf_d_utest_06.gold.txt
+ORG_SRT_FILEPATH=$DIRNAME/Ironman_1_1080i60.srt
+TRAN_SRT_FILEPATH=$DIRNAME/Ironman_sstt_withf.srt
+
+GOLD_FILEPATH=$DIRNAME/srtdf_d_utest_07.gold.txt
 
 #----[temp files and termination]--------------------------------------------
 
@@ -36,11 +39,28 @@ source common_bash_functions.sh
 source common_tap_functions.sh
 source srtdf_d_utest_common_functions.sh
 
+cp $ORG_SRT_FILEPATH  /data
+cp $TRAN_SRT_FILEPATH /data
+
 tap_utest_begins
 
-cat $SRT_LEV_FILEPATH | srtdf_csvfy_srt_lev.sh > $TMP1
+srt_diff.sh \
+    -O /data/$(basename $ORG_SRT_FILEPATH)   \
+    -T /data/$(basename $TRAN_SRT_FILEPATH)  \
+    -d "/data/foo" \
+    -p "utest07." > $TMP1
 
-if ! is_utest_output_ok $TMP1
+head -n 1 $TMP1 > $TMP2
+for i in `cat $TMP1 | sed '1d'`
+do
+    echo "$i" | boxes -d stone | sed 's/^/#/' >> $TMP2
+    cat $i >> $TMP2
+done
+
+cp $TMP2 $DIRNAME/$BARENAME.out
+chmod go+r $DIRNAME/$BARENAME.out
+
+if ! is_utest_output_ok $TMP2
 then
     tap_utest_failed
     exit 1

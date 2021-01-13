@@ -10,8 +10,8 @@
 | Run unit test cases |
 +---------------------+
 
-$ ./srtdf_h_build_docker_image.sh
-$ ./srtdf_h_run_utests_in_docker.sh
+$ ./srtdf_h_build_dev_docker_image.sh
+$ ./srtdf_h_run_utests_in_dev_docker.sh
 
 +-----------+
 | Resources |
