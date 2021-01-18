@@ -108,6 +108,7 @@ class Options(object):
         self._too_mode     = Options.TO_CC
         self._to_lower     = True
         self._remove_punct = True
+        self._debug        = False
 
         self._srt_filepath_1 = None
         self._srt_filepath_2 = None
@@ -168,6 +169,14 @@ class Options(object):
     def remove_punct(self, b):
         self._remove_punct = b
 
+    @property
+    def debug(self):
+        return self._debug
+
+    @debug.setter
+    def debug(self, b):
+        self._debug = b
+
     def check_filepath(filepath):
         if (not os.path.isfile(filepath)):
             err_str = "%s: filepath %s not found" % (self._mn, str)
@@ -194,13 +203,14 @@ class Options(object):
     def parse_cmdline(self):
         opts, args = \
             getopt.getopt(sys.argv[1:], 
-                    "i:Wt:LPh", 
+                    "i:Wt:LPdh", 
                           [
                            "indent-2-by=",
                            "suppress-words",
                            "too-mode=",
                            "suppress-to-lower",
                            "suppress-remove-punct",
+                           "debug",
                            "help"
                           ])
 
@@ -218,6 +228,8 @@ class Options(object):
                 options.to_lower = False
             elif o in ("-P", "--suppress-remove-punct"):
                 options.remove_punct = False
+            elif o in ("-d", "--debug"):
+                options.debug = True
 
         if (len(args) != 2):
             err_str = "%s: two srt filepaths are expected" % (g_module_name)
@@ -233,7 +245,8 @@ class Options(object):
                 "too"          : options.too,
                 "too-mode"     : options.too_mode,
                 "to-lower"     : options.to_lower,
-                "remove-punct" : options.remove_punct
+                "remove-punct" : options.remove_punct,
+                "debug"        : options.debug
               }
         return str(ret)
 
@@ -267,6 +280,9 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
 
         words     = s.split()
         num_words = len(words)
+   
+        if (options.debug):
+            print(f"words={words},num_words={num_words}")
            
         if (options.too_mode == Options.TO_AV):
             range_av_ms = (range_start_ms + range_end_ms) / 2

@@ -216,11 +216,14 @@ then
     exit 2
 fi
 
+DEBUG_OPTION=""
+((OPT_VERBOSE_MODE)) && { DEBUG_OPTION=" -d "; }
 cat $SRTCOMP_FILE_PATH |\
 if ! python3 $DIRNAME/srtdf_srt_lev.py \
-        -l \
+        $DEBUG_OPTION   \
+        -l              \
         -C "ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF" \
-        > $SRTCOMPLEV_FILE_PATH 2>&1
+        > $SRTCOMPLEV_FILE_PATH 
 then
     error_message "srt levenshtein generation failed"
     exit 2

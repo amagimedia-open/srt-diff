@@ -46,10 +46,11 @@ class SrtSegment(object):
             self.m_state["srt_string"] = " ".join(tokens[2:])  
             # split and join ! what a waste !
         elif (mnemonic == 'W'):
-            i = self.m_ts_words.add(int(tokens[2]), tokens[3], self)
-            if (not "begin_index" in self.m_state):
-                self.m_state["begin_index"] = i
-            self.m_state["end_index"]   = i
+            if (len(tokens) >= 4):
+                i = self.m_ts_words.add(int(tokens[2]), tokens[3], self)
+                if (not "begin_index" in self.m_state):
+                    self.m_state["begin_index"] = i
+                self.m_state["end_index"]   = i
 
     def is_valid(self):
         return ("srt_index"      in self.m_state and

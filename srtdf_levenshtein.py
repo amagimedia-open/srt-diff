@@ -40,11 +40,15 @@ class Levenshtein(object):
     def distance(self, verbose):
 
         if (self.m_dist != -1):
-            return self.m_dist
+            return self.m_dist  # return result of earlier computation
 
         #+-----------------------------------------------+
         #| COMPUTE DISTANCE AND FILL INTERMEDIATE STATES |
         #+-----------------------------------------------+
+
+        if (verbose >= 1):
+            _eprint("lev:from:len = ", len(self.m_from))
+            _eprint("lev:to:len   = ", len(self.m_to))
 
         if len(self.m_from) == 0:
 
@@ -74,6 +78,9 @@ class Levenshtein(object):
             for i, c1 in enumerate(self.m_from, 1):     # i starts from 1
 
                 current_row = [i]
+
+                if (verbose >= 1):
+                    _eprint("lev:from:current_row = ", i)
 
                 for j, c2 in enumerate(self.m_to, 1):   # j starts from 1,...
 

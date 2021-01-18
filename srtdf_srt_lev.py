@@ -99,14 +99,16 @@ OPTIONS
 
 def parse_input(srt_parser, options):
 
-    if (options.debug):
-        _eprint("%s:debug:%s" %
-                (g_module_name, 
-                 "starting to read lines from stdin"))
+    line_num = 0
+
 
     while True:
         try:
+            line_num = line_num + 1
             line = input()
+            if (options.debug):
+                _eprint("%s:debug:parsing line %d:%s" % \
+                        (g_module_name, line_num, line))
             srt_parser.parse(line)
 
         except EOFError:
@@ -114,10 +116,6 @@ def parse_input(srt_parser, options):
                 _eprint("%s:debug:%s" % (g_module_name, "end of input seen"))
             break
 
-    if (options.debug):
-        _eprint("%s:debug:%s" %
-                (g_module_name,
-                 "completed reading lines from stdin"))
 
 #+---------+
 #| CLASSES |
@@ -186,9 +184,9 @@ class Options(object):
 
     def __str__(self):
         ret = { 
-                "lengthy_opt"   : self.m_lengthy,
-                "col_names_opt" : self.m_col_names,
-                "debug_opt"     : self.m_debug
+                "--lengthy"   : self.m_lengthy,
+                "--col-names" : self.m_col_names,
+                "--debug"     : self.m_debug
               }
         return str(ret)
 
@@ -328,20 +326,40 @@ if __name__ == '__main__':
         # parse srt diff presented via stdin
         #
 
+        if (options.debug):
+            _eprint("%s:debug:%s" %
+                    (g_module_name, 
+                     "starting to read lines from stdin"))
+
         srt_parser = scr_m.SrtCompareReader(g_module_name)
         parse_input(srt_parser, options)
+
+        if (options.debug):
+            _eprint("%s:debug:%s" %
+                    (g_module_name,
+                     "completed reading lines from stdin"))
 
         #
         # calculate levenshtein distance
         #
+
+        if (options.debug):
+            _eprint("%s:debug:%s" %
+                    (g_module_name, 
+                     "starting to calculate Levenshtein distance"))
 
         lev = lev_m.Levenshtein(
                 g_module_name, 
                 srt_parser.ts_words_in_1.words,
                 srt_parser.ts_words_in_2.words,
                 lambda e1, e2 : e1[1] == e2[1])
-        lev_dist = lev.distance(False)
+        lev_dist = lev.distance(options.debug)
         print("%d" % lev_dist)
+
+        if (options.debug):
+            _eprint("%s:debug:%s" %
+                    (g_module_name, 
+                     "completed calculation of Levenshtein distance"))
 
         #
         # dump details and metrics
