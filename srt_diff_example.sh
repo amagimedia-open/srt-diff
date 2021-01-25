@@ -77,5 +77,17 @@ SRT comparison details filepath = ${SRTCOMP_FILEPATH/\/data/$H_TEST_FOLDER}
 SRT comparison + Levenshtein details filepath = ${SRTCOMPLEV_FILEPATH/\/data/$H_TEST_FOLDER}
 EOD
 
+cat ${SRTLEV_FILEPATH/\/data/$H_TEST_FOLDER} |\
+docker run                                  \
+        -i                                  \
+        --rm                                \
+        --privileged                        \
+        --network host                      \
+        --name srt-diff-rel-c               \
+        -v $H_TEST_FOLDER:/data             \
+        -w /srt-diff                        \
+        srt-diff-rel                        \
+        ./srt_lev_hist.sh
+
 exit 0
 

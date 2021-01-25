@@ -33,6 +33,7 @@ COPY \
     srtdf_srt_compare_writer.py         \
     srtdf_srt_lev.py                    \
     srt_diff.sh                         \
+    srt_lev_hist.sh                     \
     /srt-diff/
 
 RUN tree /srt-diff
