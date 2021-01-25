@@ -193,6 +193,9 @@ gawk -F ',' \
             for (j = 0; j < n_buckets; ++j)
                 print "d> R " rbegin[j] "," rend[j] "," rname[j] > "/dev/stderr"
         }
+
+        for (j = 0; j < n_buckets; ++j)
+            hist[rname[j]] = 0
     }
 
     {
