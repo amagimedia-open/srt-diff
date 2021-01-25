@@ -1,0 +1,1 @@
+Spacy model in docker : https://stackoverflow.com/questions/60220639/how-to-cache-spacy-model-in-gitlab-runner-when-building-docker-image
