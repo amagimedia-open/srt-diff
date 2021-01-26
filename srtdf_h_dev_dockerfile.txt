@@ -18,3 +18,8 @@ RUN /usr/bin/python3 -m pip install --upgrade pip
 RUN pip install pysrt
 RUN pip install numpy
 
+RUN /usr/bin/python3 -m pip install --upgrade pip
+
+RUN pip install spacy
+RUN python3 -m spacy download en_core_web_sm
+

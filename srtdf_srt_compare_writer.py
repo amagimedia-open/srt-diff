@@ -299,12 +299,12 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
         for w in words:
             #https://www.geeksforgeeks.org/python-remove-punctuation-from-string/
             #punc = '''!()-[]{};:'"\, <>./?@#$%^&*_~'''
-            #cw = re.sub(r'[^\w]','',w)
+            #cw = re.sub(r'[^\w\s]','',w)
             #cw = re.sub(r'[!\-;:",.?]','',w)
-
+            
             cw = w
             if (options.remove_punct):
-                cw = re.sub(r'[^\w]','',cw)
+                cw = re.sub(r'[^\w\s]','',cw)
             if (options.to_lower):
                 cw = cw.lower()
 
