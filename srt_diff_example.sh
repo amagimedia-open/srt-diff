@@ -77,9 +77,15 @@ SRT comparison details filepath = ${SRTCOMP_FILEPATH/\/data/$H_TEST_FOLDER}
 SRT comparison + Levenshtein details filepath = ${SRTCOMPLEV_FILEPATH/\/data/$H_TEST_FOLDER}
 EOD
 
-cat ${SRTLEV_FILEPATH/\/data/$H_TEST_FOLDER} |\
+cat <<EOD >$H_TEST_FOLDER/rangespec.txt
+BEGIN_I,END_E,NAME
+0,500,0000-0500-ms
+500,1000,0500-1000-ms
+1000,2000,1000-2000-ms
+2000,*,2000-****-ms
+EOD
+
 docker run                                  \
-        -i                                  \
         --rm                                \
         --privileged                        \
         --network host                      \
@@ -87,7 +93,8 @@ docker run                                  \
         -v $H_TEST_FOLDER:/data             \
         -w /srt-diff                        \
         srt-diff-rel                        \
-        ./srt_lev_hist.sh
-
+        ./srt_lev_hist.sh                   \
+            -r /data/rangespec.txt          \
+            /data/srtlev.csv
 exit 0
 
