@@ -9,12 +9,15 @@ import pysrt
 import getopt
 import tempfile
 import re
+import spacy
 
 #+------------------+
 #| GLOBAL VARIABLES |
 #+------------------+
 
+g_def_tokenize_lang = "en"
 g_module_name = None
+g_spacy_tokenizer = None
 
 #+----------------------+
 #| FUNCTION DEFINITIONS |
@@ -25,14 +28,14 @@ def eprint(*args, **kwargs):
     #sys.stderr.flush()
 
 def usage():
-    format_str = """
+    usage_str = f"""
 NAME
 
-    %s - Creates a 'srt compare' file given two srt files.
+    {g_module_name} - Creates a 'srt compare' file given two srt files.
 
 SYNOPSIS
 
-    %s [-i num_spaces] [-W] [-t time_mode] [-L] [-P]
+    {g_module_name} [-i num_spaces] [-W] [-t time_mode] [-L] 
        srt/file/path1 srt/file/path2
 
 DESCRIPTION
@@ -77,15 +80,18 @@ OPTIONS
        suppress conversion of words to lower case.
        this is optional. default is to convert words to lower case.
 
-    -P
-       suppress removal of punctuations in/across words.
-       this is optional. default is to remove punctuations.
+    -S 
+       suppress spacy tokenization.
+       this is optional. default is to perform spacy tokenization.
+
+    -l "language"
+       used during spacy tokenization.
+       this is optional. default is \"{g_def_tokenize_lang}\".
 
     -h
        this help.
        this is optional.
 """
-    usage_str = format_str % (g_module_name, g_module_name)
     eprint(usage_str)
 
 #+-------------------+
@@ -107,7 +113,8 @@ class Options(object):
         self._too          = True
         self._too_mode     = Options.TO_CC
         self._to_lower     = True
-        self._remove_punct = True
+        self._spacy_tokenize = True
+        self._tokenize_lang  = g_def_tokenize_lang
         self._debug        = False
 
         self._srt_filepath_1 = None
@@ -162,12 +169,20 @@ class Options(object):
         self._to_lower = b
 
     @property
-    def remove_punct(self):
-        return self._remove_punct
+    def spacy_tokenize(self):
+        return self._spacy_tokenize
 
-    @remove_punct.setter
-    def remove_punct(self, b):
-        self._remove_punct = b
+    @spacy_tokenize.setter
+    def spacy_tokenize(self, b):
+        self._spacy_tokenize = b
+
+    @property
+    def tokenize_lang(self):
+        return self._tokenize_lang
+
+    @tokenize_lang.setter
+    def tokenize_lang(self, v):
+        self._tokenize_lang = v
 
     @property
     def debug(self):
@@ -203,13 +218,14 @@ class Options(object):
     def parse_cmdline(self):
         opts, args = \
             getopt.getopt(sys.argv[1:], 
-                    "i:Wt:LPdh", 
+                    "i:Wt:LSl:dh", 
                           [
                            "indent-2-by=",
                            "suppress-words",
                            "too-mode=",
                            "suppress-to-lower",
-                           "suppress-remove-punct",
+                           "suppress-spacy-tokenization",
+                           "tokenization-lang",
                            "debug",
                            "help"
                           ])
@@ -226,8 +242,10 @@ class Options(object):
                 options.too_mode = v
             elif o in ("-L", "--suppress-to-lower"):
                 options.to_lower = False
-            elif o in ("-P", "--suppress-remove-punct"):
-                options.remove_punct = False
+            elif o in ("-S", "--suppress-spacy-tokenization"):
+                options.spacy_tokenize = False
+            elif o in ("-l", "--tokenization-lang"):
+                options.tokenize_lang = v
             elif o in ("-d", "--debug"):
                 options.debug = True
 
@@ -241,12 +259,13 @@ class Options(object):
 
     def __str__(self):
         ret = { 
-                "indent"       : options.indent_2_by,
-                "too"          : options.too,
-                "too-mode"     : options.too_mode,
-                "to-lower"     : options.to_lower,
-                "remove-punct" : options.remove_punct,
-                "debug"        : options.debug
+                "indent"         : options.indent_2_by,
+                "too"            : options.too,
+                "too-mode"       : options.too_mode,
+                "to-lower"       : options.to_lower,
+                "spacy-tokenize" : self._spacy_tokenize,
+                "tokenize-lang"  : self._tokenize_lang,
+                "debug"          : options.debug
               }
         return str(ret)
 
@@ -278,11 +297,31 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
     if (options.too):
         #--- dump words ---
 
-        words     = s.split()
+        words = []
+        if (options.debug):
+            eprint(f"original:{s}")
+        if (options.spacy_tokenize):
+            tokens = g_spacy_tokenizer(s)
+            for t in tokens:
+                if not t.is_punct:
+                    t2 = re.sub(r',','',t.text) #TODO: remove this hardcoding
+                    words.append(t2)
+        else:
+	    #https://www.geeksforgeeks.org/python-remove-punctuation-from-string/
+	    #punc = '''!()-[]{};:'"\, <>./?@#$%^&*_~'''
+	    #cw = re.sub(r'[^\w\s]','',w)
+	    #cw = re.sub(r'[!\-;:",.?]','',w)
+
+            tokens = s.split()
+            for t in tokens:
+                t2 = re.sub(r'[^\w\s]','',t)
+                if (len(t2) > 0):
+                    words.append(t2)
+
         num_words = len(words)
    
         if (options.debug):
-            print(f"words={words},num_words={num_words}")
+            eprint(f"words={words},num_words={num_words}")
            
         if (options.too_mode == Options.TO_AV):
             range_av_ms = (range_start_ms + range_end_ms) / 2
@@ -296,15 +335,9 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
             char_time_width_ms = range_ms / total_chars
 
         next_offset_ms = range_start_ms
+
         for w in words:
-            #https://www.geeksforgeeks.org/python-remove-punctuation-from-string/
-            #punc = '''!()-[]{};:'"\, <>./?@#$%^&*_~'''
-            #cw = re.sub(r'[^\w\s]','',w)
-            #cw = re.sub(r'[!\-;:",.?]','',w)
-            
             cw = w
-            if (options.remove_punct):
-                cw = re.sub(r'[^\w\s]','',cw)
             if (options.to_lower):
                 cw = cw.lower()
 
@@ -333,6 +366,9 @@ if __name__ == '__main__':
         options        = Options(g_module_name)
 
         options.parse_cmdline()
+        if (options.spacy_tokenize):
+            nlp = spacy.load("en")
+            g_spacy_tokenizer = nlp.Defaults.create_tokenizer(nlp)
 
         lpad_str = ' ' * options.indent_2_by
 

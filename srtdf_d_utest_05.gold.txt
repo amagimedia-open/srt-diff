@@ -1,4 +1,4 @@
-86
+90
 #--details--
 ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 
@@ -8,9 +8,9 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Mr Stark, hi there.
 
 1600,mr,D,,,
-1762,stark,D,,,
+1780,stark,D,,,
 2142,hi,D,,,
-2304,there,D,,,
+2322,there,D,,,
 
 > I 2
 > T 00:00:02,767 --> 00:00:06,021
@@ -18,19 +18,19 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Our sources are telling us that all signs are pointing to another Mandarin attack.
 
 2767,our,D,,,
-2923,sources,D,,,
-3237,are,D,,,
-3394,telling,D,,,
-3707,us,D,,,
-3825,that,D,,,
-4021,all,D,,,
-4178,signs,D,,,
-4413,are,D,,,
-4570,pointing,D,,,
-4923,to,D,,,
-5040,another,D,,,
-5354,mandarin,D,,,
-5707,attack,D,,,
+2925,sources,D,,,
+3243,are,D,,,
+3401,telling,D,,,
+3719,us,D,,,
+3838,that,D,,,
+4036,all,D,,,
+4195,signs,D,,,
+4433,are,D,,,
+4592,pointing,D,,,
+4949,to,D,,,
+5068,another,D,,,
+5386,mandarin,D,,,
+5743,attack,D,,,
 
 > I 3
 > T 00:00:06,646 --> 00:00:08,231
@@ -38,11 +38,11 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Anything else you can tell us?
 
 6646,anything,D,,,
-7106,else,D,,,
-7361,you,D,,,
-7566,can,D,,,
-7770,tell,D,,,
-8026,us,D,,,
+7121,else,D,,,
+7385,you,D,,,
+7597,can,D,,,
+7808,tell,D,,,
+8072,us,D,,,
 
 > I 4
 > T 00:00:08,315 --> 00:00:11,318
@@ -50,36 +50,38 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Hey, Mr Stark. When is somebody gonna kill this guy?
 
 8315,hey,D,,,
-8598,mr,D,,,
-8768,stark,D,,,
-9164,when,D,,,
-9448,is,D,,,
-9618,somebody,D,,,
-10128,gonna,D,,,
+8550,mr,D,,,
+8727,stark,D,,,
+9080,when,D,,,
+9374,is,D,,,
+9551,somebody,D,,,
+10081,gon,D,,,
+10317,na,D,,,
 
 <                I 1
 <                T 00:00:00,920 --> 00:00:04,920
 <                R 920 4920 4000
 <                S kill this guy
 
-10468,kill,=,920,kill,9548
-10751,this,=,2348,this,8403
-11034,guy,=,3777,guy,7257
+10493,kill,=,920,kill,9573
+10788,this,=,2348,this,8440
+11082,guy,=,3777,guy,7305
 
 > I 5
 > T 00:00:12,152 --> 00:00:13,153
 > R 12152 13153 1001
 > S I'm just saying.
 
-12152,im,D,,,
-12387,just,D,,,
+12152,i,D,,,
+12269,'m,D,,,
+12446,just,D,,,
 
 <                I 2
 <                T 00:00:12,800 --> 00:00:14,180
 <                R 12800 14180 1380
 <                S saying.
 
-12681,saying,=,12800,saying,119
+12740,saying,=,12800,saying,60
 
 > I 6
 > T 00:00:16,281 --> 00:00:18,283
@@ -93,10 +95,10 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S Is that what you want?
 
 16281,is,=,16390,is,109
-16542,that,=,16442,that,100
-16977,what,=,16529,what,448
-17412,you,=,16616,you,796
-17760,want,=,16685,want,1075
+16554,that,=,16444,that,110
+17009,what,=,16535,what,474
+17464,you,=,16626,you,838
+17828,want,=,16699,want,1129
 
 > I 7
 > T 00:00:20,493 --> 00:00:22,162
@@ -109,44 +111,46 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 20690 21650 960
 <                S Here's a little holiday
 
-20493,heres,=,20690,heres,197
-20847,a,=,20970,a,123
-20948,little,=,21050,little,102
-21302,holiday,=,21330,holiday,28
+20493,here,=,20690,here,197
+20738,'s,=,20882,'s,144
+20885,a,=,20997,a,112
+20983,little,=,21074,little,91
+21327,holiday,=,21342,holiday,15
 
 <                I 5
 <                T 00:00:21,650 --> 00:00:22,610
 <                R 21650 22610 960
 <                S greeting. I've been wanting
 
-21706,greeting,=,21650,greeting,56
+21720,greeting,=,21650,greeting,70
 
 > I 8
 > T 00:00:22,245 --> 00:00:24,664
 > R 22245 24664 2419
 > S I've been wanting to send to the Mandarin.
 
-22245,ive,=,21992,ive,253
-22526,been,=,22164,been,362
-22807,wanting,=,22335,wanting,472
+22245,i,=,21958,i,287
+22357,'ve,=,22027,'ve,330
+22582,been,=,22164,been,418
+22863,wanting,=,22335,wanting,528
 
 <                I 6
 <                T 00:00:22,610 --> 00:00:24,890
 <                R 22610 24890 2280
 <                S to send to the Mandarin. I
 
-23257,to,=,22610,to,647
-23426,send,=,22863,send,563
-23707,to,=,23285,to,422
-23876,the,=,23538,the,338
-24101,mandarin,=,23876,mandarin,225
+23313,to,=,22610,to,703
+23482,send,=,22873,send,609
+23763,to,=,23311,to,452
+23932,the,=,23574,the,358
+24157,mandarin,=,23925,mandarin,232
 
 > I 9
 > T 00:00:24,748 --> 00:00:27,125
 > R 24748 27125 2377
 > S I just didn't know how to phrase it until now.
 
-24748,i,=,24721,i,27
+24748,i,=,24714,i,34
 
 <                I 7
 <                T 00:00:24,890 --> 00:00:25,490
@@ -154,20 +158,21 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S just didn't know how to
 
 24849,just,=,24890,just,41
-25102,didnt,=,25015,didnt,87
-25456,know,=,25190,know,266
-25708,how,=,25315,how,393
-25911,to,=,25415,to,496
+25102,did,=,25010,did,92
+25304,n't,=,25106,n't,198
+25506,know,=,25202,know,304
+25759,how,=,25322,how,437
+25961,to,=,25418,to,543
 
 <                I 8
 <                T 00:00:25,490 --> 00:00:25,970
 <                R 25490 25970 480
 <                S phrase it until now.
 
-26062,phrase,=,25490,phrase,572
-26416,it,=,25650,it,766
-26568,until,=,25718,until,850
-26872,now,=,25855,now,1017
+26113,phrase,=,25490,phrase,623
+26467,it,=,25658,it,809
+26619,until,=,25730,until,889
+26922,now,=,25874,now,1048
 
 > I 10
 > T 00:00:27,834 --> 00:00:30,879
@@ -181,48 +186,51 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S My name is Tony Stark and I'm
 
 27834,my,=,28030,my,196
-28020,name,=,28138,name,118
-28331,is,=,28318,is,13
-28517,tony,=,28426,tony,91
-28828,stark,=,28606,stark,222
-29201,and,=,28822,and,379
-29449,im,=,28966,im,483
+28020,name,=,28134,name,114
+28331,is,=,28308,is,23
+28517,tony,=,28413,tony,104
+28828,stark,=,28587,stark,241
+29201,and,=,28796,and,405
+29449,i,=,28935,i,514
+29574,'m,=,29005,'m,569
 
 <                I 10
 <                T 00:00:29,110 --> 00:00:31,270
 <                R 29110 31270 2160
 <                S not afraid of you. I know
 
-29698,not,=,29110,not,588
-29946,afraid,=,29442,afraid,504
-30381,of,=,30023,of,358
-30568,you,=,30273,you,295
+29760,not,=,29110,not,650
+30009,afraid,=,29455,afraid,554
+30444,of,=,30060,of,384
+30630,you,=,30319,you,311
 
 > I 11
 > T 00:00:30,962 --> 00:00:34,007
 > R 30962 34007 3045
 > S I know you're a coward. So I've decided
 
-30962,i,=,30688,i,274
-31114,know,=,30854,know,260
+30962,i,=,30665,i,297
+31110,know,=,30837,know,273
 
 <                I 11
 <                T 00:00:31,270 --> 00:00:33,430
 <                R 31270 33430 2160
 <                S you're a coward. So I've
 
-31494,youre,=,31270,youre,224
-32027,a,=,31874,a,153
-32180,coward,=,32047,coward,133
-32789,so,=,32738,so,51
-33017,ive,=,32998,ive,19
+31481,you,=,31270,you,211
+31778,'re,=,31602,'re,176
+32076,a,=,31934,a,142
+32224,coward,=,32100,coward,124
+32744,so,=,32682,so,62
+32967,i,=,32931,i,36
+33115,'ve,=,33097,'ve,18
 
 <                I 12
 <                T 00:00:33,430 --> 00:00:36,190
 <                R 33430 36190 2760
 <                S decided that you just died
 
-33398,decided,=,33430,decided,32
+33412,decided,=,33430,decided,18
 
 > I 12
 > T 00:00:34,841 --> 00:00:36,343
@@ -230,87 +238,94 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S that you just died, pal.
 
 34841,that,=,34247,that,594
-35141,you,=,34758,you,383
-35381,just,=,35167,just,214
-35682,died,=,35678,died,4
+35167,you,=,34758,you,409
+35428,just,=,35167,just,261
+35755,died,=,35678,died,77
 
 <                I 13
 <                T 00:00:36,190 --> 00:00:37,750
 <                R 36190 37750 1560
 <                S pal. I'm gonna come get the
 
-36042,pal,=,36190,pal,148
+36081,pal,=,36190,pal,109
 
 > I 13
 > T 00:00:36,843 --> 00:00:38,553
 > R 36843 38553 1710
 > S I'm gonna come get the body.
 
-36843,im,=,36468,im,375
-37078,gonna,=,36691,gonna,387
-37432,come,=,37025,come,407
-37727,get,=,37304,get,423
-37963,the,=,37527,the,436
+36843,i,=,36405,i,438
+36957,'m,=,36512,'m,445
+37128,gon,=,36674,gon,454
+37356,na,=,36889,na,467
+37527,come,=,37050,come,477
+37812,get,=,37319,get,493
+38040,the,=,37534,the,506
 
 <                I 14
 <                T 00:00:37,750 --> 00:00:39,670
 <                R 37750 39670 1920
 <                S body. There's no politics
 
-38199,body,=,37750,body,449
+38268,body,=,37750,body,518
 
 > I 14
 > T 00:00:38,845 --> 00:00:41,389
 > R 38845 41389 2544
 > S There's no politics here. It's just good old-fashioned revenge.
 
-38845,theres,=,38193,theres,652
-39163,no,=,38783,no,380
-39282,politics,=,39005,politics,277
+38845,there,=,38119,there,726
+39083,'s,=,38562,'s,521
+39202,no,=,38783,no,419
+39322,politics,=,39005,politics,317
 
 <                I 15
 <                T 00:00:39,670 --> 00:00:40,630
 <                R 39670 40630 960
 <                S here. It's just good
 
-39640,here,=,39670,here,30
-39878,its,=,39944,its,66
-40077,just,=,40172,just,95
-40276,good,=,40401,good,125
+39679,here,=,39670,here,9
+39878,it,=,39898,it,20
+39997,'s,=,40035,'s,38
+40117,just,=,40172,just,55
+40315,good,=,40401,good,86
 
 <                I 16
 <                T 00:00:40,630 --> 00:00:42,430
 <                R 40630 42430 1800
 <                S old-fashioned Revenge. It's
 
-40474,oldfashioned,=,40630,oldfashioned,156
-41031,revenge,=,41530,revenge,499
+40514,old,=,40630,old,116
+40673,fashioned,=,40887,fashioned,214
+41071,revenge,=,41530,revenge,459
 
 > I 15
 > T 00:00:42,015 --> 00:00:44,684
 > R 42015 44684 2669
 > S There's no Pentagon, it's just you and me.
 
-42015,theres,R,42108,its,93
+42015,there,R,42044,it,29
+42387,'s,=,42237,'s,150
 
 <                I 17
 <                T 00:00:42,430 --> 00:00:43,870
 <                R 42430 43870 1440
 <                S no Pentagon. It's just you
 
-42511,no,=,42430,no,81
-42697,pentagon,=,42590,pentagon,107
-43318,its,=,43123,its,195
-43628,just,=,43390,just,238
-43939,you,=,43656,you,283
+42573,no,=,42430,no,143
+42759,pentagon,=,42590,pentagon,169
+43318,it,=,43070,it,248
+43504,'s,=,43230,'s,274
+43690,just,=,43390,just,300
+44001,you,=,43656,you,345
 
 <                I 18
 <                T 00:00:43,870 --> 00:00:46,630
 <                R 43870 46630 2760
 <                S and me on the off chance
 
-44187,and,=,43870,and,317
-44435,me,=,44311,me,124
+44249,and,=,43870,and,379
+44497,me,=,44311,me,186
 
 > I 16
 > T 00:00:45,018 --> 00:00:48,605
@@ -328,19 +343,21 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 46630 47590 960
 <                S Superman. Here's my home
 
-46333,youre,R,46630,superman,297
-46751,a,D,,,
-46871,man,D,,,
-47170,heres,=,47014,heres,156
-47588,my,=,47282,my,306
-47768,home,=,47398,home,370
+46333,you,R,46630,superman,297
+46572,'re,D,,,
+46811,a,D,,,
+46931,man,D,,,
+47170,here,=,46975,here,195
+47469,'s,=,47167,'s,302
+47648,my,=,47282,my,366
+47827,home,=,47397,home,430
 
 <                I 20
 <                T 00:00:47,590 --> 00:00:48,790
 <                R 47590 48790 1200
 <                S address 10
 
-48066,address,=,47590,address,476
+48126,address,=,47590,address,536
 
 > I 17
 > T 00:00:48,688 --> 00:00:52,192
@@ -355,14 +372,14 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S 880 Malibu
 
 ,,I,48790,880,
-49739,malibu,=,49924,malibu,185
+49794,malibu,=,49924,malibu,130
 
 <                I 22
 <                T 00:00:51,670 --> 00:00:52,960
 <                R 51670 52960 1290
 <                S .90 265
 
-50965,point,R,51670,90,705
+51085,point,R,51670,.90,585
 
 > I 18
 > T 00:00:52,275 --> 00:00:54,444
@@ -382,11 +399,12 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 54740 56780 2040
 <                S I'll leave the door unlocked.
 
-54527,ill,=,54740,ill,213
-54833,leave,=,55080,leave,247
-55200,the,=,55488,the,288
-55445,door,=,55760,door,315
-55751,unlocked,=,56100,unlocked,349
+54527,i,=,54740,i,213
+54649,'ll,=,54876,'ll,227
+54894,leave,=,55148,leave,254
+55261,the,=,55556,the,295
+55506,door,=,55828,door,322
+55812,unlocked,=,56168,unlocked,356
 
 > I 20
 > T 00:00:56,446 --> 00:00:57,646
@@ -399,18 +417,19 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 56780 59360 2580
 <                S That's what you want to drink.
 
-56446,thats,=,56780,thats,334
-56716,what,=,57362,what,646
-56910,you,=,57778,you,868
-57065,wanted,R,58111,want,1046
-57375,right,R,58527,to,1152
+56446,that,=,56780,that,334
+56646,'s,=,57196,'s,550
+56766,what,=,57445,what,679
+56966,you,=,57861,you,895
+57126,wanted,R,58194,want,1068
+57406,right,R,58610,to,1204
 
 > I 21
 > T 00:01:00,951 --> 00:01:02,535
 > R 60951 62535 1584
 > S Bill me.
 
-60951,bill,R,58777,drink,2174
+60951,bill,R,58860,drink,2091
 
 <                I 25
 <                T 00:01:01,200 --> 00:01:05,200
@@ -418,7 +437,7 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S Tell me
 
 ,,I,61200,tell,
-61831,me,=,63700,me,1869
+61941,me,=,63700,me,1759
 
 > I 22
 > T 00:01:06,748 --> 00:01:09,960
@@ -431,20 +450,21 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 67200 68400 1200
 <                S I've compiled a mandarin
 
-66748,ive,=,67200,ive,452
-67082,compiled,=,67440,compiled,358
-67684,a,=,67872,a,188
-67818,mandarin,=,67968,mandarin,150
+66748,i,=,67200,i,452
+66884,'ve,=,67292,'ve,408
+67158,compiled,=,67476,compiled,318
+67773,a,=,67892,a,119
+67909,mandarin,=,67984,mandarin,75
 
 <                I 27
 <                T 00:01:08,400 --> 00:01:11,280
 <                R 68400 71280 2880
 <                S database views drawn from
 
-68420,database,=,68400,database,20
-69023,for,R,69396,views,373
-69290,you,D,,,
-69625,sir,D,,,
+68524,database,=,68400,database,124
+69139,for,R,69396,views,257
+69413,you,D,,,
+69686,sir,D,,,
 
 > I 23
 > T 00:01:10,043 --> 00:01:14,255
@@ -452,18 +472,18 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S drawn from S.H.I.E.L.D., FBI and CIA intercepts.
 
 70043,drawn,=,70061,drawn,18
-70558,from,=,70726,from,168
+70580,from,=,70726,from,146
 
 <                I 28
 <                T 00:01:11,280 --> 00:01:14,640
 <                R 71280 74640 3360
 <                S Shield FBI and CIA intercepts
 
-70988,shield,=,71280,shield,292
-72191,fbi,=,72064,fbi,127
-72535,and,=,72512,and,23
-72879,cia,=,72960,cia,81
-73223,intercepts,=,73408,intercepts,185
+71028,s.h.i.e.l.d.,R,71280,shield,252
+72193,fbi,=,72064,fbi,129
+72552,and,=,72512,and,40
+72910,cia,=,72960,cia,50
+73269,intercepts,=,73408,intercepts,139
 
 > I 24
 > T 00:01:14,339 --> 00:01:16,883
@@ -477,16 +497,16 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S initiating virtual crime
 
 74339,initiating,=,74880,initiating,541
-74934,virtual,=,75408,virtual,474
-75367,crime,=,75792,crime,425
+74947,virtual,=,75408,virtual,461
+75389,crime,=,75792,crime,403
 
 <                I 30
 <                T 00:01:16,080 --> 00:01:16,980
 <                R 76080 76980 900
 <                S scene reconstruction.
 
-75692,scene,=,76080,scene,388
-76016,reconstruction,=,76325,reconstruction,309
+75721,scene,=,76080,scene,359
+76053,reconstruction,=,76337,reconstruction,284
 
 > I 25
 > T 00:01:19,052 --> 00:01:22,847
@@ -500,11 +520,11 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S Okay, what do we got here?
 
 79052,okay,=,79220,okay,168
-79837,what,=,79600,what,237
-80491,have,R,79916,do,575
-81145,we,=,80106,we,1039
-81538,got,=,80296,got,1242
-82061,here,=,80550,here,1511
+79754,what,=,79562,what,192
+80457,have,R,79904,do,553
+81160,we,=,80109,we,1051
+81582,got,=,80314,got,1268
+82144,here,=,80588,here,1556
 
 > I 26
 > T 00:01:22,931 --> 00:01:27,268
@@ -518,30 +538,30 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 83080 85480 2400
 <                S Name is an ancient Chinese
 
-83168,name,=,83080,name,88
-83465,is,=,83524,is,59
-83643,an,=,83791,an,148
-83822,ancient,=,84057,ancient,235
-84297,chinese,=,84768,chinese,471
+83178,name,=,83080,name,98
+83488,is,=,83524,is,36
+83674,an,=,83791,an,117
+83860,ancient,=,84057,ancient,197
+84356,chinese,=,84768,chinese,412
 
 <                I 33
 <                T 00:01:25,480 --> 00:01:26,200
 <                R 85480 86200 720
 <                S War mental meaning advisor to
 
-84772,war,=,85480,war,708
-85010,mantle,R,85576,mental,566
-85426,meaning,=,85744,meaning,318
-85901,adviser,R,85936,advisor,35
-86436,to,=,86128,to,308
+84851,war,=,85480,war,629
+85099,mantle,R,85576,mental,477
+85533,meaning,=,85744,meaning,211
+86028,adviser,R,85936,advisor,92
+86524,to,=,86128,to,396
 
 <                I 34
 <                T 00:01:26,200 --> 00:01:28,720
 <                R 86200 88720 2520
 <                S the King South American
 
-86614,the,=,86200,the,414
-86852,king,=,86620,king,232
+86710,the,=,86200,the,510
+86958,king,=,86620,king,338
 
 > I 27
 > T 00:01:27,352 --> 00:01:30,647
@@ -549,15 +569,15 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S South American insurgency tactics.
 
 87352,south,=,87145,south,207
-87916,american,=,87775,american,141
+87933,american,=,87775,american,158
 
 <                I 35
 <                T 00:01:28,720 --> 00:01:31,480
 <                R 88720 91480 2760
 <                S Insurgency tactics toxic a
 
-88764,insurgency,=,88720,insurgency,44
-89799,tactics,=,89844,tactics,45
+88805,insurgency,=,88720,insurgency,85
+89871,tactics,=,89844,tactics,27
 
 > I 28
 > T 00:01:30,730 --> 00:01:33,191
@@ -565,45 +585,46 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Talks like a Baptist preacher.
 
 90730,talks,R,90662,toxic,68
-91206,like,D,,,
-91603,a,=,91275,a,328
+91222,like,D,,,
+91632,a,=,91275,a,357
 
 <                I 36
 <                T 00:01:31,480 --> 00:01:34,240
 <                R 91480 94240 2760
 <                S Baptist preacher. It's
 
-91762,baptist,=,91480,baptist,282
-92397,preacher,=,92440,preacher,43
+91796,baptist,=,91480,baptist,316
+92452,preacher,=,92440,preacher,12
 
 > I 29
 > T 00:01:33,274 --> 00:01:37,612
 > R 93274 97612 4338
 > S There's lots of pageantry going on here. Lots of theater. Close.
 
-93274,theres,R,93640,its,366
-93807,lots,D,,,
-94141,of,D,,,
+93274,there,R,93520,it,246
+93687,'s,=,93880,'s,193
+93893,lots,D,,,
+94238,of,D,,,
 
 <                I 37
 <                T 00:01:34,240 --> 00:01:35,920
 <                R 94240 95920 1680
 <                S pageantry going on here lots
 
-94341,pageantry,=,94240,pageantry,101
-95009,going,=,94819,going,190
-95409,on,=,95166,on,243
-95609,here,=,95340,here,269
-96010,lots,=,95630,lots,380
-96343,of,D,,,
+94444,pageantry,=,94240,pageantry,204
+95133,going,=,94819,going,314
+95546,on,=,95166,on,380
+95752,here,=,95340,here,412
+96097,lots,=,95630,lots,467
+96441,of,D,,,
 
 <                I 38
 <                T 00:01:35,920 --> 00:01:38,440
 <                R 95920 98440 2520
 <                S theater closed heat from the
 
-96544,theater,=,95920,theater,624
-97144,close,R,96615,closed,529
+96648,theater,=,95920,theater,728
+97198,close,R,96615,closed,583
 
 > I 30
 > T 00:01:37,696 --> 00:01:41,282
@@ -611,46 +632,46 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S The heat from the blast was in excess of 3,000 degrees Celsius.
 
 97696,the,D,,,
-97920,heat,=,97223,heat,697
-98200,from,=,97657,from,543
-98480,the,=,98092,the,388
+97927,heat,=,97223,heat,704
+98216,from,=,97657,from,559
+98505,the,=,98092,the,413
 
 <                I 39
 <                T 00:01:38,440 --> 00:01:40,120
 <                R 98440 100120 1680
 <                S blast was in excess of 3,000
 
-98704,blast,=,98440,blast,264
-99040,was,=,98787,was,253
-99264,in,=,99019,in,245
-99432,excess,=,99193,excess,239
-99825,of,=,99598,of,227
-99993,3000,=,99772,3000,221
+98737,blast,=,98440,blast,297
+99084,was,=,98800,was,284
+99315,in,=,99040,in,275
+99489,excess,=,99220,excess,269
+99893,of,=,99640,of,253
+100067,3000,=,99820,3000,247
 
 <                I 40
 <                T 00:01:40,120 --> 00:01:42,040
 <                R 100120 102040 1920
 <                S degrees Celsius, and he
 
-100329,degrees,=,100120,degrees,209
-100777,celsius,=,100760,celsius,17
+100356,degrees,=,100120,degrees,236
+100819,celsius,=,100787,celsius,32
 
 > I 31
 > T 00:01:41,366 --> 00:01:44,995
 > R 101366 104995 3629
 > S Any subjects within 12.5 yards were vaporised instantly.
 
-101366,any,R,101480,and,114
-,,I,101800,he,
+101366,any,R,101455,and,89
+,,I,101789,he,
 
 <                I 41
 <                T 00:01:42,040 --> 00:01:43,360
 <                R 102040 103360 1320
 <                S subjects within twelve point
 
-101620,subjects,=,102040,subjects,420
-102193,within,=,102449,within,256
-102639,125,R,102768,twelve,129
+101625,subjects,=,102040,subjects,415
+102208,within,=,102449,within,241
+102662,12.5,R,102768,twelve,106
 ,,I,103086,point,
 
 <                I 42
@@ -659,60 +680,61 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S five yards were vaporized
 
 ,,I,103360,five,
-102957,yards,=,103567,yards,610
-103339,were,=,103816,were,477
-103658,vaporised,R,104024,vaporized,366
+102986,yards,=,103567,yards,581
+103374,were,=,103816,were,442
+103698,vaporised,R,104024,vaporized,326
 
 <                I 43
 <                T 00:01:44,440 --> 00:01:45,880
 <                R 104440 105880 1440
 <                S instantly. No bomb Parts
 
-104294,instantly,=,104440,instantly,146
+104346,instantly,=,104440,instantly,94
 
 > I 32
 > T 00:01:45,078 --> 00:01:47,747
 > R 105078 107747 2669
 > S No bomb parts found in a three-mile radius of the Chinese Theater?
 
-105078,no,=,105073,no,5
-105197,bomb,=,105246,bomb,49
-105396,parts,=,105534,parts,138
+105078,no,=,105040,no,38
+105199,bomb,=,105220,bomb,21
+105401,parts,=,105520,parts,119
 
 <                I 44
 <                T 00:01:45,880 --> 00:01:47,200
 <                R 105880 107200 1320
 <                S found in a three-mile radius
 
-105635,found,=,105880,found,245
-105874,in,=,106153,in,279
-105994,a,=,106289,a,295
-106073,threemile,=,106380,threemile,307
-106512,radius,=,106881,radius,369
+105644,found,=,105880,found,236
+105886,in,=,106153,in,267
+106008,a,=,106289,a,281
+106088,three,=,106380,three,292
+106331,mile,=,106653,mile,322
+106533,radius,=,106881,radius,348
 
 <                I 45
 <                T 00:01:47,200 --> 00:01:48,730
 <                R 107200 108730 1530
 <                S of the Chinese Theater Mosa.
 
-106790,of,=,107200,of,410
-106910,the,=,107358,the,448
-107069,chinese,=,107569,chinese,500
-107388,theater,=,107991,theater,603
+106816,of,=,107200,of,384
+106938,the,=,107363,the,425
+107099,chinese,=,107582,chinese,483
+107423,theater,=,108019,theater,596
 
 > I 33
 > T 00:01:47,831 --> 00:01:48,832
 > R 107831 108832 1001
 > S No, sir.
 
-107831,no,R,108413,mosa,582
+107831,no,R,108456,mosa,625
 
 <                I 46
 <                T 00:01:51,230 --> 00:01:52,130
 <                R 111230 112130 900
 <                S time to be happy
 
-108275,sir,R,111230,time,2955
+108260,sir,R,111230,time,2970
 
 > I 34
 > T 00:01:50,875 --> 00:01:51,876
@@ -720,9 +742,9 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Talk to me, Happy.
 
 110875,talk,D,,,
-111138,to,=,111494,to,356
-111296,me,R,111653,be,357
-111507,happy,=,111812,happy,305
+111169,to,=,111494,to,325
+111346,me,R,111653,be,307
+111522,happy,=,111812,happy,290
 
 > I 35
 > T 00:02:10,645 --> 00:02:12,522
@@ -736,12 +758,12 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S What is the bomb not a bomb?
 
 130645,when,R,130930,what,285
-130992,is,=,131219,is,227
-131201,a,R,131393,the,192
-131340,bomb,=,131625,bomb,285
-131687,not,=,131914,not,227
-131965,a,=,132146,a,181
-132104,bomb,=,132262,bomb,158
+131005,is,=,131230,is,225
+131222,a,R,131410,the,188
+131366,bomb,=,131650,bomb,284
+131727,not,=,131950,not,223
+132016,a,=,132190,a,174
+132161,bomb,=,132310,bomb,149
 
 > I 36
 > T 00:02:23,908 --> 00:02:24,951
@@ -755,8 +777,8 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S any military victims not
 
 143908,any,=,144290,any,382
-144097,military,=,144501,military,404
-144524,victims,=,144976,victims,452
+144106,military,=,144501,military,395
+144553,victims,=,144976,victims,423
 
 > I 37
 > T 00:02:26,161 --> 00:02:27,601
@@ -770,11 +792,11 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 145610 147290 1680
 <                S according to public records
 
-146316,according,=,145610,according,706
-146705,to,=,146210,to,495
-146822,public,=,146390,public,432
-147095,record,R,146810,records,285
-147406,sir,D,,,
+146325,according,=,145610,according,715
+146737,to,=,146210,to,527
+146860,public,=,146390,public,470
+147148,record,R,146810,records,338
+147436,sir,D,,,
 
 > I 38
 > T 00:02:27,662 --> 00:02:29,789
@@ -788,51 +810,51 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S bring up the thermogenic
 
 147662,bring,=,147290,bring,372
-147958,up,=,147837,up,121
-148107,the,=,148110,the,3
-148305,thermogenic,=,148475,thermogenic,170
+147965,up,=,147837,up,128
+148117,the,=,148110,the,7
+148320,thermogenic,=,148475,thermogenic,155
 
 <                I 51
 <                T 00:02:29,570 --> 00:02:31,010
 <                R 149570 151010 1440
 <                S signatures again factoring 3,
 
-148898,signatures,=,149570,signatures,672
-149442,again,=,150098,again,656
+148928,signatures,=,149570,signatures,642
+149485,again,=,150116,again,631
 
 > I 39
 > T 00:02:29,873 --> 00:02:31,583
 > R 149873 151583 1710
 > S Factor in 3,000 degrees.
 
-149873,factor,R,150386,factoring,513
-150351,in,R,150866,3,515
+149873,factor,R,150414,factoring,541
+150393,in,R,150910,3,517
 
 <                I 52
 <                T 00:02:31,010 --> 00:02:33,290
 <                R 151010 153290 2280
 <                S 000 degrees. The Oracle cloud
 
-150557,3000,R,151010,000,453
-150967,degrees,=,151314,degrees,347
+150616,3000,R,151010,000,394
+150988,degrees,=,151324,degrees,336
 
 > I 40
 > T 00:02:31,666 --> 00:02:34,377
 > R 151666 154377 2711
 > S The Oracle cloud has completed analysis.
 
-151666,the,=,151998,the,332
-151930,oracle,=,152302,oracle,372
-152393,cloud,=,152834,cloud,441
+151666,the,=,151953,the,287
+151937,oracle,=,152267,oracle,330
+152411,cloud,=,152818,cloud,407
 
 <                I 53
 <                T 00:02:33,290 --> 00:02:34,370
 <                R 153290 154370 1080
 <                S is completed analysis
 
-152790,has,R,153290,is,500
-153054,completed,=,153437,completed,383
-153715,analysis,=,153928,analysis,213
+152818,has,R,153290,is,472
+153089,completed,=,153437,completed,348
+153767,analysis,=,153928,analysis,161
 
 > I 41
 > T 00:02:34,461 --> 00:02:35,545
@@ -860,27 +882,27 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 155930 157010 1080
 <                S plotting the last 12 months
 
-155870,plotting,=,155930,plotting,60
-156415,the,=,156277,the,138
-156658,last,=,156431,last,227
-156961,12,=,156624,12,337
-157143,months,=,156740,months,403
+155874,plotting,=,155930,plotting,56
+156428,the,=,156277,the,151
+156674,last,=,156431,last,243
+156982,12,=,156624,12,358
+157167,months,=,156740,months,427
 
 <                I 56
 <                T 00:02:37,010 --> 00:02:38,330
 <                R 157010 158330 1320
 <                S of thermogenic occurrences
 
-157567,of,=,157010,of,557
-157749,thermogenic,=,157156,thermogenic,593
-158476,occurrences,=,157743,occurrences,733
+157598,of,=,157010,of,588
+157783,thermogenic,=,157156,thermogenic,627
+158521,occurrences,=,157743,occurrences,778
 
 <                I 57
 <                T 00:02:38,330 --> 00:02:38,730
 <                R 158330 158730 400
 <                S now,
 
-159203,now,=,158330,now,873
+159260,now,=,158330,now,930
 
 > I 43
 > T 00:02:40,175 --> 00:02:42,635
@@ -903,17 +925,18 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 161550 162180 630
 <                S there's been a mandarin
 
-161277,theres,=,161550,theres,273
-161617,been,=,161760,been,143
-161829,a,=,161891,a,62
-161913,mandarin,=,161943,mandarin,30
+161277,there,=,161550,there,273
+161532,'s,=,161701,'s,169
+161659,been,=,161776,been,117
+161871,a,=,161902,a,31
+161956,mandarin,=,161953,mandarin,3
 
 <                I 60
 <                T 00:02:42,180 --> 00:02:42,580
 <                R 162180 162580 400
 <                S attack.
 
-162295,attack,=,162180,attack,115
+162338,attack,=,162180,attack,158
 
 > I 44
 > T 00:02:48,016 --> 00:02:49,100
@@ -940,20 +963,21 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S that you sure that's not one
 
 174981,that,=,175440,that,459
-175302,are,D,,,
-175517,you,=,175708,you,191
-175731,sure,=,175924,sure,193
-175999,thats,=,176193,thats,194
-176375,not,=,176569,not,194
-176589,one,=,176784,one,195
+175255,are,D,,,
+175475,you,=,175700,you,225
+175695,sure,=,175908,sure,213
+175969,that,=,176168,that,199
+176244,'s,=,176428,'s,184
+176409,not,=,176584,not,175
+176628,one,=,176792,one,164
 
 <                I 63
 <                T 00:02:57,000 --> 00:02:59,040
 <                R 177000 179040 2040
 <                S of his predates any known
 
-176804,of,=,177000,of,196
-176964,his,=,177235,his,271
+176848,of,=,177000,of,152
+177013,his,=,177235,his,222
 
 > I 46
 > T 00:02:57,317 --> 00:02:59,778
@@ -961,47 +985,47 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S It predates any known Mandarin attack.
 
 177317,it,D,,,
-177506,predates,=,177549,predates,43
-178074,any,=,178255,any,181
-178326,known,=,178569,known,243
+177511,predates,=,177549,predates,38
+178094,any,=,178255,any,161
+178353,known,=,178569,known,216
 
 <                I 64
 <                T 00:02:59,040 --> 00:03:00,600
 <                R 179040 180600 1560
 <                S Mandarin attack. The incident
 
-178705,mandarin,=,179040,mandarin,335
-179273,attack,=,179508,attack,235
+178741,mandarin,=,179040,mandarin,299
+179324,attack,=,179524,attack,200
 
 > I 47
 > T 00:02:59,861 --> 00:03:02,697
 > R 179861 182697 2836
 > S The incident was the use of a bomb to assist a suicide.
 
-179861,the,=,179924,the,63
-180063,incident,=,180132,incident,69
+179861,the,=,179900,the,39
+180067,incident,=,180115,incident,48
 
 <                I 65
 <                T 00:03:00,600 --> 00:03:02,040
 <                R 180600 182040 1440
 <                S was the use of a bomb to
 
-180519,was,=,180600,was,81
-180721,the,=,180830,the,109
-180924,use,=,181060,use,136
-181127,of,=,181291,of,164
-181278,a,=,181463,a,185
-181380,bomb,=,181579,bomb,199
-181633,to,=,181867,to,234
+180531,was,=,180600,was,69
+180737,the,=,180830,the,93
+180943,use,=,181060,use,117
+181150,of,=,181291,of,141
+181304,a,=,181463,a,159
+181407,bomb,=,181579,bomb,172
+181665,to,=,181867,to,202
 
 <                I 66
 <                T 00:03:02,040 --> 00:03:03,240
 <                R 182040 183240 1200
 <                S assist a suicide.
 
-181785,assist,=,182040,assist,255
-182139,a,=,182506,a,367
-182241,suicide,=,182640,suicide,399
+181820,assist,=,182040,assist,220
+182181,a,=,182534,a,353
+182284,suicide,=,182675,suicide,391
 
 > I 48
 > T 00:03:02,781 --> 00:03:04,616
@@ -1009,8 +1033,8 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 > S Bring her around.
 
 182781,bring,D,,,
-183392,her,D,,,
-183800,around,D,,,
+183428,her,D,,,
+183860,around,D,,,
 
 > I 49
 > T 00:03:05,325 --> 00:03:07,702
@@ -1024,17 +1048,17 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S The heat signature is
 
 185325,the,=,185880,the,555
-185551,heat,=,186136,heat,585
-185834,signature,=,186456,signature,622
-186400,is,=,187097,is,697
+185556,heat,=,186136,heat,580
+185846,signature,=,186456,signature,610
+186426,is,=,187097,is,671
 
 <                I 68
 <                T 00:03:07,290 --> 00:03:09,120
 <                R 187290 189120 1830
 <                S remarkably similar 3000
 
-186570,remarkably,=,187290,remarkably,720
-187192,similar,=,188128,similar,936
+186600,remarkably,=,187290,remarkably,690
+187238,similar,=,188128,similar,890
 
 > I 50
 > T 00:03:08,369 --> 00:03:09,829
@@ -1048,8 +1072,8 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 189120 189520 400
 <                S degrees Celsius.
 
-188767,degree,R,189120,degrees,353
-189231,celsius,=,189308,celsius,77
+188734,degree,R,189120,degrees,386
+189245,celsius,=,189320,celsius,75
 
 > I 51
 > T 00:03:11,623 --> 00:03:13,708
@@ -1062,10 +1086,11 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                R 191800 192640 840
 <                S It's two military guys.
 
-191623,thats,R,191800,its,177
-192184,two,=,191975,two,209
-192505,military,=,192115,military,390
-193226,guys,=,192430,guys,796
+191623,that,R,191800,it,177
+192023,'s,=,191905,'s,118
+192264,two,=,192010,two,254
+192585,military,=,192150,military,435
+193307,guys,=,192465,guys,842
 
 > I 52
 > T 00:03:14,501 --> 00:03:15,741
@@ -1079,10 +1104,10 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S Ever been to Tennessee Jarvis
 
 194501,ever,=,195190,ever,689
-194694,been,=,195430,been,736
-194888,to,=,195670,to,782
-195004,tennessee,=,195814,tennessee,810
-195431,jarvis,=,196294,jarvis,863
+194707,been,=,195430,been,723
+194914,to,=,195670,to,756
+195038,tennessee,=,195814,tennessee,776
+195451,jarvis,=,196294,jarvis,843
 
 > I 53
 > T 00:03:16,169 --> 00:03:18,671
@@ -1096,15 +1121,15 @@ ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF
 <                S creating a flight plan for
 
 196169,creating,=,196630,creating,461
-196761,a,=,197030,a,269
-196893,flight,=,197118,flight,225
-197354,plan,=,197430,plan,76
-197683,for,=,197652,for,31
+196777,a,=,197030,a,253
+196912,flight,=,197118,flight,206
+197386,plan,=,197430,plan,44
+197724,for,=,197652,for,72
 
 <                I 73
 <                T 00:03:17,830 --> 00:03:19,900
 <                R 197830 199900 2070
 <                S Tennessee.
 
-197946,tennessee,=,197830,tennessee,116
+197994,tennessee,=,197830,tennessee,164
 #--metrics--

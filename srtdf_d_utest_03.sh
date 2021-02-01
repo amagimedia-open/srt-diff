@@ -41,8 +41,8 @@ tap_utest_begins
 
 cat $TRAN_SRT_FILEPATH | grep -v '^#' > $TMP1
 
-if ! python3 srtdf_srt_compare_writer.py \
-                $ORG_SRT_FILEPATH $TMP1 > $TMP2
+if ! python3 srtdf_srt_compare_writer.py -d \
+                $ORG_SRT_FILEPATH $TMP1 >$TMP2 2>$DIRNAME/$BARENAME.dbg
 then
     tap_utest_diag_msg "sstt_x_srt_compare_writer.py failed"
     tap_utest_failed

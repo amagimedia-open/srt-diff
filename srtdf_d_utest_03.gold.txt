@@ -3,9 +3,9 @@
 > R 1600 2684 1084
 > S Mr Stark, hi there.
 > W 1600 mr
-> W 1762 stark
+> W 1780 stark
 > W 2142 hi
-> W 2304 there
+> W 2322 there
 > 
 < I                     1
 < T                     00:00:00,920 --> 00:00:04,920
@@ -20,53 +20,55 @@
 > R 2767 6021 3254
 > S Our sources are telling us that all signs are pointing to another Mandarin attack.
 > W 2767 our
-> W 2923 sources
-> W 3237 are
-> W 3394 telling
-> W 3707 us
-> W 3825 that
-> W 4021 all
-> W 4178 signs
-> W 4413 are
-> W 4570 pointing
-> W 4923 to
-> W 5040 another
-> W 5354 mandarin
-> W 5707 attack
+> W 2925 sources
+> W 3243 are
+> W 3401 telling
+> W 3719 us
+> W 3838 that
+> W 4036 all
+> W 4195 signs
+> W 4433 are
+> W 4592 pointing
+> W 4949 to
+> W 5068 another
+> W 5386 mandarin
+> W 5743 attack
 > 
 > I 3
 > T 00:00:06,646 --> 00:00:08,231
 > R 6646 8231 1585
 > S Anything else you can tell us?
 > W 6646 anything
-> W 7106 else
-> W 7361 you
-> W 7566 can
-> W 7770 tell
-> W 8026 us
+> W 7121 else
+> W 7385 you
+> W 7597 can
+> W 7808 tell
+> W 8072 us
 > 
 > I 4
 > T 00:00:08,315 --> 00:00:11,318
 > R 8315 11318 3003
 > S Hey, Mr Stark. When is somebody gonna kill this guy?
 > W 8315 hey
-> W 8598 mr
-> W 8768 stark
-> W 9164 when
-> W 9448 is
-> W 9618 somebody
-> W 10128 gonna
-> W 10468 kill
-> W 10751 this
-> W 11034 guy
+> W 8550 mr
+> W 8727 stark
+> W 9080 when
+> W 9374 is
+> W 9551 somebody
+> W 10081 gon
+> W 10317 na
+> W 10493 kill
+> W 10788 this
+> W 11082 guy
 > 
 > I 5
 > T 00:00:12,152 --> 00:00:13,153
 > R 12152 13153 1001
 > S I'm just saying.
-> W 12152 im
-> W 12387 just
-> W 12681 saying
+> W 12152 i
+> W 12269 'm
+> W 12446 just
+> W 12740 saying
 > 
 < I                     2
 < T                     00:00:12,800 --> 00:00:14,180
@@ -79,46 +81,49 @@
 > R 16281 18283 2002
 > S Is that what you want?
 > W 16281 is
-> W 16542 that
-> W 16977 what
-> W 17412 you
-> W 17760 want
+> W 16554 that
+> W 17009 what
+> W 17464 you
+> W 17828 want
 > 
 < I                     3
 < T                     00:00:16,390 --> 00:00:16,790
 < R                     16390 16790 400
 < S                     Is that what you want?
 < W                     16390 is
-< W                     16442 that
-< W                     16529 what
-< W                     16616 you
-< W                     16685 want
+< W                     16444 that
+< W                     16535 what
+< W                     16626 you
+< W                     16699 want
 < 
 > I 7
 > T 00:00:20,493 --> 00:00:22,162
 > R 20493 22162 1669
 > S Here's a little holiday greeting
-> W 20493 heres
-> W 20847 a
-> W 20948 little
-> W 21302 holiday
-> W 21706 greeting
+> W 20493 here
+> W 20738 's
+> W 20885 a
+> W 20983 little
+> W 21327 holiday
+> W 21720 greeting
 > 
 < I                     4
 < T                     00:00:20,690 --> 00:00:21,650
 < R                     20690 21650 960
 < S                     Here's a little holiday
-< W                     20690 heres
-< W                     20970 a
-< W                     21050 little
-< W                     21330 holiday
+< W                     20690 here
+< W                     20882 's
+< W                     20997 a
+< W                     21074 little
+< W                     21342 holiday
 < 
 < I                     5
 < T                     00:00:21,650 --> 00:00:22,610
 < R                     21650 22610 960
 < S                     greeting. I've been wanting
 < W                     21650 greeting
-< W                     21992 ive
+< W                     21958 i
+< W                     22027 've
 < W                     22164 been
 < W                     22335 wanting
 < 
@@ -126,25 +131,26 @@
 > T 00:00:22,245 --> 00:00:24,664
 > R 22245 24664 2419
 > S I've been wanting to send to the Mandarin.
-> W 22245 ive
-> W 22526 been
-> W 22807 wanting
-> W 23257 to
-> W 23426 send
-> W 23707 to
-> W 23876 the
-> W 24101 mandarin
+> W 22245 i
+> W 22357 've
+> W 22582 been
+> W 22863 wanting
+> W 23313 to
+> W 23482 send
+> W 23763 to
+> W 23932 the
+> W 24157 mandarin
 > 
 < I                     6
 < T                     00:00:22,610 --> 00:00:24,890
 < R                     22610 24890 2280
 < S                     to send to the Mandarin. I
 < W                     22610 to
-< W                     22863 send
-< W                     23285 to
-< W                     23538 the
-< W                     23876 mandarin
-< W                     24721 i
+< W                     22873 send
+< W                     23311 to
+< W                     23574 the
+< W                     23925 mandarin
+< W                     24714 i
 < 
 > I 9
 > T 00:00:24,748 --> 00:00:27,125
@@ -152,33 +158,35 @@
 > S I just didn't know how to phrase it until now.
 > W 24748 i
 > W 24849 just
-> W 25102 didnt
-> W 25456 know
-> W 25708 how
-> W 25911 to
-> W 26062 phrase
-> W 26416 it
-> W 26568 until
-> W 26872 now
+> W 25102 did
+> W 25304 n't
+> W 25506 know
+> W 25759 how
+> W 25961 to
+> W 26113 phrase
+> W 26467 it
+> W 26619 until
+> W 26922 now
 > 
 < I                     7
 < T                     00:00:24,890 --> 00:00:25,490
 < R                     24890 25490 600
 < S                     just didn't know how to
 < W                     24890 just
-< W                     25015 didnt
-< W                     25190 know
-< W                     25315 how
-< W                     25415 to
+< W                     25010 did
+< W                     25106 n't
+< W                     25202 know
+< W                     25322 how
+< W                     25418 to
 < 
 < I                     8
 < T                     00:00:25,490 --> 00:00:25,970
 < R                     25490 25970 480
 < S                     phrase it until now.
 < W                     25490 phrase
-< W                     25650 it
-< W                     25718 until
-< W                     25855 now
+< W                     25658 it
+< W                     25730 until
+< W                     25874 now
 < 
 > I 10
 > T 00:00:27,834 --> 00:00:30,879
@@ -190,57 +198,63 @@
 > W 28517 tony
 > W 28828 stark
 > W 29201 and
-> W 29449 im
-> W 29698 not
-> W 29946 afraid
-> W 30381 of
-> W 30568 you
+> W 29449 i
+> W 29574 'm
+> W 29760 not
+> W 30009 afraid
+> W 30444 of
+> W 30630 you
 > 
 < I                     9
 < T                     00:00:28,030 --> 00:00:29,110
 < R                     28030 29110 1080
 < S                     My name is Tony Stark and I'm
 < W                     28030 my
-< W                     28138 name
-< W                     28318 is
-< W                     28426 tony
-< W                     28606 stark
-< W                     28822 and
-< W                     28966 im
+< W                     28134 name
+< W                     28308 is
+< W                     28413 tony
+< W                     28587 stark
+< W                     28796 and
+< W                     28935 i
+< W                     29005 'm
 < 
 < I                     10
 < T                     00:00:29,110 --> 00:00:31,270
 < R                     29110 31270 2160
 < S                     not afraid of you. I know
 < W                     29110 not
-< W                     29442 afraid
-< W                     30023 of
-< W                     30273 you
-< W                     30688 i
-< W                     30854 know
+< W                     29455 afraid
+< W                     30060 of
+< W                     30319 you
+< W                     30665 i
+< W                     30837 know
 < 
 > I 11
 > T 00:00:30,962 --> 00:00:34,007
 > R 30962 34007 3045
 > S I know you're a coward. So I've decided
 > W 30962 i
-> W 31114 know
-> W 31494 youre
-> W 32027 a
-> W 32180 coward
-> W 32789 so
-> W 33017 ive
-> W 33398 decided
+> W 31110 know
+> W 31481 you
+> W 31778 're
+> W 32076 a
+> W 32224 coward
+> W 32744 so
+> W 32967 i
+> W 33115 've
+> W 33412 decided
 > 
 < I                     11
 < T                     00:00:31,270 --> 00:00:33,430
 < R                     31270 33430 2160
 < S                     you're a coward. So I've
-< W                     31270 youre
-< W                     31874 a
-< W                     32047 coward
-< W                     32738 so
-< W                     32998 ive
+< W                     31270 you
+< W                     31602 're
+< W                     31934 a
+< W                     32100 coward
+< W                     32682 so
+< W                     32931 i
+< W                     33097 've
 < 
 < I                     12
 < T                     00:00:33,430 --> 00:00:36,190
@@ -257,39 +271,44 @@
 > R 34841 36343 1502
 > S that you just died, pal.
 > W 34841 that
-> W 35141 you
-> W 35381 just
-> W 35682 died
-> W 36042 pal
+> W 35167 you
+> W 35428 just
+> W 35755 died
+> W 36081 pal
 > 
 < I                     13
 < T                     00:00:36,190 --> 00:00:37,750
 < R                     36190 37750 1560
 < S                     pal. I'm gonna come get the
 < W                     36190 pal
-< W                     36468 im
-< W                     36691 gonna
-< W                     37025 come
-< W                     37304 get
-< W                     37527 the
+< W                     36405 i
+< W                     36512 'm
+< W                     36674 gon
+< W                     36889 na
+< W                     37050 come
+< W                     37319 get
+< W                     37534 the
 < 
 > I 13
 > T 00:00:36,843 --> 00:00:38,553
 > R 36843 38553 1710
 > S I'm gonna come get the body.
-> W 36843 im
-> W 37078 gonna
-> W 37432 come
-> W 37727 get
-> W 37963 the
-> W 38199 body
+> W 36843 i
+> W 36957 'm
+> W 37128 gon
+> W 37356 na
+> W 37527 come
+> W 37812 get
+> W 38040 the
+> W 38268 body
 > 
 < I                     14
 < T                     00:00:37,750 --> 00:00:39,670
 < R                     37750 39670 1920
 < S                     body. There's no politics
 < W                     37750 body
-< W                     38193 theres
+< W                     38119 there
+< W                     38562 's
 < W                     38783 no
 < W                     39005 politics
 < 
@@ -297,22 +316,26 @@
 > T 00:00:38,845 --> 00:00:41,389
 > R 38845 41389 2544
 > S There's no politics here. It's just good old-fashioned revenge.
-> W 38845 theres
-> W 39163 no
-> W 39282 politics
-> W 39640 here
-> W 39878 its
-> W 40077 just
-> W 40276 good
-> W 40474 oldfashioned
-> W 41031 revenge
+> W 38845 there
+> W 39083 's
+> W 39202 no
+> W 39322 politics
+> W 39679 here
+> W 39878 it
+> W 39997 's
+> W 40117 just
+> W 40315 good
+> W 40514 old
+> W 40673 fashioned
+> W 41071 revenge
 > 
 < I                     15
 < T                     00:00:39,670 --> 00:00:40,630
 < R                     39670 40630 960
 < S                     here. It's just good
 < W                     39670 here
-< W                     39944 its
+< W                     39898 it
+< W                     40035 's
 < W                     40172 just
 < W                     40401 good
 < 
@@ -320,22 +343,26 @@
 < T                     00:00:40,630 --> 00:00:42,430
 < R                     40630 42430 1800
 < S                     old-fashioned Revenge. It's
-< W                     40630 oldfashioned
+< W                     40630 old
+< W                     40887 fashioned
 < W                     41530 revenge
-< W                     42108 its
+< W                     42044 it
+< W                     42237 's
 < 
 > I 15
 > T 00:00:42,015 --> 00:00:44,684
 > R 42015 44684 2669
 > S There's no Pentagon, it's just you and me.
-> W 42015 theres
-> W 42511 no
-> W 42697 pentagon
-> W 43318 its
-> W 43628 just
-> W 43939 you
-> W 44187 and
-> W 44435 me
+> W 42015 there
+> W 42387 's
+> W 42573 no
+> W 42759 pentagon
+> W 43318 it
+> W 43504 's
+> W 43690 just
+> W 44001 you
+> W 44249 and
+> W 44497 me
 > 
 < I                     17
 < T                     00:00:42,430 --> 00:00:43,870
@@ -343,7 +370,8 @@
 < S                     no Pentagon. It's just you
 < W                     42430 no
 < W                     42590 pentagon
-< W                     43123 its
+< W                     43070 it
+< W                     43230 's
 < W                     43390 just
 < W                     43656 you
 < 
@@ -367,22 +395,25 @@
 > W 45436 the
 > W 45675 off
 > W 45914 chance
-> W 46333 youre
-> W 46751 a
-> W 46871 man
-> W 47170 heres
-> W 47588 my
-> W 47768 home
-> W 48066 address
+> W 46333 you
+> W 46572 're
+> W 46811 a
+> W 46931 man
+> W 47170 here
+> W 47469 's
+> W 47648 my
+> W 47827 home
+> W 48126 address
 > 
 < I                     19
 < T                     00:00:46,630 --> 00:00:47,590
 < R                     46630 47590 960
 < S                     Superman. Here's my home
 < W                     46630 superman
-< W                     47014 heres
+< W                     46975 here
+< W                     47167 's
 < W                     47282 my
-< W                     47398 home
+< W                     47397 home
 < 
 < I                     20
 < T                     00:00:47,590 --> 00:00:48,790
@@ -396,8 +427,8 @@
 > R 48688 52192 3504
 > S 10880 Malibu Point.
 > W 48688 10880
-> W 49739 malibu
-> W 50965 point
+> W 49794 malibu
+> W 51085 point
 > 
 < I                     21
 < T                     00:00:48,790 --> 00:00:51,910
@@ -410,7 +441,7 @@
 < T                     00:00:51,670 --> 00:00:52,960
 < R                     51670 52960 1290
 < S                     .90 265
-< W                     51670 90
+< W                     51670 .90
 < W                     52315 265
 < 
 > I 18
@@ -423,49 +454,53 @@
 > T 00:00:54,527 --> 00:00:56,363
 > R 54527 56363 1836
 > S I'll leave the door unlocked.
-> W 54527 ill
-> W 54833 leave
-> W 55200 the
-> W 55445 door
-> W 55751 unlocked
+> W 54527 i
+> W 54649 'll
+> W 54894 leave
+> W 55261 the
+> W 55506 door
+> W 55812 unlocked
 > 
 < I                     23
 < T                     00:00:54,740 --> 00:00:56,780
 < R                     54740 56780 2040
 < S                     I'll leave the door unlocked.
-< W                     54740 ill
-< W                     55080 leave
-< W                     55488 the
-< W                     55760 door
-< W                     56100 unlocked
+< W                     54740 i
+< W                     54876 'll
+< W                     55148 leave
+< W                     55556 the
+< W                     55828 door
+< W                     56168 unlocked
 < 
 > I 20
 > T 00:00:56,446 --> 00:00:57,646
 > R 56446 57646 1200
 > S That's what you wanted, right?
-> W 56446 thats
-> W 56716 what
-> W 56910 you
-> W 57065 wanted
-> W 57375 right
+> W 56446 that
+> W 56646 's
+> W 56766 what
+> W 56966 you
+> W 57126 wanted
+> W 57406 right
 > 
 < I                     24
 < T                     00:00:56,780 --> 00:00:59,360
 < R                     56780 59360 2580
 < S                     That's what you want to drink.
-< W                     56780 thats
-< W                     57362 what
-< W                     57778 you
-< W                     58111 want
-< W                     58527 to
-< W                     58777 drink
+< W                     56780 that
+< W                     57196 's
+< W                     57445 what
+< W                     57861 you
+< W                     58194 want
+< W                     58610 to
+< W                     58860 drink
 < 
 > I 21
 > T 00:01:00,951 --> 00:01:02,535
 > R 60951 62535 1584
 > S Bill me.
 > W 60951 bill
-> W 61831 me
+> W 61941 me
 > 
 < I                     25
 < T                     00:01:01,200 --> 00:01:05,200
@@ -478,23 +513,25 @@
 > T 00:01:06,748 --> 00:01:09,960
 > R 66748 69960 3212
 > S I've compiled a Mandarin database for you, sir,
-> W 66748 ive
-> W 67082 compiled
-> W 67684 a
-> W 67818 mandarin
-> W 68420 database
-> W 69023 for
-> W 69290 you
-> W 69625 sir
+> W 66748 i
+> W 66884 've
+> W 67158 compiled
+> W 67773 a
+> W 67909 mandarin
+> W 68524 database
+> W 69139 for
+> W 69413 you
+> W 69686 sir
 > 
 < I                     26
 < T                     00:01:07,200 --> 00:01:08,400
 < R                     67200 68400 1200
 < S                     I've compiled a mandarin
-< W                     67200 ive
-< W                     67440 compiled
-< W                     67872 a
-< W                     67968 mandarin
+< W                     67200 i
+< W                     67292 've
+< W                     67476 compiled
+< W                     67892 a
+< W                     67984 mandarin
 < 
 < I                     27
 < T                     00:01:08,400 --> 00:01:11,280
@@ -510,12 +547,12 @@
 > R 70043 74255 4212
 > S drawn from S.H.I.E.L.D., FBI and CIA intercepts.
 > W 70043 drawn
-> W 70558 from
-> W 70988 shield
-> W 72191 fbi
-> W 72535 and
-> W 72879 cia
-> W 73223 intercepts
+> W 70580 from
+> W 71028 s.h.i.e.l.d.
+> W 72193 fbi
+> W 72552 and
+> W 72910 cia
+> W 73269 intercepts
 > 
 < I                     28
 < T                     00:01:11,280 --> 00:01:14,640
@@ -532,10 +569,10 @@
 > R 74339 76883 2544
 > S Initiating virtual crime scene reconstruction.
 > W 74339 initiating
-> W 74934 virtual
-> W 75367 crime
-> W 75692 scene
-> W 76016 reconstruction
+> W 74947 virtual
+> W 75389 crime
+> W 75721 scene
+> W 76053 reconstruction
 > 
 < I                     29
 < T                     00:01:14,880 --> 00:01:16,080
@@ -550,47 +587,47 @@
 < R                     76080 76980 900
 < S                     scene reconstruction.
 < W                     76080 scene
-< W                     76325 reconstruction
+< W                     76337 reconstruction
 < 
 > I 25
 > T 00:01:19,052 --> 00:01:22,847
 > R 79052 82847 3795
 > S Okay. What have we got here?
 > W 79052 okay
-> W 79837 what
-> W 80491 have
-> W 81145 we
-> W 81538 got
-> W 82061 here
+> W 79754 what
+> W 80457 have
+> W 81160 we
+> W 81582 got
+> W 82144 here
 > 
 < I                     31
 < T                     00:01:19,220 --> 00:01:20,930
 < R                     79220 80930 1710
 < S                     Okay, what do we got here?
 < W                     79220 okay
-< W                     79600 what
-< W                     79916 do
-< W                     80106 we
-< W                     80296 got
-< W                     80550 here
+< W                     79562 what
+< W                     79904 do
+< W                     80109 we
+< W                     80314 got
+< W                     80588 here
 < 
 > I 26
 > T 00:01:22,931 --> 00:01:27,268
 > R 82931 87268 4337
 > S The name is an ancient Chinese war mantle meaning "adviser to the king."
 > W 82931 the
-> W 83168 name
-> W 83465 is
-> W 83643 an
-> W 83822 ancient
-> W 84297 chinese
-> W 84772 war
-> W 85010 mantle
-> W 85426 meaning
-> W 85901 adviser
-> W 86436 to
-> W 86614 the
-> W 86852 king
+> W 83178 name
+> W 83488 is
+> W 83674 an
+> W 83860 ancient
+> W 84356 chinese
+> W 84851 war
+> W 85099 mantle
+> W 85533 meaning
+> W 86028 adviser
+> W 86524 to
+> W 86710 the
+> W 86958 king
 > 
 < I                     32
 < T                     00:01:23,080 --> 00:01:25,480
@@ -626,9 +663,9 @@
 > R 87352 90647 3295
 > S South American insurgency tactics.
 > W 87352 south
-> W 87916 american
-> W 88764 insurgency
-> W 89799 tactics
+> W 87933 american
+> W 88805 insurgency
+> W 89871 tactics
 > 
 < I                     35
 < T                     00:01:28,720 --> 00:01:31,480
@@ -644,10 +681,10 @@
 > R 90730 93191 2461
 > S Talks like a Baptist preacher.
 > W 90730 talks
-> W 91206 like
-> W 91603 a
-> W 91762 baptist
-> W 92397 preacher
+> W 91222 like
+> W 91632 a
+> W 91796 baptist
+> W 92452 preacher
 > 
 < I                     36
 < T                     00:01:31,480 --> 00:01:34,240
@@ -655,23 +692,25 @@
 < S                     Baptist preacher. It's
 < W                     91480 baptist
 < W                     92440 preacher
-< W                     93640 its
+< W                     93520 it
+< W                     93880 's
 < 
 > I 29
 > T 00:01:33,274 --> 00:01:37,612
 > R 93274 97612 4338
 > S There's lots of pageantry going on here. Lots of theater. Close.
-> W 93274 theres
-> W 93807 lots
-> W 94141 of
-> W 94341 pageantry
-> W 95009 going
-> W 95409 on
-> W 95609 here
-> W 96010 lots
-> W 96343 of
-> W 96544 theater
-> W 97144 close
+> W 93274 there
+> W 93687 's
+> W 93893 lots
+> W 94238 of
+> W 94444 pageantry
+> W 95133 going
+> W 95546 on
+> W 95752 here
+> W 96097 lots
+> W 96441 of
+> W 96648 theater
+> W 97198 close
 > 
 < I                     37
 < T                     00:01:34,240 --> 00:01:35,920
@@ -698,50 +737,50 @@
 > R 97696 101282 3586
 > S The heat from the blast was in excess of 3,000 degrees Celsius.
 > W 97696 the
-> W 97920 heat
-> W 98200 from
-> W 98480 the
-> W 98704 blast
-> W 99040 was
-> W 99264 in
-> W 99432 excess
-> W 99825 of
-> W 99993 3000
-> W 100329 degrees
-> W 100777 celsius
+> W 97927 heat
+> W 98216 from
+> W 98505 the
+> W 98737 blast
+> W 99084 was
+> W 99315 in
+> W 99489 excess
+> W 99893 of
+> W 100067 3000
+> W 100356 degrees
+> W 100819 celsius
 > 
 < I                     39
 < T                     00:01:38,440 --> 00:01:40,120
 < R                     98440 100120 1680
 < S                     blast was in excess of 3,000
 < W                     98440 blast
-< W                     98787 was
-< W                     99019 in
-< W                     99193 excess
-< W                     99598 of
-< W                     99772 3000
+< W                     98800 was
+< W                     99040 in
+< W                     99220 excess
+< W                     99640 of
+< W                     99820 3000
 < 
 < I                     40
 < T                     00:01:40,120 --> 00:01:42,040
 < R                     100120 102040 1920
 < S                     degrees Celsius, and he
 < W                     100120 degrees
-< W                     100760 celsius
-< W                     101480 and
-< W                     101800 he
+< W                     100787 celsius
+< W                     101455 and
+< W                     101789 he
 < 
 > I 31
 > T 00:01:41,366 --> 00:01:44,995
 > R 101366 104995 3629
 > S Any subjects within 12.5 yards were vaporised instantly.
 > W 101366 any
-> W 101620 subjects
-> W 102193 within
-> W 102639 125
-> W 102957 yards
-> W 103339 were
-> W 103658 vaporised
-> W 104294 instantly
+> W 101625 subjects
+> W 102208 within
+> W 102662 12.5
+> W 102986 yards
+> W 103374 were
+> W 103698 vaporised
+> W 104346 instantly
 > 
 < I                     41
 < T                     00:01:42,040 --> 00:01:43,360
@@ -766,26 +805,27 @@
 < R                     104440 105880 1440
 < S                     instantly. No bomb Parts
 < W                     104440 instantly
-< W                     105073 no
-< W                     105246 bomb
-< W                     105534 parts
+< W                     105040 no
+< W                     105220 bomb
+< W                     105520 parts
 < 
 > I 32
 > T 00:01:45,078 --> 00:01:47,747
 > R 105078 107747 2669
 > S No bomb parts found in a three-mile radius of the Chinese Theater?
 > W 105078 no
-> W 105197 bomb
-> W 105396 parts
-> W 105635 found
-> W 105874 in
-> W 105994 a
-> W 106073 threemile
-> W 106512 radius
-> W 106790 of
-> W 106910 the
-> W 107069 chinese
-> W 107388 theater
+> W 105199 bomb
+> W 105401 parts
+> W 105644 found
+> W 105886 in
+> W 106008 a
+> W 106088 three
+> W 106331 mile
+> W 106533 radius
+> W 106816 of
+> W 106938 the
+> W 107099 chinese
+> W 107423 theater
 > 
 < I                     44
 < T                     00:01:45,880 --> 00:01:47,200
@@ -794,7 +834,8 @@
 < W                     105880 found
 < W                     106153 in
 < W                     106289 a
-< W                     106380 threemile
+< W                     106380 three
+< W                     106653 mile
 < W                     106881 radius
 < 
 < I                     45
@@ -802,26 +843,26 @@
 < R                     107200 108730 1530
 < S                     of the Chinese Theater Mosa.
 < W                     107200 of
-< W                     107358 the
-< W                     107569 chinese
-< W                     107991 theater
-< W                     108413 mosa
+< W                     107363 the
+< W                     107582 chinese
+< W                     108019 theater
+< W                     108456 mosa
 < 
 > I 33
 > T 00:01:47,831 --> 00:01:48,832
 > R 107831 108832 1001
 > S No, sir.
 > W 107831 no
-> W 108275 sir
+> W 108260 sir
 > 
 > I 34
 > T 00:01:50,875 --> 00:01:51,876
 > R 110875 111876 1001
 > S Talk to me, Happy.
 > W 110875 talk
-> W 111138 to
-> W 111296 me
-> W 111507 happy
+> W 111169 to
+> W 111346 me
+> W 111522 happy
 > 
 < I                     46
 < T                     00:01:51,230 --> 00:01:52,130
@@ -837,32 +878,32 @@
 > R 130645 132522 1877
 > S When is a bomb not a bomb?
 > W 130645 when
-> W 130992 is
-> W 131201 a
-> W 131340 bomb
-> W 131687 not
-> W 131965 a
-> W 132104 bomb
+> W 131005 is
+> W 131222 a
+> W 131366 bomb
+> W 131727 not
+> W 132016 a
+> W 132161 bomb
 > 
 < I                     47
 < T                     00:02:10,930 --> 00:02:12,610
 < R                     130930 132610 1680
 < S                     What is the bomb not a bomb?
 < W                     130930 what
-< W                     131219 is
-< W                     131393 the
-< W                     131625 bomb
-< W                     131914 not
-< W                     132146 a
-< W                     132262 bomb
+< W                     131230 is
+< W                     131410 the
+< W                     131650 bomb
+< W                     131950 not
+< W                     132190 a
+< W                     132310 bomb
 < 
 > I 36
 > T 00:02:23,908 --> 00:02:24,951
 > R 143908 144951 1043
 > S Any military victims?
 > W 143908 any
-> W 144097 military
-> W 144524 victims
+> W 144106 military
+> W 144553 victims
 > 
 < I                     48
 < T                     00:02:24,290 --> 00:02:25,610
@@ -878,11 +919,11 @@
 > R 146161 147601 1440
 > S Not according to public record, sir.
 > W 146161 not
-> W 146316 according
-> W 146705 to
-> W 146822 public
-> W 147095 record
-> W 147406 sir
+> W 146325 according
+> W 146737 to
+> W 146860 public
+> W 147148 record
+> W 147436 sir
 > 
 < I                     49
 < T                     00:02:25,610 --> 00:02:27,290
@@ -907,50 +948,50 @@
 > R 147662 149789 2127
 > S Bring up the thermogenic signatures again.
 > W 147662 bring
-> W 147958 up
-> W 148107 the
-> W 148305 thermogenic
-> W 148898 signatures
-> W 149442 again
+> W 147965 up
+> W 148117 the
+> W 148320 thermogenic
+> W 148928 signatures
+> W 149485 again
 > 
 < I                     51
 < T                     00:02:29,570 --> 00:02:31,010
 < R                     149570 151010 1440
 < S                     signatures again factoring 3,
 < W                     149570 signatures
-< W                     150098 again
-< W                     150386 factoring
-< W                     150866 3
+< W                     150116 again
+< W                     150414 factoring
+< W                     150910 3
 < 
 > I 39
 > T 00:02:29,873 --> 00:02:31,583
 > R 149873 151583 1710
 > S Factor in 3,000 degrees.
 > W 149873 factor
-> W 150351 in
-> W 150557 3000
-> W 150967 degrees
+> W 150393 in
+> W 150616 3000
+> W 150988 degrees
 > 
 < I                     52
 < T                     00:02:31,010 --> 00:02:33,290
 < R                     151010 153290 2280
 < S                     000 degrees. The Oracle cloud
 < W                     151010 000
-< W                     151314 degrees
-< W                     151998 the
-< W                     152302 oracle
-< W                     152834 cloud
+< W                     151324 degrees
+< W                     151953 the
+< W                     152267 oracle
+< W                     152818 cloud
 < 
 > I 40
 > T 00:02:31,666 --> 00:02:34,377
 > R 151666 154377 2711
 > S The Oracle cloud has completed analysis.
 > W 151666 the
-> W 151930 oracle
-> W 152393 cloud
-> W 152790 has
-> W 153054 completed
-> W 153715 analysis
+> W 151937 oracle
+> W 152411 cloud
+> W 152818 has
+> W 153089 completed
+> W 153767 analysis
 > 
 < I                     53
 < T                     00:02:33,290 --> 00:02:34,370
@@ -980,15 +1021,15 @@
 > R 155628 159507 3879
 > S and plotting the last 12 months of thermogenic occurrences now.
 > W 155628 and
-> W 155870 plotting
-> W 156415 the
-> W 156658 last
-> W 156961 12
-> W 157143 months
-> W 157567 of
-> W 157749 thermogenic
-> W 158476 occurrences
-> W 159203 now
+> W 155874 plotting
+> W 156428 the
+> W 156674 last
+> W 156982 12
+> W 157167 months
+> W 157598 of
+> W 157783 thermogenic
+> W 158521 occurrences
+> W 159260 now
 > 
 < I                     55
 < T                     00:02:35,930 --> 00:02:37,010
@@ -1022,11 +1063,12 @@
 > W 160387 away
 > W 160599 everywhere
 > W 161065 that
-> W 161277 theres
-> W 161617 been
-> W 161829 a
-> W 161913 mandarin
-> W 162295 attack
+> W 161277 there
+> W 161532 's
+> W 161659 been
+> W 161871 a
+> W 161956 mandarin
+> W 162338 attack
 > 
 < I                     58
 < T                     00:02:40,950 --> 00:02:41,550
@@ -1041,10 +1083,11 @@
 < T                     00:02:41,550 --> 00:02:42,180
 < R                     161550 162180 630
 < S                     there's been a mandarin
-< W                     161550 theres
-< W                     161760 been
-< W                     161891 a
-< W                     161943 mandarin
+< W                     161550 there
+< W                     161701 's
+< W                     161776 been
+< W                     161902 a
+< W                     161953 mandarin
 < 
 < I                     60
 < T                     00:02:42,180 --> 00:02:42,580
@@ -1069,25 +1112,27 @@
 > R 174981 177233 2252
 > S That. Are you sure that's not one of his?
 > W 174981 that
-> W 175302 are
-> W 175517 you
-> W 175731 sure
-> W 175999 thats
-> W 176375 not
-> W 176589 one
-> W 176804 of
-> W 176964 his
+> W 175255 are
+> W 175475 you
+> W 175695 sure
+> W 175969 that
+> W 176244 's
+> W 176409 not
+> W 176628 one
+> W 176848 of
+> W 177013 his
 > 
 < I                     62
 < T                     00:02:55,440 --> 00:02:57,000
 < R                     175440 177000 1560
 < S                     that you sure that's not one
 < W                     175440 that
-< W                     175708 you
-< W                     175924 sure
-< W                     176193 thats
-< W                     176569 not
-< W                     176784 one
+< W                     175700 you
+< W                     175908 sure
+< W                     176168 that
+< W                     176428 's
+< W                     176584 not
+< W                     176792 one
 < 
 < I                     63
 < T                     00:02:57,000 --> 00:02:59,040
@@ -1104,37 +1149,37 @@
 > R 177317 179778 2461
 > S It predates any known Mandarin attack.
 > W 177317 it
-> W 177506 predates
-> W 178074 any
-> W 178326 known
-> W 178705 mandarin
-> W 179273 attack
+> W 177511 predates
+> W 178094 any
+> W 178353 known
+> W 178741 mandarin
+> W 179324 attack
 > 
 < I                     64
 < T                     00:02:59,040 --> 00:03:00,600
 < R                     179040 180600 1560
 < S                     Mandarin attack. The incident
 < W                     179040 mandarin
-< W                     179508 attack
-< W                     179924 the
-< W                     180132 incident
+< W                     179524 attack
+< W                     179900 the
+< W                     180115 incident
 < 
 > I 47
 > T 00:02:59,861 --> 00:03:02,697
 > R 179861 182697 2836
 > S The incident was the use of a bomb to assist a suicide.
 > W 179861 the
-> W 180063 incident
-> W 180519 was
-> W 180721 the
-> W 180924 use
-> W 181127 of
-> W 181278 a
-> W 181380 bomb
-> W 181633 to
-> W 181785 assist
-> W 182139 a
-> W 182241 suicide
+> W 180067 incident
+> W 180531 was
+> W 180737 the
+> W 180943 use
+> W 181150 of
+> W 181304 a
+> W 181407 bomb
+> W 181665 to
+> W 181820 assist
+> W 182181 a
+> W 182284 suicide
 > 
 < I                     65
 < T                     00:03:00,600 --> 00:03:02,040
@@ -1153,27 +1198,27 @@
 < R                     182040 183240 1200
 < S                     assist a suicide.
 < W                     182040 assist
-< W                     182506 a
-< W                     182640 suicide
+< W                     182534 a
+< W                     182675 suicide
 < 
 > I 48
 > T 00:03:02,781 --> 00:03:04,616
 > R 182781 184616 1835
 > S Bring her around.
 > W 182781 bring
-> W 183392 her
-> W 183800 around
+> W 183428 her
+> W 183860 around
 > 
 > I 49
 > T 00:03:05,325 --> 00:03:07,702
 > R 185325 187702 2377
 > S The heat signature is remarkably similar.
 > W 185325 the
-> W 185551 heat
-> W 185834 signature
-> W 186400 is
-> W 186570 remarkably
-> W 187192 similar
+> W 185556 heat
+> W 185846 signature
+> W 186426 is
+> W 186600 remarkably
+> W 187238 similar
 > 
 < I                     67
 < T                     00:03:05,880 --> 00:03:07,290
@@ -1197,43 +1242,45 @@
 > R 188369 189829 1460
 > S 3,000 degree Celsius.
 > W 188369 3000
-> W 188767 degree
-> W 189231 celsius
+> W 188734 degree
+> W 189245 celsius
 > 
 < I                     69
 < T                     00:03:09,120 --> 00:03:09,520
 < R                     189120 189520 400
 < S                     degrees Celsius.
 < W                     189120 degrees
-< W                     189308 celsius
+< W                     189320 celsius
 < 
 > I 51
 > T 00:03:11,623 --> 00:03:13,708
 > R 191623 193708 2085
 > S That's two military guys.
-> W 191623 thats
-> W 192184 two
-> W 192505 military
-> W 193226 guys
+> W 191623 that
+> W 192023 's
+> W 192264 two
+> W 192585 military
+> W 193307 guys
 > 
 < I                     70
 < T                     00:03:11,800 --> 00:03:12,640
 < R                     191800 192640 840
 < S                     It's two military guys.
-< W                     191800 its
-< W                     191975 two
-< W                     192115 military
-< W                     192430 guys
+< W                     191800 it
+< W                     191905 's
+< W                     192010 two
+< W                     192150 military
+< W                     192465 guys
 < 
 > I 52
 > T 00:03:14,501 --> 00:03:15,741
 > R 194501 195741 1240
 > S Ever been to Tennessee, Jarvis?
 > W 194501 ever
-> W 194694 been
-> W 194888 to
-> W 195004 tennessee
-> W 195431 jarvis
+> W 194707 been
+> W 194914 to
+> W 195038 tennessee
+> W 195451 jarvis
 > 
 < I                     71
 < T                     00:03:15,190 --> 00:03:16,630
@@ -1250,11 +1297,11 @@
 > R 196169 198671 2502
 > S Creating a flight plan for Tennessee.
 > W 196169 creating
-> W 196761 a
-> W 196893 flight
-> W 197354 plan
-> W 197683 for
-> W 197946 tennessee
+> W 196777 a
+> W 196912 flight
+> W 197386 plan
+> W 197724 for
+> W 197994 tennessee
 > 
 < I                     72
 < T                     00:03:16,630 --> 00:03:17,830
