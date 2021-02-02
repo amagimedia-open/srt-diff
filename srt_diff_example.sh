@@ -95,6 +95,9 @@ docker run                                  \
         srt-diff-rel                        \
         ./srt_lev_hist.sh                   \
             -r /data/rangespec.txt          \
-            /data/srtlev.csv
+            /data/srtlev.csv > $H_TEST_FOLDER/srtlevhist.csv
+
+echo "SRT Levenshtein histogram filepath = $H_TEST_FOLDER/srtlevhist.csv"
+
 exit 0
 

@@ -13,8 +13,10 @@ import spacy
 #+------------------+
 
 g_module_name = None
-g_col_num = 5
+g_col_num = 5       # TRAN_WORD column number in srtlev.csv
 g_input = None
+g_model_name = "en_core_web_sm"
+g_debug = False
 
 #+----------------------+
 #| FUNCTION DEFINITIONS |
@@ -36,9 +38,10 @@ SYNOPSIS
 
 DESCRIPTION
 
-    Classifies words under the TRAN_WORD column in the strlev.csv
-    file (produced by srt_diff.sh) using the spacy package to produce
-    two additional columns IS_STOP and PART_OF_SPEECH.
+    This program when presented with a strlev.csv file (that is
+    the output of the srt_diff.sh program) adds two more 
+    columns of information IS_STOP,PART_OF_SPEECH and dumps 
+    the output on stdout.
 
 OPTIONS
 
@@ -47,11 +50,20 @@ OPTIONS
        the location of the strlev.csv file.
        this is mandatory.
 
+    -m "model_name"
+    --model-name "model_name"
+       the spacy model to be used to perform the classification.
+       this is optional. default is {g_model_name}.
+
     -c tran_word_column_num
     --col-num tran_word_column_num
        an 1-offset integer that specifies the location of the 
        'transcribed word' column (TRANS_WORD).
        this is optional. default is {g_col_num}.
+
+    -d
+       debug output is dumped to stderr.
+       this is optional.
 
     -h
        this help.
@@ -96,12 +108,15 @@ def classify(phrase):
 
 def emit_classifiers(nlp_doc):
 
+    line_num = 0
     header_line_seen = False
-    i = 0
+    token_index = 0
 
     with open(g_input, "r") as fp:
 
         for line in fp:
+
+            line_num = line_num + 1
 
             line = line.rstrip('\n')
 
@@ -109,7 +124,7 @@ def emit_classifiers(nlp_doc):
                 continue
 
             if (not header_line_seen):
-                print(f"{line},NLP_WORD,IS_STOP,PART_OF_SPEECH")
+                print(f"{line},IS_STOP,PART_OF_SPEECH")
                 header_line_seen = True
                 continue
 
@@ -120,12 +135,18 @@ def emit_classifiers(nlp_doc):
                 print(f"{line},,")
                 continue
 
-            nlp_token = nlp_doc[i]
-            #if (trans_word != nlp_token.text):
-            #    raise Exception(f"token mismatch. expected {trans_word} found {nlp_token.text}")
+            nlp_token = nlp_doc[token_index]
+            nlp_text  = nlp_token.text.translate({ord(','): None})
+                #https://www.journaldev.com/23674/python-remove-character-from-string
 
-            print(f"{line},{nlp_token.text},{nlp_token.is_stop},{nlp_token.pos}")
-            i = i + 1
+            if (g_debug):
+                eprint (f"line_num={line_num}, trans_word={trans_word}, token_text={nlp_token.text}, final_text={nlp_text}")
+
+            if (trans_word != nlp_text):
+                raise Exception(f"token mismatch. expected {trans_word} found {nlp_text} at line {line_num}")
+
+            print(f"{line},{nlp_token.is_stop},{nlp_token.pos}")
+            token_index = token_index + 1
 
 
 #+------+
@@ -140,10 +161,12 @@ if __name__ == '__main__':
         opts, args = \
             getopt.getopt(
                     sys.argv[1:], 
-                    "i:c:h", 
+                    "i:c:m:dh", 
                     [
                         "input=",
                         "col-num=",
+                        "model-name=",
+                        "debug",
                         "help" 
                     ])
 
@@ -155,24 +178,25 @@ if __name__ == '__main__':
                 g_input = v
             elif o in ("-c", "--col-num"):
                 g_col_num = int(v)
+            elif o in ("-m", "--model-name"):
+                g_model_name = v
+            elif o in ("-d", "--debug"):
+                g_debug = True
 
         if (g_input == None):
             eprint("-i option not specified")
             sys.exit(1)
 
         phrase = emit_trans_phrase ()
-        print(phrase)
-
-        print("----")
-
-        #phrase = "I've done this before"
-        #I've -> ive -> i ve
+        if (g_debug):
+            eprint(f"phrase={phrase}")
 
         nlp_doc = classify (phrase)
-        for token in nlp_doc:
-            print(token.text, token.pos_, token.tag_, token.dep_, token.is_stop)
+        if (g_debug):
+            for token in nlp_doc:
+                eprint(token.text, token.pos_, token.tag_, token.dep_, token.is_stop)
 
-        #emit_classifiers (nlp_doc)
+        emit_classifiers (nlp_doc)
 
     except:
         traceback.print_exc()
