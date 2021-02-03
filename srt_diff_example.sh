@@ -9,11 +9,12 @@
 #| and you want to compare how good the transcribed one is against the      |
 #| original.                                                                |
 #| The following steps must be followed:                                    |
-#| (1) copy both these files into a folder (say testdata). see (#COPYFILES) |
-#| (2) Map this folder into the /data folder and invoke srt_diff via        |
+#| (1) execute ./srtdf_h_build_rel_docker_image.sh                          |
+#| (2) copy input files into a folder (say testdata). see (#COPYFILES)      |
+#| (3) Map this folder into the /data folder and invoke srt_diff via        |
 #|     a docker. see (#SRTDIFFINVOKE)                                       |
-#| (3) Examine results. see (#EXAMINERESULTS)                               |
-#| (4) Generate a histogram of the distances (#GENHIST)                     |
+#| (4) Examine results. see (#EXAMINERESULTS)                               |
+#| (5) Generate a histogram of the distances (#GENHIST)                     |
 #+--------------------------------------------------------------------------+
 
 set -u
