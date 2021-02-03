@@ -1,5 +1,21 @@
 #!/bin/bash
 
+#+--------------------------------------------------------------------------+
+#| srt_diff usage notes                                                     |
+#|                                                                          |
+#| Lets say you have two srt files                                          |
+#| (a) reference.srt    : the reference/original srt                        |
+#| (b) transcribed.srt  : the srt that is the result of a transcription     |
+#| and you want to compare how good the transcribed one is against the      |
+#| original.                                                                |
+#| The following steps must be followed:                                    |
+#| (1) copy both these files into a folder (say testdata). see (#COPYFILES) |
+#| (2) Map this folder into the /data folder and invoke srt_diff via        |
+#|     a docker. see (#SRTDIFFINVOKE)                                       |
+#| (3) Examine results. see (#EXAMINERESULTS)                               |
+#| (4) Generate a histogram of the distances (#GENHIST)                     |
+#+--------------------------------------------------------------------------+
+
 set -u
 #set -x
 
@@ -24,6 +40,10 @@ trap 'fnxOnEnd;' 0 1 2 3 6 9 11
 
 #----[prepare data folder]---------------------------------------------------
 
+#+-----------+
+#| COPYFILES |
+#+-----------+
+
 H_TEST_FOLDER=$DIRNAME/testdata
 
 mkdir -p $H_TEST_FOLDER
@@ -31,7 +51,7 @@ mkdir -p $H_TEST_FOLDER
 cp $DIRNAME/Ironman_1_1080i60.srt  $H_TEST_FOLDER
 cp $DIRNAME/Ironman_sstt_withf.srt $H_TEST_FOLDER
 
-#----[execute srt_diff.sh]---------------------------------------------------
+#----[srt_diff.sh help]-------------------------------------------------------
 
 if ((DUMP_HELP))
 then
@@ -44,9 +64,13 @@ then
             -w /srt-diff                        \
             srt-diff-rel                        \
             ./srt_diff.sh                       \
-                -h
+            -h
     exit 0
 fi
+
+#----[execute srt_diff.sh]---------------------------------------------------
+
+#SRTDIFFINVOKE
 
 docker run                                  \
         --rm                                \
@@ -68,6 +92,10 @@ then
     exit 3
 fi
 
+#----[examine the results]---------------------------------------------------
+
+#EXAMINERESULTS
+
 read LEV_DIST SRTLEV_FILEPATH SRTCOMP_FILEPATH SRTCOMPLEV_FILEPATH <<< $(cat $TMP1)
 
 cat <<EOD
@@ -77,6 +105,10 @@ SRT comparison details filepath = ${SRTCOMP_FILEPATH/\/data/$H_TEST_FOLDER}
 SRT comparison + Levenshtein details filepath = ${SRTCOMPLEV_FILEPATH/\/data/$H_TEST_FOLDER}
 EOD
 
+#----[generate histogram]----------------------------------------------------
+
+#GENHIST
+
 cat <<EOD >$H_TEST_FOLDER/rangespec.txt
 BEGIN_I,END_E,NAME
 0,500,0000-0500-ms
@@ -84,6 +116,8 @@ BEGIN_I,END_E,NAME
 1000,2000,1000-2000-ms
 2000,*,2000-****-ms
 EOD
+# note that you range-specification is optional as
+# srt_lev_hist.sh provides a default
 
 docker run                                  \
         --rm                                \
