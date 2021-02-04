@@ -46,7 +46,7 @@ DESCRIPTION
 
     levenshtein_distance
     #--details--                                   ---+
-    FROM_TS,FROM_WORD,LEV_OP,TO_TS,TO_WORD,TS_DIFF    |
+    FROM_TS,FROM_WORD,FROM_POS,FROM_ISSTOP,LEV_OP,TO_TS,TO_WORD,TO_POS,TO_ISSTOP,TS_DIFF
     .......,.........,......,.....,.......,.......    |
     .......,.........,......,.....,.......,.......    | this is output
     > lines from the input                            | only if -l 
@@ -87,7 +87,7 @@ OPTIONS
        a string specifying the column header names.
        used if (-v value) >= 1.
        this is optional.
-       default is "FROM_TS,FROM_WORD,LEV_OP,TO_TS,TO_WORD,TS_DIFF"
+       default is "FROM_TS,FROM_WORD,FROM_POS,FROM_ISSTOP,LEV_OP,TO_TS,TO_WORD,TO_POS,TO_ISSTOP,TS_DIFF"
 
     -h
        this help.
@@ -228,13 +228,13 @@ class LevRecordDumper(object):
 
     def dump(self, op_rec):
         #
-        # print("FROM_TS,FROM_WORD,LEV_OP,TO_TS,TO_WORD,TS_DIFF")
+        # print("FROM_TS,FROM_WORD,FROM_POS,FROM_ISSTOP,LEV_OP,TO_TS,TO_WORD,TO_POS,TO_ISSTOP,TS_DIFF")
         #
         # type(op_rec) is as follows
         #   (op, item_in_1|None, item_in_2|None)
         #
         # type(item) is as follows 
-        #   (timestampms,word,srtsegment)
+        #   (timestampms,word,pos,isstop,srtsegment)
         #
         # an example of srtsegment is as follows
         #
