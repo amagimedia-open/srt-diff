@@ -128,7 +128,8 @@ class Options(object):
         self.m_lengthy = False
         self.m_dump_ts_words = False
         self.m_dump_input    = False
-        self.m_col_names     = "FROM_TS,FROM_WORD,LEV_OP,TO_TS,TO_WORD,TS_DIFF"
+        self.m_def_col_names = "FROM_TS,FROM_WORD,FROM_POS,FROM_ISSTOP,LEV_OP,TO_TS,TO_WORD,TO_POS,TO_ISSTOP,TS_DIFF"
+        self.m_col_names     = self.m_def_col_names
 
     @property
     def debug(self):
@@ -153,8 +154,8 @@ class Options(object):
     @col_names.setter
     def col_names(self, str):
         cols = str.split(",")
-        if (len(cols) != 6):
-            err_str = "%s: mismatch in number of column names. expected %d found %d" % (self.m_mn, 6, len(cols))
+        if (len(cols) != 10):
+            err_str = "%s: mismatch in number of column names. expected %d found %d" % (self.m_mn, 10, len(cols))
             raise Exception (err_str)
         self.m_col_names = str
 
@@ -250,24 +251,27 @@ class LevRecordDumper(object):
         item_in_1 = op_rec[1]
         item_in_2 = op_rec[2]
 
-        ts_in_1   = item_in_1[0]
-        word_in_1 = item_in_1[1]
-        ssi_in_1  = item_in_1[2]
+        ts_in_1    = item_in_1[0]
+        word_in_1  = item_in_1[1]
+        pos_in_1   = item_in_1[2]
+        istop_in_1 = item_in_1[3]
+        ssi_in_1   = item_in_1[4]
 
-        ts_in_2   = item_in_2[0]
-        word_in_2 = item_in_2[1]
-        ssi_in_2  = item_in_2[2]
+        ts_in_2    = item_in_2[0]
+        word_in_2  = item_in_2[1]
+        pos_in_2   = item_in_2[2]
+        istop_in_2 = item_in_2[3]
+        ssi_in_2   = item_in_2[4]
 
         ts_diff = abs(ts_in_1 - ts_in_2)
 
         self.m_ssid_1.dump(ssi_in_1)
         self.m_ssid_2.dump(ssi_in_2)
 
-        print("%d,%s,%c,%d,%s,%d" %
-              (ts_in_1, word_in_1,
-               op,
-               ts_in_2, word_in_2,
-               ts_diff))
+        print(f"{ts_in_1},{word_in_1},{pos_in_1},{istop_in_1},"
+              f"{op},"
+              f"{ts_in_2},{word_in_2},{pos_in_2},{istop_in_2},"
+              f"{ts_diff}")
 
 
     def dump_delete_record(self, op_rec):
@@ -275,15 +279,17 @@ class LevRecordDumper(object):
         op        = op_rec[0]
         item_in_1 = op_rec[1]
 
-        ts_in_1   = item_in_1[0]
-        word_in_1 = item_in_1[1]
-        ssi_in_1  = item_in_1[2]
+        ts_in_1    = item_in_1[0]
+        word_in_1  = item_in_1[1]
+        pos_in_1   = item_in_1[2]
+        istop_in_1 = item_in_1[3]
+        ssi_in_1   = item_in_1[4]
 
         self.m_ssid_1.dump(ssi_in_1)
 
-        print("%d,%s,%c,,," %
-              (ts_in_1, word_in_1,
-               op))
+        print(f"{ts_in_1},{word_in_1},{pos_in_1},{istop_in_1},"
+              f"{op},"
+              f",,,,")
 
 
     def dump_insert_record(self, op_rec):
@@ -291,15 +297,17 @@ class LevRecordDumper(object):
         op        = op_rec[0]
         item_in_2 = op_rec[2]
 
-        ts_in_2   = item_in_2[0]
-        word_in_2 = item_in_2[1]
-        ssi_in_2  = item_in_2[2]
+        ts_in_2    = item_in_2[0]
+        word_in_2  = item_in_2[1]
+        pos_in_2   = item_in_2[2]
+        istop_in_2 = item_in_2[3]
+        ssi_in_2   = item_in_2[4]
 
         self.m_ssid_2.dump(ssi_in_2)
 
-        print(",,%c,%d,%s," %
-              (op,
-               ts_in_2, word_in_2))
+        print(f",,,,"
+              f"{op},"
+              f"{ts_in_2},{word_in_2},{pos_in_2},{istop_in_2},")
 
 
 #+------+

@@ -15,9 +15,9 @@ import spacy
 #| GLOBAL VARIABLES |
 #+------------------+
 
-g_def_tokenize_lang = "en"
 g_module_name = None
-g_spacy_tokenizer = None
+g_def_lang_model = "en_core_web_sm"
+g_nlp = None
 
 #+----------------------+
 #| FUNCTION DEFINITIONS |
@@ -80,13 +80,9 @@ OPTIONS
        suppress conversion of words to lower case.
        this is optional. default is to convert words to lower case.
 
-    -S 
-       suppress spacy tokenization.
-       this is optional. default is to perform spacy tokenization.
-
-    -l "language"
+    -l "language-model"
        used during spacy tokenization.
-       this is optional. default is \"{g_def_tokenize_lang}\".
+       this is optional. default is \"{g_def_lang_model}\".
 
     -h
        this help.
@@ -113,8 +109,7 @@ class Options(object):
         self._too          = True
         self._too_mode     = Options.TO_CC
         self._to_lower     = True
-        self._spacy_tokenize = True
-        self._tokenize_lang  = g_def_tokenize_lang
+        self._lang_model   = g_def_lang_model
         self._debug        = False
 
         self._srt_filepath_1 = None
@@ -169,20 +164,12 @@ class Options(object):
         self._to_lower = b
 
     @property
-    def spacy_tokenize(self):
-        return self._spacy_tokenize
+    def lang_model(self):
+        return self._lang_model
 
-    @spacy_tokenize.setter
-    def spacy_tokenize(self, b):
-        self._spacy_tokenize = b
-
-    @property
-    def tokenize_lang(self):
-        return self._tokenize_lang
-
-    @tokenize_lang.setter
-    def tokenize_lang(self, v):
-        self._tokenize_lang = v
+    @lang_model.setter
+    def lang_model(self, v):
+        self._lang_model = v
 
     @property
     def debug(self):
@@ -218,14 +205,13 @@ class Options(object):
     def parse_cmdline(self):
         opts, args = \
             getopt.getopt(sys.argv[1:], 
-                    "i:Wt:LSl:dh", 
+                    "i:Wt:Ll:dh", 
                           [
                            "indent-2-by=",
                            "suppress-words",
                            "too-mode=",
                            "suppress-to-lower",
-                           "suppress-spacy-tokenization",
-                           "tokenization-lang",
+                           "lang-model",
                            "debug",
                            "help"
                           ])
@@ -265,6 +251,7 @@ class Options(object):
                 "to-lower"       : options.to_lower,
                 "spacy-tokenize" : self._spacy_tokenize,
                 "tokenize-lang"  : self._tokenize_lang,
+                "lang-model"     : self._lang_model,
                 "debug"          : options.debug
               }
         return str(ret)
@@ -297,15 +284,17 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
     if (options.too):
         #--- dump words ---
 
-        words = []
         if (options.debug):
             eprint(f"original:{s}")
-        if (options.spacy_tokenize):
-            tokens = g_spacy_tokenizer(s)
-            for t in tokens:
-                if not t.is_punct:
-                    t2 = re.sub(r',','',t.text) #TODO: remove this hardcoding
-                    words.append(t2)
+
+        doc = g_nlp(s)
+        tokens = []
+        for token in doc:
+            if (token.pos_ == "PUNCT"):
+                continue
+            tokens.append(token)
+            
+        """
         else:
 	    #https://www.geeksforgeeks.org/python-remove-punctuation-from-string/
 	    #punc = '''!()-[]{};:'"\, <>./?@#$%^&*_~'''
@@ -317,39 +306,42 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
                 t2 = re.sub(r'[^\w\s]','',t)
                 if (len(t2) > 0):
                     words.append(t2)
+        """
 
-        num_words = len(words)
+        num_tokens = len(tokens)
    
         if (options.debug):
-            eprint(f"words={words},num_words={num_words}")
+            eprint(f"num_tokens={num_tokens}")
            
         if (options.too_mode == Options.TO_AV):
             range_av_ms = (range_start_ms + range_end_ms) / 2
         elif (options.too_mode == Options.TO_WC):
-            word_time_width_ms = range_ms / num_words
+            word_time_width_ms = range_ms / num_tokens
         else: #TO_CC
             total_chars = 0
-            for w in words:
-                total_chars = total_chars + len(w)
-            total_chars = total_chars + num_words # (num_words -> spaces)
+            for token in tokens:
+                total_chars = total_chars + len(token.text)
+            total_chars = total_chars + num_tokens # (num_tokens -> spaces)
             char_time_width_ms = range_ms / total_chars
 
         next_offset_ms = range_start_ms
 
-        for w in words:
-            cw = w
+        for token in tokens:
+            cw = re.sub(r',','',token.text) #remove ',' character.
+                                            #TODO: is this not a PUNCT ?
             if (options.to_lower):
                 cw = cw.lower()
+            o = f"{cw} {token.pos_} {token.is_stop}"
 
             if (options.too_mode == Options.TO_AV):
-                print("%sW %s%d %s" % (prefix_str, lpad_str, range_av_ms, cw))
+                print("%sW %s%d %s" % (prefix_str, lpad_str, range_av_ms, o))
             elif (options.too_mode == Options.TO_WC):
-                print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, cw))
+                print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, o))
                 next_offset_ms  = next_offset_ms + word_time_width_ms
             else: #TO_CC
-                print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, cw))
-                curr_word_len      = len(w) + 1
-                                     # ^^^ note its w not cw, 1 for space
+                print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, o))
+                curr_word_len      = len(token.text) + 1
+                                     # ^^^ note its not cw. 1 for space
                 curr_word_width_ms = curr_word_len  * char_time_width_ms
                 next_offset_ms     = next_offset_ms + curr_word_width_ms
 
@@ -366,9 +358,7 @@ if __name__ == '__main__':
         options        = Options(g_module_name)
 
         options.parse_cmdline()
-        if (options.spacy_tokenize):
-            nlp = spacy.load("en")
-            g_spacy_tokenizer = nlp.Defaults.create_tokenizer(nlp)
+        g_nlp = spacy.load(options.lang_model)
 
         lpad_str = ' ' * options.indent_2_by
 

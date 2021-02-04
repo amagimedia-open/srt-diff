@@ -9,10 +9,10 @@ def eprint(*args, **kwargs):
 class TimestampedWords(object):
     def __init__(self, module_name):
         self.m_mn       = module_name
-        self.m_ts_words = []    # array of tuples (timestamp, word, SrtSegment)
+        self.m_ts_words = []    # array of tuples (timestamp, word, SrtSegment, part_of_speech, is_stopword)
 
-    def add(self, ts_ms, word, srt_segment):
-        self.m_ts_words.append((ts_ms, word, srt_segment))
+    def add(self, ts_ms, word, pos, is_stop, srt_segment):
+        self.m_ts_words.append((ts_ms, word, pos, is_stop, srt_segment))
         return len(self.m_ts_words)-1   # returns index 
 
     @property
@@ -21,6 +21,39 @@ class TimestampedWords(object):
 
 
 class SrtSegment(object):
+
+    """
+    This is a segment
+                                        #state                              
+    > I 1                               #"srt_index"
+    > T 00:00:01,600 --> 00:00:02,684   #"begin_time_str"
+                                        #"end_time_str"
+    > R 1600 2684 1084                  #"begin_time_ms"
+                                        #"end_time_ms"
+                                        #"duration_ms"
+    > S Mr Stark, hi there.             #"srt_string"
+    > W 1600 mr PROPN False             #see TimestampedWords.add
+    > W 1780 stark PROPN False
+    > W 2142 hi INTJ False
+    > W 2322 there ADV True
+
+    ts_words is a running array. one for '<' and another for '>'.
+    the begin_index and end_index are indices of the segment in the ts_words 
+    running array.
+
+           ts_words
+        |0              |
+        |1              |
+        |2              |
+        |3 1600 mr      | <-+ begin_index == 3
+        |4 1780 stark   |   |
+        |5 2142 hi      |   |
+        |6 2322 there   | <-+ end_index   == 6
+        |7              | 
+        |8              |
+        |9              |
+    """
+
     def __init__(self, module_name, ts_words):
         self.m_mn       = module_name
         self.m_ts_words = ts_words
@@ -28,6 +61,15 @@ class SrtSegment(object):
 
     #returns false at end of segment, true otherwise
     def parse(self, line):
+
+        """
+        | index | field    |
+        | ----- | -------- |
+        | 0     | >        |
+        | 1     | mnemonic |
+        | ...   | ...      |
+        """
+
         tokens = line.split()
         if (len(tokens) <= 1):
             return False
@@ -47,7 +89,12 @@ class SrtSegment(object):
             # split and join ! what a waste !
         elif (mnemonic == 'W'):
             if (len(tokens) >= 4):
-                i = self.m_ts_words.add(int(tokens[2]), tokens[3], self)
+                timestamp_ms = int(tokens[2])
+                word    = tokens[3]
+                pos     = tokens[4]
+                is_stop = ((tokens[5]).lower() == "true")
+
+                i = self.m_ts_words.add(int(tokens[2]), tokens[3], pos, is_stop, self)
                 if (not "begin_index" in self.m_state):
                     self.m_state["begin_index"] = i
                 self.m_state["end_index"]   = i
@@ -180,7 +227,7 @@ if __name__ == "__main__":
         eprint("#---[words in 1]---")
         eprint("")
         for i, v in enumerate(parser.ts_words_in_1.words):
-            eprint("ts_words_1[%d] = (%d,%s,%s)" % (i, v[0], v[1], str(v[2])))
+            eprint(f"ts_words_1[{i}] = ({v[0]},{v[1]},{v[2]},{v[3]},{str(v[4])})")
 
         eprint("")
         eprint("#---[segments in 1]---")
@@ -192,7 +239,7 @@ if __name__ == "__main__":
         eprint("#---[words in 2]---")
         eprint("")
         for i, v in enumerate(parser.ts_words_in_2.words):
-            eprint("ts_words_2[%d] = (%d,%s,%s)" % (i, v[0], v[1], str(v[2])))
+            eprint(f"ts_words_2[{i}] = ({v[0]},{v[1]},{v[2]},{v[3]},{str(v[4])})")
 
         eprint("")
         eprint("#---[segments in 2]---")

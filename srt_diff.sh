@@ -222,7 +222,7 @@ cat $SRTCOMP_FILE_PATH |\
 if ! python3 $DIRNAME/srtdf_srt_lev.py \
         $DEBUG_OPTION   \
         -l              \
-        -C "ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF" \
+        -C "ORG_TS,ORG_WORD,ORG_POS,ORG_ISSTOP,LEV_OP,TRAN_TS,TRAN_WORD,TRAN_POS,TRAN_ISSTOP,TS_DIFF" \
         > $SRTCOMPLEV_FILE_PATH 
 then
     error_message "srt levenshtein generation failed"

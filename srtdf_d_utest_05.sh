@@ -41,7 +41,7 @@ tap_utest_begins
 cat $SAMPLE_SRT_DIFF_FILEPATH |\
 python3 srtdf_srt_lev.py \
         -l \
-        -C "ORG_TS,ORG_WORD,LEV_OP,TRAN_TS,TRAN_WORD,TS_DIFF" \
+        -C "ORG_TS,ORG_WORD,ORG_POS,ORG_ISSTOP,LEV_OP,TRAN_TS,TRAN_WORD,TRAN_POS,TRAN_ISSTOP,TS_DIFF" \
         > $TMP1 2>&1
 
 if ! is_utest_output_ok $TMP1
