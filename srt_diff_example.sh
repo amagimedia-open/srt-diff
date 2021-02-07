@@ -118,7 +118,7 @@ BEGIN_I,END_E,NAME
 2000,*,2000-****-ms
 EOD
 # note that you range-specification is optional as
-# srt_lev_hist.sh provides a default
+# srtdf_lev_hist.sh provides a default
 
 docker run                                  \
         --rm                                \
@@ -128,7 +128,7 @@ docker run                                  \
         -v $H_TEST_FOLDER:/data             \
         -w /srt-diff                        \
         srt-diff-rel                        \
-        ./srt_lev_hist.sh                   \
+        ./srtdf_lev_hist.sh                   \
             -r /data/rangespec.txt          \
             /data/srtlev.csv > $H_TEST_FOLDER/srtlevhist.csv
 

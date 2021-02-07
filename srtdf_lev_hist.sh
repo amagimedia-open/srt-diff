@@ -106,7 +106,7 @@ EXAMPLE
                 --name srt-diff-rel-c               \\
                 -w /srt-diff                        \\
                 srt-diff-rel                        \\
-                ./srt_lev_hist.sh
+                $MODNAME
 
     (B)
         docker run                                  \\
@@ -117,7 +117,7 @@ EXAMPLE
                 -v \$H_TEST_FOLDER:/data             \\
                 -w /srt-diff                        \\
                 srt-diff-rel                        \\
-                ./srt_lev_hist.sh                   \\
+                $MODNAME                            \\
                     /data/srtlev.csv
 
     (C)
@@ -137,7 +137,7 @@ EXAMPLE
                 -v \$H_TEST_FOLDER:/data             \\
                 -w /srt-diff                        \\
                 srt-diff-rel                        \\
-                ./srt_lev_hist.sh                   \\
+                $MODNAME                            \\
                     -r /data/rangespec.txt          \\
                     /data/srtlev.csv
 

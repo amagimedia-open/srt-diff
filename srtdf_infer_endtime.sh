@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# http://psy.swansea.ac.uk/staff/carter/Misc/unicode.htm#:~:text=UCS%2D2%20is%20obsolete%20and,code%20points%20for%20most%20characters.
+# http://thegreyblog.blogspot.com/2010/09/shell-script-to-find-and-remove-bom.html
+
 set -u
 #set -x
 
@@ -9,13 +12,12 @@ TERMINATED=0
 
 function fnxOnEnd
 {
-    ((TERMINATED==0)) && { rm -f $TMP1 $TMP2 $DEF_RANGE_SPEC_FILE_PATH; }
+    ((TERMINATED==0)) && { rm -f $TMP1 $TMP2; }
     TERMINATED=1
 }
 
 TMP1=`mktemp`
 TMP2=`mktemp`
-DEF_RANGE_SPEC_FILE_PATH=`mktemp`
 
 trap 'fnxOnEnd;' 0 1 2 3 6 9 11
 
@@ -23,21 +25,6 @@ trap 'fnxOnEnd;' 0 1 2 3 6 9 11
 
 DIRNAME=$(readlink -e $(dirname $0))
 MODNAME=$(basename $0)
-
-G_MAPPED_ROOT_PATH=/data
-
-cat <<EOD >$DEF_RANGE_SPEC_FILE_PATH
-
-BEGIN_I,END_E,NAME
-0,25,0000-0025-ms
-25,50,0025-0050-ms
-50,100,0050-0100-ms
-100,200,0100-0200-ms
-200,500,0200-0500-ms
-500,1000,0500-1000-ms
-1000,2000,1000-2000-ms
-2000,*,2000-****-ms
-EOD
 
 #----[sources]---------------------------------------------------------------
 
@@ -47,6 +34,7 @@ source $DIRNAME/common_bash_functions.sh
 
 OPT_WORDS_PER_MIN=150
 OPT_DEBUG=0
+OPT_SRT_FILEPATH=""
 
 #----[helper functions]------------------------------------------------------
 
@@ -69,7 +57,7 @@ DETAILS
     00:00:05,672 --> --:--:--:--
     BROUGHT THEIR A GAME
 
-    which does not have an end time !
+    that dont have an end time !
 
     This script infers an end time for entries that do not have them.
     This script uses a default of 150 wpm (words per minute) to arrive
@@ -88,7 +76,8 @@ DETAILS
     See https://virtualspeech.com/blog/average-speaking-rate-words-per-minute#:~:text=According%20to%20the%20National%20Center,podcasters%2C%20the%20wpm%20is%20higher 
     for more details.
 
-    It is expected that the input srt file is presented via stdin.
+    The Input srt file has to be 'filtered' through srtdf_utf8_base.sh
+    and presented via stdin.
     The modified srt is presented via stdout.
 
 OPTIONS
@@ -103,6 +92,10 @@ OPTIONS
     -h
        Displays this help and quits.
        This is optional.
+
+EXAMPLE
+
+    srtdf_utf8_base.sh foo.srt | $MODNAME
 
 EOD
 }
@@ -141,6 +134,7 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
         EOS_SEEN   = 1          # EOS => END OF SEGMENT (index + time range + phrase(s))
         INDEX_SEEN = 2
         TIME_RANGE_SEEN = 3
+        #PHRASES
 
         state = EOS_SEEN
         error = 0
@@ -158,7 +152,7 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
             if (is_empty_line())
                 next
 
-            init_segment()
+            init_segment_meta()
 
             if (! is_srt_index())
             {
@@ -181,11 +175,11 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
                 exit (1)
             }
 
-            if (is_srt_time($2))
+            if (is_srt_time($3))
                 curr_time_range_good = 1
 
             curr_begin_time_str = $1
-            curr_end_time_str = $2
+            curr_end_time_str = $3      # store even if invalid
             state = TIME_RANGE_SEEN
             next
         }
@@ -195,10 +189,12 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
             if (! is_empty_line())
             {
                 curr_phrase_lines[curr_phrase_line_count] = $0
+
                 ++curr_phrase_line_count
 
                 n_words = split($0, t_arr, /[ \t][ \t]*/)
                 curr_phrase_word_count += n_words
+
                 next
             }
 
@@ -261,14 +257,17 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
 
     function ms_2_srt_time(ms, _t, _h, _m, _s, _ms)
     {
+        #test case
+        #_t  = ((3 * 3600) + (15 * 60) + 23) * 1000 + 567
+
         _t  = ms
         _ms = _t % 1000
-        _t  = _t / 1000
+        _t  = int(_t / 1000)
 
-        _h  = _t / 3600
+        _h  = int(_t / 3600)
         _t  = _t % 3600
 
-        _m  = _t / 60
+        _m  = int(_t / 60)
         _t  = _t % 60
 
         _s  = _t
@@ -279,14 +278,15 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
     function set_end_time_str(_begin_ms, _min, _end_ms)
     {
         _begin_ms = srt_time_2_ms(curr_begin_time_str)
-        _min      = curr_phrase_word_count/v_wpm
-        _end_ms   = _begin_ms + (_min * 60) * 1000
-        _end_ms   = int(_end_ms)
+        _min      = curr_phrase_word_count/v_wpm    # we get a float here
+        _ms       = (_min * 60) * 1000
+        curr_duration = int(_ms)
+        _end_ms   = _begin_ms + curr_duration
 
         curr_end_time_str = ms_2_srt_time(_end_ms)
     }
 
-    function init_segment()
+    function init_segment_meta()
     {
         curr_index = -1
         curr_time_range_good = 0
@@ -294,6 +294,7 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
         curr_end_time_str = ""
         curr_phrase_line_count = 0
         curr_phrase_word_count = 0
+        curr_duration = 0
         delete curr_phrase_lines
     }
 
@@ -302,7 +303,7 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
         print curr_index
         print curr_begin_time_str " --> " curr_end_time_str
 
-        for (_i = 0; _i < curr_phrase_line_count; ++i)
+        for (_i = 0; _i < curr_phrase_line_count; ++_i)
             print curr_phrase_lines[_i]
 
         print ""
@@ -315,6 +316,7 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
               "NUM_PHRASE_LINES,"   \
               "NUM_PHRASE_WORDS,"   \
               "WPM,"                \
+              "DURATION_MS,"        \
               "BEGIN_TIME,"         \
               "END_TIME"            \
               > "/dev/stderr"
@@ -322,15 +324,15 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
 
     function dump_debug_info()
     {
-        print curr_index ","             \
-              curr_time_range_good ","   \
-              curr_phrase_line_count "," \
-              phrase_word_count ","      \
-              v_wpm ","                  \
-              curr_begin_time_str ","    \
+        print curr_index ";"             \
+              curr_time_range_good ";"   \
+              curr_phrase_line_count ";" \
+              curr_phrase_word_count ";" \
+              v_wpm ";"                  \
+              curr_duration ";"          \
+              curr_begin_time_str ";"    \
               curr_end_time_str          \
               > "/dev/stderr"
     }
-
-
 '
+
