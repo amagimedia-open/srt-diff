@@ -59,8 +59,6 @@ chmod +r $OUT_SRT_FILEPATH
 cp $TMP2 $DBG_SRT_FILEPATH
 chmod +r $DBG_SRT_FILEPATH
 
-exit 10
-
 #+--------------------------------------------------------------+
 #| check if there are differences in the index and phrase lines |
 #+--------------------------------------------------------------+
@@ -81,9 +79,7 @@ then
     exit 1
 fi
 
-exit 10
-
-if ! is_utest_output_ok $TMP1
+if ! is_utest_output_ok $DBG_SRT_FILEPATH
 then
     tap_utest_failed
     exit 1
