@@ -32,7 +32,8 @@ source $DIRNAME/common_bash_functions.sh
 
 #----[options]---------------------------------------------------------------
 
-OPT_WORDS_PER_MIN=150
+OPT_WPM=150
+OPT_TOLERANCE_MS=1000
 OPT_DEBUG=0
 OPT_SRT_FILEPATH=""
 
@@ -80,10 +81,51 @@ DETAILS
     and presented via stdin.
     The modified srt is presented via stdout.
 
+    A note on extrapolation and tolerance.
+
+    * Extrapolation is the act of arriving at an end time from the beginning
+      time using WPM (words per minute).
+
+    * Tolerance cand be explained using the following example.
+
+      Consider two input segments 10 and 11
+
+      10
+      00:00:05,672 --> --:--:--:--
+      BROUGHT THEIR A GAME
+
+      11
+      00:00:06,100 --> --:--:--:--
+      A THROUGH UNDERSTANDING
+
+      Let us say that the extrapolated end time for segment 10 is 
+      00:00:06,700. We see that this is greater than the beginning
+      time for the segment 11 i.e. 00:00:06,100
+
+      A tolerance of 1000 implies that the end time of a previous segment
+      can exceed the beginning of the next segment by an amount not greater
+      than 1000 ms and would lead to truncation of the extrapolated output
+      as follows:
+
+      10
+      00:00:05,672 --> 00:00:06,100
+      BROUGHT THEIR A GAME
+
+      11
+      00:00:06,100 --> --:--:--:--
+      A THROUGH UNDERSTANDING
+
+      If the tolerance is set to 500, the script will exit as 
+      (00:00:06,700 - 00:00:06,100) > 500 ms.
+
+
 OPTIONS
 
     -w words_per_minute
-       This is optional. default is $OPT_WORDS_PER_MIN.
+       This is optional. default is $OPT_WPM.
+
+    -t tolerance_ms
+       this is optional. default is $OPT_TOLERANCE_MS.
 
     -d
        Debug output on stderr.
@@ -108,13 +150,14 @@ EOD
 #| argument processing |
 #+---------------------+
 
-TEMP=`getopt -o "w:dh" -n "$0" -- "$@"`
+TEMP=`getopt -o "w:t:dh" -n "$0" -- "$@"`
 eval set -- "$TEMP"
 
 while true 
 do
 	case "$1" in
-        -w) OPT_WORDS_PER_MIN=$2; shift 2;;
+        -w) OPT_WPM=$2; shift 2;;
+        -t) OPT_TOLERANCE_MS=$2; shift 2;;
         -d) OPT_DEBUG=1; shift 1;;
         -h) usage; exit 0;;
 		--) shift ; break ;;
@@ -126,7 +169,8 @@ done
 #| generate histogram data |
 #+-------------------------+
 
-gawk -v v_wpm=$OPT_WORDS_PER_MIN \
+gawk -v v_wpm=$OPT_WPM \
+     -v v_tolerance_ms=$OPT_TOLERANCE_MS \
      -v v_debug=$OPT_DEBUG \
 '
     BEGIN \
@@ -140,6 +184,23 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
         error = 0
         line_num = 0
 
+        curr["index"] = 0
+        curr["time_range_good"] = 0
+        curr["begin_time_str"] = ""
+        curr["begin_time_ms"] = 0
+        curr["comp_end_time_str"] = ""
+        curr["comp_end_time_ms"] = 0
+        curr["end_time_str"] = ""
+        curr["end_time_ms"] = 0
+        curr["end_truncated"] = 0
+        curr["phrase_line_count"] = 0
+        curr["phrase_word_count"] = 0
+        curr["duration_ms"] = 0
+
+        prev["index"] = -1
+
+        phrase_lines[0] = ""    # read as prev_phrase_lines
+
         if (v_debug)
             dump_debug_header()
     }
@@ -152,7 +213,8 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
             if (is_empty_line())
                 next
 
-            init_segment_meta()
+            copy_array(curr, prev)
+            reset_array(curr)
 
             if (! is_srt_index())
             {
@@ -161,7 +223,7 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
                 exit (1)
             }
 
-            curr_index = $0
+            curr["index"] = int($0)
             state = INDEX_SEEN
             next
         }
@@ -176,10 +238,23 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
             }
 
             if (is_srt_time($3))
-                curr_time_range_good = 1
+                curr["time_range_good"] = 1
 
-            curr_begin_time_str = $1
-            curr_end_time_str = $3      # store even if invalid
+            curr["begin_time_str"]    = $1
+            curr["begin_time_ms"]     = srt_time_2_ms(curr["begin_time_str"])
+
+            curr["end_time_str"]      = $3
+            curr["end_time_ms"]       = srt_time_2_ms(curr["end_time_str"])
+
+            curr["comp_end_time_str"] = ""
+            curr["comp_end_time_ms"]  = 0
+
+            if (prev["index"] > 0)
+            {
+                infer_and_dump_prev_segment()
+                delete phrase_lines
+            }
+
             state = TIME_RANGE_SEEN
             next
         }
@@ -188,12 +263,12 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
         {
             if (! is_empty_line())
             {
-                curr_phrase_lines[curr_phrase_line_count] = $0
+                phrase_lines[curr["phrase_line_count"]] = $0
 
-                ++curr_phrase_line_count
+                ++curr["phrase_line_count"]
 
                 n_words = split($0, t_arr, /[ \t][ \t]*/)
-                curr_phrase_word_count += n_words
+                curr["phrase_word_count"] += n_words
 
                 next
             }
@@ -201,13 +276,8 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
             # we have seen a blank line here and thus
             # we have arrived at the end of a segment
 
-            if (! curr_time_range_good)
-                set_end_time_str()
-
-            if (v_debug)
-                dump_debug_info()
-
-            dump_segment()
+            if (! curr["time_range_good"])
+                set_curr_end_time_str()
 
             state = EOS_SEEN
             next
@@ -218,6 +288,11 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
     {
         if (error)
             exit(1)
+
+        if (curr["index"] > 0)
+            if (! curr["time_range_good"])
+                set_curr_end_time_str()
+            infer_and_dump_curr_segment()
     }
 
     function is_empty_line()
@@ -272,39 +347,39 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
 
         _s  = _t
 
-        return _h ":" _m ":" _s "," _ms
+        return sprintf("%02d:%02d:%02d,%03d", _h, _m, _s, _ms)
     }
 
-    function set_end_time_str(_begin_ms, _min, _end_ms)
+    function copy_array(from, to, _i)
     {
-        _begin_ms = srt_time_2_ms(curr_begin_time_str)
-        _min      = curr_phrase_word_count/v_wpm    # we get a float here
-        _ms       = (_min * 60) * 1000
-        curr_duration = int(_ms)
-        _end_ms   = _begin_ms + curr_duration
-
-        curr_end_time_str = ms_2_srt_time(_end_ms)
+        for (_i in from)
+            to[_i] = from[_i]
     }
 
-    function init_segment_meta()
+    function reset_array(arr, _i)
     {
-        curr_index = -1
-        curr_time_range_good = 0
-        curr_begin_time_str = ""
-        curr_end_time_str = ""
-        curr_phrase_line_count = 0
-        curr_phrase_word_count = 0
-        curr_duration = 0
-        delete curr_phrase_lines
+        for (_i in arr)
+            arr[_i] = 0
     }
 
-    function dump_segment(_i)
+    function set_curr_end_time_str(_min, _ms)
     {
-        print curr_index
-        print curr_begin_time_str " --> " curr_end_time_str
+        _min = curr["phrase_word_count"]/v_wpm    # we get a float here
+        _ms  = (_min * 60) * 1000
 
-        for (_i = 0; _i < curr_phrase_line_count; ++_i)
-            print curr_phrase_lines[_i]
+        curr["begin_time_ms"]     = srt_time_2_ms(curr["begin_time_str"])
+        curr["duration_ms"]       = int(_ms)
+        curr["comp_end_time_ms"]  = curr["begin_time_ms"] + curr["duration_ms"]
+        curr["comp_end_time_str"] = ms_2_srt_time(curr["comp_end_time_ms"])
+    }
+
+    function dump_segment(ctx)
+    {
+        print ctx["index"]
+        print ctx["begin_time_str"] " --> " ctx["end_time_str"]
+
+        for (_i = 0; _i < ctx["phrase_line_count"]; ++_i)
+            print phrase_lines[_i]
 
         print ""
     }
@@ -318,21 +393,92 @@ gawk -v v_wpm=$OPT_WORDS_PER_MIN \
               "WPM,"                \
               "DURATION_MS,"        \
               "BEGIN_TIME,"         \
-              "END_TIME"            \
+              "BEGIN_TIME_MS,"      \
+              "COMP_END_TIME,"      \
+              "COMP_END_TIME_MS,"   \
+              "END_TIME,"           \
+              "END_TIME_MS,"        \
+              "TOLERANCE,"          \
+              "END_TRUNCATED"       \
               > "/dev/stderr"
     }
 
-    function dump_debug_info()
+    function dump_debug_info(ctx)
     {
-        print curr_index ";"             \
-              curr_time_range_good ";"   \
-              curr_phrase_line_count ";" \
-              curr_phrase_word_count ";" \
-              v_wpm ";"                  \
-              curr_duration ";"          \
-              curr_begin_time_str ";"    \
-              curr_end_time_str          \
+        bts = ctx["begin_time_str"]
+        sub(/,/,".",bts)
+
+        cets = ctx["comp_end_time_str"]
+        sub(/,/,".",cets)
+
+        ets = ctx["end_time_str"]
+        sub(/,/,".",ets)
+
+        print ctx["index"] ","             \
+              ctx["time_range_good"] ","   \
+              ctx["phrase_line_count"] "," \
+              ctx["phrase_word_count"] "," \
+              v_wpm ","                    \
+              ctx["duration_ms"] ","       \
+              bts ","                      \
+              ctx["begin_time_ms"] ","     \
+              cets ","                     \
+              ctx["comp_end_time_ms"] ","  \
+              ets ","                      \
+              ctx["end_time_ms"] ","       \
+              v_tolerance_ms ","           \
+              ctx["end_truncated"]         \
               > "/dev/stderr"
     }
+
+    function infer_and_dump_prev_segment()
+    {
+        time_diff_ms = prev["comp_end_time_ms"] - curr["begin_time_ms"]
+
+        if (time_diff_ms > v_tolerance_ms)
+        {
+            printf "at line %d : prev end time %s for segment %d " \
+                   "exceeds curr begin time %s for segment %d " \
+                   "by more than %d ms, try with higher wpm\n", \
+                   line_num, \
+                   prev["comp_end_time_str"], \
+                   prev["index"], \
+                   curr["begin_time_str"], \
+                   curr["index"], \
+                   v_tolerance_ms \
+                   > "/dev/stderr"
+            error = 1
+            exit (1)
+        }
+
+        if (time_diff_ms > 0)
+        {
+            prev["end_time_str"]  = curr["begin_time_str"]
+            prev["end_time_ms"]   = curr["begin_time_ms"]
+            prev["end_truncated"] = 1
+        }
+        else
+        {
+            prev["end_time_str"] = prev["comp_end_time_str"]
+            prev["end_time_ms"]  = prev["comp_end_time_ms"]
+        }
+
+        if (v_debug)
+            dump_debug_info(prev)
+
+        dump_segment(prev)
+    }
+
+    function infer_and_dump_curr_segment()
+    {
+        curr["end_time_str"] = curr["comp_end_time_str"]
+        curr["end_time_ms"]  = curr["comp_end_time_ms"]
+
+        if (v_debug)
+            dump_debug_info(curr)
+
+        dump_segment(curr)
+    }
+
 '
 
