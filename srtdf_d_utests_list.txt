@@ -5,3 +5,6 @@ srtdf_d_utest_04.sh
 srtdf_d_utest_05.sh
 srtdf_d_utest_06.sh
 srtdf_d_utest_07.sh
+srtdf_d_utest_08a.sh
+srtdf_d_utest_08b.sh
+srtdf_d_utest_08c.sh
