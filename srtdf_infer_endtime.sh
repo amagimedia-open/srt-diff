@@ -246,8 +246,8 @@ gawk -v v_wpm=$OPT_WPM \
             curr["end_time_str"]      = $3
             curr["end_time_ms"]       = srt_time_2_ms(curr["end_time_str"])
 
-            curr["comp_end_time_str"] = ""
-            curr["comp_end_time_ms"]  = 0
+            curr["comp_end_time_str"] = curr["end_time_str"]
+            curr["comp_end_time_ms"]  = curr["end_time_ms"]
 
             if (prev["index"] > 0)
             {
@@ -290,9 +290,11 @@ gawk -v v_wpm=$OPT_WPM \
             exit(1)
 
         if (curr["index"] > 0)
+        {
             if (! curr["time_range_good"])
                 set_curr_end_time_str()
             infer_and_dump_curr_segment()
+        }
     }
 
     function is_empty_line()
