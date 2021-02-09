@@ -105,6 +105,7 @@ UTF8_FILE=0
 BOM_PRESENT=0
 
 FILE_CONTENT=$(file $OPT_SRT_FILEPATH)
+info_message "$FILE_CONTENT"
 
 if [[ $FILE_CONTENT =~ CRLF ]]
 then
@@ -120,9 +121,16 @@ then
     fi
 fi
 
+if ((UTF8_FILE==0))
+then
+    error_message "$OPT_SRT_FILEPATH is not a UTF-8 file"
+    exit 1
+fi
+
 #+--------------+
 #| process file |
 #+--------------+
+
 
 cat $OPT_SRT_FILEPATH |\
 (

@@ -15,7 +15,9 @@ COPY \
     srtdf_srt_compare_writer.py         \
     srtdf_srt_lev.py                    \
     srt_diff.sh                         \
-    srt_lev_hist.sh                     \
+    srtdf_lev_hist.sh                   \
+    srtdf_utf8_base.sh                  \
+    srtdf_infer_endtime.sh              \
     /srt-diff/
 
 RUN tree /srt-diff

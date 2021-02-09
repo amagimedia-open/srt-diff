@@ -24,8 +24,6 @@ set -u
 
 DIRNAME=$(readlink -e $(dirname $0))
 BASENAME=$(basename $0)
-DUMP_HELP=0
-[[ ${1-""} = "-h" ]] && { DUMP_HELP=1; }
 
 #----[temp files and termination]--------------------------------------------
 
@@ -49,25 +47,9 @@ H_TEST_FOLDER=$DIRNAME/testdata
 
 mkdir -p $H_TEST_FOLDER
 
-cp $DIRNAME/Ironman_1_1080i60.srt  $H_TEST_FOLDER
-cp $DIRNAME/Ironman_sstt_withf.srt $H_TEST_FOLDER
-
-#----[srt_diff.sh help]-------------------------------------------------------
-
-if ((DUMP_HELP))
-then
-    docker run                                  \
-            --rm                                \
-            --privileged                        \
-            --network host                      \
-            --name srt-diff-rel-c               \
-            -v $H_TEST_FOLDER:/data             \
-            -w /srt-diff                        \
-            srt-diff-rel                        \
-            ./srt_diff.sh                       \
-            -h
-    exit 0
-fi
+cp $DIRNAME/Ironman_1_1080i60.srt    $H_TEST_FOLDER
+cp $DIRNAME/Ironman_sstt_withf.srt   $H_TEST_FOLDER
+cp $DIRNAME/srtdf_d_utest_08c_in.srt $H_TEST_FOLDER
 
 #----[execute srt_diff.sh]---------------------------------------------------
 
@@ -89,9 +71,10 @@ RET=$?
 
 if ((RET != 0))
 then
-    echo "srt_diff failed" >&2
+    echo "** srt_diff.sh failed" >&2
     exit 3
 fi
+echo "** srt_diff.sh succeeded" >&2
 
 #----[examine the results]---------------------------------------------------
 
@@ -120,6 +103,8 @@ EOD
 # note that you range-specification is optional as
 # srtdf_lev_hist.sh provides a default
 
+OUTPUT_FILEPATH=$H_TEST_FOLDER/srtlevhist.csv
+
 docker run                                  \
         --rm                                \
         --privileged                        \
@@ -128,11 +113,78 @@ docker run                                  \
         -v $H_TEST_FOLDER:/data             \
         -w /srt-diff                        \
         srt-diff-rel                        \
-        ./srtdf_lev_hist.sh                   \
+        ./srtdf_lev_hist.sh                 \
             -r /data/rangespec.txt          \
-            /data/srtlev.csv > $H_TEST_FOLDER/srtlevhist.csv
+            /data/srtlev.csv > $OUTPUT_FILEPATH
+RET=$?
 
-echo "SRT Levenshtein histogram filepath = $H_TEST_FOLDER/srtlevhist.csv"
+if ((RET != 0))
+then
+    echo "** srtdf_lev_hist.sh failed" >&2
+    exit 3
+fi
+echo "** srtdf_lev_hist.sh succeeded" >&2
+
+echo "SRT Levenshtein histogram filepath = $OUTPUT_FILEPATH"
+
+#----[remove BOM and CRLF characters in a UTF-8 file]------------------------
+
+OUTPUT_FILEPATH=$H_TEST_FOLDER/srtdf_d_utest_08c_in.stripped.srt
+
+docker run                                  \
+        --rm                                \
+        --privileged                        \
+        --network host                      \
+        --name srt-diff-rel-c               \
+        -v $H_TEST_FOLDER:/data             \
+        -w /srt-diff                        \
+        srt-diff-rel                        \
+        ./srtdf_utf8_base.sh                \
+            /data/srtdf_d_utest_08c_in.srt  \
+        > $OUTPUT_FILEPATH
+RET=$?
+
+if ((RET != 0))
+then
+    echo "** srtdf_utf8_base.sh failed" >&2
+    exit 3
+fi
+echo "** srtdf_utf8_base.sh succeeded" >&2
+
+echo "Stripped UTF-8 filepath = $OUTPUT_FILEPATH"
+
+#----[infer end time]--------------------------------------------------------
+
+OUTPUT_FILEPATH=$H_TEST_FOLDER/srtdf_d_utest_08c_out.srt
+DEBUG_FILEPATH=$H_TEST_FOLDER/srtdf_d_utest_08c_dbg.csv
+
+cat $H_TEST_FOLDER/srtdf_d_utest_08c_in.stripped.srt |\
+docker run                                  \
+        -i                                  \
+        --rm                                \
+        --privileged                        \
+        --network host                      \
+        --name srt-diff-rel-c               \
+        -v $H_TEST_FOLDER:/data             \
+        -w /srt-diff                        \
+        srt-diff-rel                        \
+        ./srtdf_infer_endtime.sh            \
+            -t 1300                         \
+            -w 250                          \
+            -d                              \
+        1> $OUTPUT_FILEPATH                 \
+        2> $DEBUG_FILEPATH
+RET=$?
+
+if ((RET != 0))
+then
+    echo "** srtdf_infer_endtime.sh failed" >&2
+    exit 3
+fi
+echo "** srtdf_infer_endtime.sh succeeded" >&2
+
+echo "End time inferred srt filepath = $OUTPUT_FILEPATH"
+echo "End time inferred dbg filepath = $DEBUG_FILEPATH"
 
 exit 0
 

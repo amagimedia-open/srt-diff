@@ -26,3 +26,31 @@ $ ./srt_diff_example.sh
 
 http://www.let.rug.nl/~kleiweg/lev/
 https://testanything.org/tap-specification.html
+
++--------------+
+| More details |
++--------------+
+
++-----------------------+----------------------------------------------------+
+|script                 |comment                                             |
++-----------------------+----------------------------------------------------+
+|srt_diff.sh            |this is the main script that compares two srt files.|
+|                       |run with -h option to get help.                     |
+|                       |see srt_diff_example.sh for usage.                  |
+|                       |                                                    |
+|srtdf_lev_hist.sh      |this script generates a time range histogram using  |
+|                       |the output of the srt_diff.sh script.               |
+|                       |run with -h option to get help.                     |
+|                       |see srt_diff_example.sh for usage.                  |
+|                       |                                                    |
+|srtdf_infer_endtime.sh |some srt files do not have an end time for one or   |
+|                       |more segments. An example is:                       |
+|                       |  1                                                 |
+|                       |  00:00:05,672 --> --:--:--:--                      |
+|                       |  BROUGHT THEIR A GAME                              |
+|                       |this script can be used to patch the end time with  |
+|                       |the help of the srtdf_utf8_base.sh script that      |
+|                       |removes BOM and CRLF characters from a UTF-8 file.  |
+|                       |see srt_diff_example.sh for usage.                  |
++-----------------------+----------------------------------------------------+
+
