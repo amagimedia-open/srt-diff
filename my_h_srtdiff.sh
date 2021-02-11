@@ -7,19 +7,12 @@ set -u
 
 dir_path=$(readlink -e $(dirname $0))
 mod_name=$(basename $0)
-host_proj_folder=$(readlink -e $(dirname $0))
+cfg_filepath=$dir_path/my_h_cfg.sh
 
 #----[sources]---------------------------------------------------------------
 
+source $cfg_filepath
 source $host_proj_folder/common_bash_functions.sh
-
-#----[changeable]------------------------------------------------------------
-
-source $dir_path/my_h_cfg.sh
-
-#----[not-changeable]--------------------------------------------------------
-
-dock_proj_folder="/srt-diff"
 
 #----[temp files and termination]--------------------------------------------
 
@@ -74,22 +67,21 @@ fi
 
 cp $srt_1_filepath $host_run_folder
 cp $srt_2_filepath $host_run_folder
+cp $cfg_filepath   $host_run_folder
 cp $dock_script_filepath $host_run_folder
 
 #+-----------+
 #| execution |
 #+-----------+
 
-docker run                          \
-        --rm                        \
-        --privileged                \
-        --network host              \
-        --name srt-diff-rel-c       \
-        -v $host_run_folder:$dock_data_folder     \
-        -e SRTDIFF_DEBUG=$debug                   \
-        -e SRTDIFF_PROJ_FOLDER=$dock_proj_folder  \
-        -e SRTDIFF_DATA_FOLDER=$dock_data_folder  \
-        srt-diff-rel                              \
+docker run                      \
+        --rm                    \
+        --privileged            \
+        --network host          \
+        --name srt-diff-rel-c   \
+        -v $host_run_folder:$dock_data_folder \
+        -e MY_SRTDIFF_CFG_FILEPATH=$dock_data_folder/$(basename $cfg_filepath) \
+        srt-diff-rel            \
         $dock_data_folder/$(basename $dock_script_filepath) \
             $dock_data_folder/$(basename $srt_1_filepath)   \
             $dock_data_folder/$(basename $srt_2_filepath) 
