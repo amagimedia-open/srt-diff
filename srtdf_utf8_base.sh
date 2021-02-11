@@ -105,7 +105,7 @@ UTF8_FILE=0
 BOM_PRESENT=0
 
 FILE_CONTENT=$(file $OPT_SRT_FILEPATH)
-info_message "$FILE_CONTENT"
+#info_message "$FILE_CONTENT"
 
 if [[ $FILE_CONTENT =~ CRLF ]]
 then
