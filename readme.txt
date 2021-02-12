@@ -20,6 +20,14 @@ $ ./srtdf_h_run_utests_in_dev_docker.sh
 $ ./srtdf_h_build_rel_docker_image.sh
 $ ./srt_diff_example.sh
 
++--------------------------+
+| Example usage of scripts |
++--------------------------+
+
+$ ./srtdf_h_build_rel_docker_image.sh
+# have a look at my_h_cfg.sh, my_h_srtdiff.sh and my_d_srtdiff.sh scripts
+$ ./my_h_srtdiff.sh
+
 +-----------+
 | Resources |
 +-----------+
@@ -27,9 +35,9 @@ $ ./srt_diff_example.sh
 http://www.let.rug.nl/~kleiweg/lev/
 https://testanything.org/tap-specification.html
 
-+--------------+
-| More details |
-+--------------+
++--------------------+
+| Summary of scripts |
++--------------------+
 
 +-----------------------+----------------------------------------------------+
 |script                 |comment                                             |
