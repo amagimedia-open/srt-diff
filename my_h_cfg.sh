@@ -9,16 +9,17 @@ host_run_folder="$PWD/my_h_srtdiff_runs/$(date +%Y_%m_%d_%H_%M_%S_%N)"
     # location of the folder in which the intermediate and output
     # files will be stored
 
+dock_script_filepath="$host_proj_folder/my_d_srtdiff.sh"
+    # location of the script that will run inside the srt-diff-rel docker
+
 #+-------------------------------+
 #| DOCKER FILES AND FOLDER PATHS |
 #+-------------------------------+
 
-dock_script_filepath="$host_proj_folder/my_d_srtdiff.sh"
-    # location of the script that will run inside the srt-diff-rel docker
-
 dock_data_folder="/data"    
     # folder in the docker that is mapped to host_run_folder via 
     # -v option of docker run
+    # DONT MODIFY THIS
 
 dock_proj_folder="/srt-diff"
     # the project location inside the docker

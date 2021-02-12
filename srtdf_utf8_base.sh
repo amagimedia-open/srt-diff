@@ -49,10 +49,13 @@ DETAILS
     This script performs the following
     (a) removes UTF-8 BOM at the beginning (only)
     (b) removes '\r' characters
+    (c) removes lines starting with '#'
+    (d) converts lines timing value from
+        0000000:00:00,920 to 00:00:00,920
     on the specified srt_filepath and presents the output on stdout.
 
-    This relies on the output of the 'file' command to perform the above 
-    operations.
+    This relies on the output of the 'file' command to check for 
+    UTF-8 BOM magic number.
 
 OPTIONS
 
@@ -100,17 +103,17 @@ fi
 #| examine file  |
 #+---------------+
 
-CR_PRESENT=0
 UTF8_FILE=0
 BOM_PRESENT=0
 
 FILE_CONTENT=$(file $OPT_SRT_FILEPATH)
-#info_message "$FILE_CONTENT"
 
-if [[ $FILE_CONTENT =~ CRLF ]]
-then
-    CR_PRESENT=1
-fi
+#info_message "$FILE_CONTENT"
+#CR_PRESENT=0
+#if [[ $FILE_CONTENT =~ CRLF ]]
+#then
+#    CR_PRESENT=1
+#fi
 
 if [[ $FILE_CONTENT =~ UTF-8 ]]
 then
@@ -121,26 +124,13 @@ then
     fi
 fi
 
-if ((UTF8_FILE==0))
-then
-    error_message "$OPT_SRT_FILEPATH is not a UTF-8 file"
-    exit 1
-fi
-
 #+--------------+
 #| process file |
 #+--------------+
 
 
 cat $OPT_SRT_FILEPATH |\
-(
-    if ((CR_PRESENT))
-    then
-        tr -d '\r'
-    else
-        cat
-    fi
-) |\
+tr -d '\r' |\
 (
     if ((BOM_PRESENT))
     then
@@ -149,5 +139,12 @@ cat $OPT_SRT_FILEPATH |\
     else
         cat
     fi
+) |\
+(
+    sed '
+    /^#/d
+    s/^0*\([0-9][0-9]\):/\1:/
+    s/--> 0*\([0-9][0-9]\):/--> \1:/
+    '
 )
 

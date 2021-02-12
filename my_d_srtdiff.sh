@@ -38,49 +38,54 @@ function normalize
     local _out=$dock_data_folder/${_fileno}.norm.srt
 
     ((debug)) && { echo "d> filemeta filepath=$_in meta=$_meta"; }
-    if [[ $_meta =~ ASCII ]]
+    if ! srtdf_utf8_base.sh $_in > $_out
     then
-        cp $_in $_out
-    elif [[ $_meta =~ UTF-8 ]]
-    then
-        if ! srtdf_utf8_base.sh $_in > $_out
-        then
-            return 1
-        fi
-    else
-        error_message "unexpected-format $_meta"
         return 1
     fi
-
-    ((debug)) && { echo "d> created file=$_out"; }
 
     return 0
 }
 
-#function infer_end_time
-#{
-#    local _fileno="$1"
-#
-#    local _in=$dock_data_folder/${_fileno}.norm.srt
-#    local _out=$dock_data_folder/${_fileno}.iet.srt
-#    local _dbg=$dock_data_folder/${_fileno}.iet.dbg.csv
-#
-#    local _dbg_opt=""
-#    ((debug)) && { _dbg_opt="2>$_dbg"; }
-#
-#
-#    srtdf_infer_endtime.sh \
-#            -t 1300                         \
-#            -w 250                          \
-#            -d                              \
-#        1> $OUTPUT_FILEPATH                 \
-#        $_dbg_opt
-#
-#
-#    ((debug)) && { echo "d> created file=$_out"; }
-#
-#    return 0
-#}
+function infer_end_time
+{
+    local _fileno="$1"
+
+    local _in=$dock_data_folder/${_fileno}.norm.srt
+    local _out=$dock_data_folder/${_fileno}.iet.srt
+
+    local _dbg_opt=""
+    local _dbg_out="/dev/null"
+    if ((debug))
+    then
+        _dbg_opt=" -d "
+        _dbg_out="$dock_data_folder/${_fileno}.iet.dbg.csv"
+    fi
+
+    cat $_in |\
+    srtdf_infer_endtime.sh \
+        -t $infer_end_time_tolerance \
+        -w $infer_end_time_wpm       \
+        $_dbg_opt                    \
+        1>$_out 2>$_dbg_out
+}
+
+function perform_srt_diff
+{
+    local _output="$1" 
+
+    srt_diff.sh \
+        -d $dock_data_folder            \
+        -O $dock_data_folder/1.iet.srt  \
+        -T $dock_data_folder/2.iet.srt  \
+        > $_output
+}
+
+function dump_lev_histogram
+{
+    local _output="$1" 
+
+    srtdf_lev_hist.sh $dock_data_folder/srtlev.csv > $_output
+}
 
 #----[main]------------------------------------------------------------------
 
@@ -89,12 +94,12 @@ srt_2_filepath="$2"
 
 if ((debug))
 then
+    ((debug)) && { echo "#--{configuration}--"; }
     cat <<EOD >&2
-d> cfg dock_script_filepath=$cfg dock_script_filepath
 d> cfg dock_data_folder=$dock_data_folder
 d> cfg dock_proj_folder=$dock_proj_folder
-d> cfg infer_end_time_tolerance=$cfg infer_end_time_tolerance
-d> cfg infer_end_time_wpm=$cfg infer_end_time_wpm
+d> cfg infer_end_time_tolerance=$infer_end_time_tolerance
+d> cfg infer_end_time_wpm=$infer_end_time_wpm
 d> in  srt_1_filepath=$srt_1_filepath
 d> in  srt_2_filepath=$srt_2_filepath
 EOD
@@ -106,7 +111,7 @@ PATH=$PATH:$dock_proj_folder
 #| normalize srt files |
 #+---------------------+
 
-((debug)) && { echo "#---{normalizing srt files}---"; }
+((debug)) && { echo "#--{normalizing srt files}--"; }
 
 if ! normalize 1 $srt_1_filepath
 then
@@ -121,6 +126,45 @@ fi
 #+--------------------+
 #| inferring end time |
 #+--------------------+
+
+((debug)) && { echo "#--{inferring end times}--"; }
+
+if ! infer_end_time 1
+then
+    exit 2
+fi
+
+if ! infer_end_time 2
+then
+    exit 2
+fi
+
+#+------------------+
+#| perform srt diff |
+#+------------------+
+
+((debug)) && { echo "#--{performing srt diff}--"; }
+
+if ! perform_srt_diff $tmp1
+then
+    exit 2
+fi
+
+read lev_dist srtlev_filepath srtcomp_filepath srtcomplev_filepath <<< $(cat $tmp1)
+echo "$lev_dist" > $dock_data_folder/levdist.txt
+
+#+---------------------------------------+
+#| dump histogram of levenshtein details |
+#+---------------------------------------+
+
+((debug)) && { echo "#--{dumping levenshtein histogram}--"; }
+
+if ! dump_lev_histogram $dock_data_folder/levhist.csv
+then
+    exit 2
+fi
+
+chmod +r $dock_data_folder/levhist.csv
 
 exit 0
 

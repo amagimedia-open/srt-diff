@@ -187,7 +187,7 @@ fi
 #+-------------------------+
 
 cat $OPT_SRT_LEV_FILE_PATH  |\
-gawk -F ',' '{ print $6; }' |\
+gawk -F ',' '{ print $10; }' |\
 gawk -F ',' \
      -v v_rangespec_filepath=$OPT_RANGE_SPEC_FILE_PATH \
      -v v_debug=$OPT_DEBUG \
