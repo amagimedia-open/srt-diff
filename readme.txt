@@ -2,63 +2,76 @@
 | What can this project do ? |
 +----------------------------+
 
-1. Create a 'srt compare' file given two srt files.
-2. Arrive at the Levenshtein distance using the 'srt compare' file.
-3. Format details of Levenshtein distance in csv format.
+(a) infer end time of srt file where the end time is not present. example:
+    1
+    00:00:05,672 --> --:--:--:--
+    BROUGHT THEIR A GAME
+
+(b) Given two srt files arrive at a distance (levenshtein) between them.
+
+(c) Dump a histogram of the levenshtein details.
+
 
 +---------------------+
-| Run unit test cases |
+| Project composition |
 +---------------------+
 
-$ ./srtdf_h_build_dev_docker_image.sh
-$ ./srtdf_h_run_utests_in_dev_docker.sh
+The project consists of many scripts that have to be run inside a docker.
+The main ones are
 
-+----------------------+
-| Run srt_diff example |
-+----------------------+
+(a) srtdf_infer_endtime.sh
+(b) srt_diff.sh
+(c) srtdf_lev_hist.sh
 
+Details of command line options can be got by invoking the -h option for
+each of these scripts.
+
++---------------+
+| Example usage |
++---------------+
+
+First make sure that the docker image is built through
 $ ./srtdf_h_build_rel_docker_image.sh
-$ ./srt_diff_example.sh
 
-+--------------------------+
-| Example usage of scripts |
-+--------------------------+
+An example is provided that performs a srt_diff of two srt files.
+The example consists of three files:
 
-$ ./srtdf_h_build_rel_docker_image.sh
-# have a look at my_h_cfg.sh, my_h_srtdiff.sh and my_d_srtdiff.sh scripts
-$ ./my_h_srtdiff.sh
+my_h_cfg.sh     - the configuration file used by 
+                  my_h_srtdiff.sh and my_d_srtdiff.sh
+my_h_srtdiff.sh - the script to be run on the host
+my_d_srtdiff.sh - the script that is run inside the docker
 
-+-----------+
-| Resources |
-+-----------+
+Run this example as follows:
+$ ./my_h_srtdiff.sh foo.srt boo.srt 
 
-http://www.let.rug.nl/~kleiweg/lev/
-https://testanything.org/tap-specification.html
+This run will generate intermediate and output files in the
+host_run_folder (see my_h_cfg.sh). They are as follows:
 
-+--------------------+
-| Summary of scripts |
-+--------------------+
-
-+-----------------------+----------------------------------------------------+
-|script                 |comment                                             |
-+-----------------------+----------------------------------------------------+
-|srt_diff.sh            |this is the main script that compares two srt files.|
-|                       |run with -h option to get help.                     |
-|                       |see srt_diff_example.sh for usage.                  |
-|                       |                                                    |
-|srtdf_lev_hist.sh      |this script generates a time range histogram using  |
-|                       |the output of the srt_diff.sh script.               |
-|                       |run with -h option to get help.                     |
-|                       |see srt_diff_example.sh for usage.                  |
-|                       |                                                    |
-|srtdf_infer_endtime.sh |some srt files do not have an end time for one or   |
-|                       |more segments. An example is:                       |
-|                       |  1                                                 |
-|                       |  00:00:05,672 --> --:--:--:--                      |
-|                       |  BROUGHT THEIR A GAME                              |
-|                       |this script can be used to patch the end time with  |
-|                       |the help of the srtdf_utf8_base.sh script that      |
-|                       |removes BOM and CRLF characters from a UTF-8 file.  |
-|                       |see srt_diff_example.sh for usage.                  |
-+-----------------------+----------------------------------------------------+
++------------------+------------------------------------------------+
+| Filename         |  Comment                                       |
++------------------+------------------------------------------------+
+| my_h_cfg.sh      |  The configuration file                        |
+| my_d_srtdiff.sh  |  The script that runs inside the docker        |
++------------------+------------------------------------------------+
+| foo.srt          |  The first srt file                            |
+| boo.srt          |  The second srt file                           |
++------------------+------------------------------------------------+
+| 1.norm.srt       |  The first srt file stripped of UTF-8 BOM      |
+|                  |  and '\r' characters                           |
+| 2.norm.srt       |  The second srt file stripped of UTF-8 BOM     |
+|                  |  and '\r' characters                           |
++------------------+------------------------------------------------+
+| 1.iet.srt        |  The first srt file with inferred end times    |
+| 1.iet.dbg.csv    |  Debug details while arriving at 1.iet.srt     |
+| 2.iet.srt        |  The second srt file with inferred end times   |
+| 2.iet.dbg.csv    |  Debug details while arriving at 2.iet.srt     |
++------------------+------------------------------------------------+
+| srtcomp.txt      |  Contains 'visual' srt comparison of the files |
+| srtcomplev.txt   |  srtcomp.txt with levenshtein details          |
+| srtlev.csv       |  levenshtein details in csv format             |
+| levdist.txt      |  the levenshtein distance                      |
++------------------+------------------------------------------------+
+| levhist.csv      |  histogram of levenshtein distances in         |
+|                  |  srtlev.csv                                    |
++------------------+------------------------------------------------+
 
