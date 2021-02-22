@@ -279,7 +279,7 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
     print("%sR %s%d %d %d" % (prefix_str, lpad_str, range_start_ms, range_end_ms, range_ms))
 
     s = re.sub('\n', ' ', item.text)
-    print("%sS %s%s" % (prefix_str, lpad_str, s))
+    print("%sS %s%s" % (prefix_str, lpad_str, s.encode ('ascii', 'ignore').decode('ascii')))
 
     if (options.too):
         #--- dump words ---
@@ -339,7 +339,7 @@ def dump_srt_item(item, prefix_str, lpad_str, options):
                 print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, o))
                 next_offset_ms  = next_offset_ms + word_time_width_ms
             else: #TO_CC
-                print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, o))
+                print("%sW %s%d %s" % (prefix_str, lpad_str, next_offset_ms, o.encode ('ascii', 'ignore').decode('ascii')))
                 curr_word_len      = len(token.text) + 1
                                      # ^^^ note its not cw. 1 for space
                 curr_word_width_ms = curr_word_len  * char_time_width_ms
