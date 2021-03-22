@@ -16,7 +16,7 @@ with respect to the original subtitle file.
 1. Collect 10 minute clips along with their available(broadcast quality) subtitles. This collection
 should belong to the following genres:
     - Documentary programs
-    - Sports coommentary
+    - Sports commentary
     - News
     - Movie clips
     - Reality shows
@@ -25,21 +25,25 @@ should belong to the following genres:
 
 2. Clean the subtitles: This step removes additional annotations like "Narrator", "Scene description" which might
  be present in the original subtitles, but there is no way of 'deriving' it from the media file. Also it might be good
- to normalize the subtitles to all caps.
+ to normalize the subtitles to all caps. This cleanup is most like a one time manual process.
 
 3. Generate derived subtitles from each of the above clips say using GCP's speech to text service.
 
-4. At this stage we should have 50 clips and 2 subtitles for ach clip the original(A) and the derived one(B)
+4. At this stage we should have 50 clips and 2 subtitles for each clip the original(A) and the derived one(B)
 
 ### Subjective test steps per user per test clip
 1. User first sees the original clip A with subtitles
-2. User is randomly shown either A or B for the corresponding clip
+2. User is shown A and B corrresponding to the clip used in step 1 but in random order
 3. User is expected to choose one of the following after viewing the random video
-    - (c1) Exactly same as the original 
+    - (c1) Perceptually same as the original 
     - (c2) There was slight degradation(e.g. grammatical) but largely still having all information
     - (c3) Loss of information 
 
-**Note**: All above user playback should be with muted audio
+**Notes**: 
+
+- All above user playback should be with muted audio. Could this be a problem?
+- Is duration 10 minutes too long?
+- User should see all 3 videos. Leftmost is original, followed by random ordered A and B videos
 
 
 ## Derived Subjective Scrore
